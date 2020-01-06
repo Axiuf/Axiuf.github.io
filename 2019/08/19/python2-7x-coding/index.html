@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic|Comic Sans MS:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,编码,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这里是我学习编码问题的一些笔记。主要参考资料：Python2.7字符编码详解。">
+<meta name="keywords" content="Python,编码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python2.7x中的编码问题">
+<meta property="og:url" content="http://yoursite.com/2019/08/19/python2-7x-coding/index.html">
+<meta property="og:site_name" content="进化史">
+<meta property="og:description" content="这里是我学习编码问题的一些笔记。主要参考资料：Python2.7字符编码详解。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-06T13:47:39.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python2.7x中的编码问题">
+<meta name="twitter:description" content="这里是我学习编码问题的一些笔记。主要参考资料：Python2.7字符编码详解。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/19/python2-7x-coding/">
+
+
+
+
+
+  <title>Python2.7x中的编码问题 | 进化史</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">进化史</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">想写的时候就写一点咯</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/python2-7x-coding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Axiuf">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="进化史">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python2.7x中的编码问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T14:52:35+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这里是我学习编码问题的一些笔记。<br>主要参考资料：<a href="https://blog.csdn.net/u013946404/article/details/78200837" target="_blank" rel="noopener">Python2.7字符编码详解</a>。</p>
+<a id="more"></a>
+
+<p>之前在百度上查了很多相关的解答和资料，但是都看得不是很懂，理解的也不够透彻。这次找到了一个讲解的很详细的教程：<a href="https://blog.csdn.net/u013946404/article/details/78200837" target="_blank" rel="noopener">Python2.7字符编码详解</a>。看了几遍之后，把自己认为比较重要的点概括了一下，在此列出，以便日后查看。</p>
+<p><strong>要理解字符编码的原理，首先要熟悉一下2进制，10进制，16进制(0x)的转换。另外，计算机中表示数据的基本单位是一个字节，即8 bit（比特），2进制的8位数。</strong></p>
+<h3 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><h4 id="1-1-抽象字符清单-Abstract-Character-Repertoire-ACR"><a href="#1-1-抽象字符清单-Abstract-Character-Repertoire-ACR" class="headerlink" title="1.1 抽象字符清单(Abstract Character Repertoire, ACR)"></a>1.1 抽象字符清单(Abstract Character Repertoire, ACR)</h4><p><strong>待编码文字和符号的无序集合，包括各国文字、标点、图形符号、数字等。</strong><br>这是一个抽象的概念，即所需要在计算机中表示的符号的集合。例如，在中文环境中，这个抽象字符清单一般会包括常用的汉字，标点符号，英文大小写字母，数学符号等。</p>
+<h4 id="1-2-已编码字符集-Coded-Character-Set-CCS"><a href="#1-2-已编码字符集-Coded-Character-Set-CCS" class="headerlink" title="1.2 已编码字符集(Coded Character Set, CCS)"></a>1.2 已编码字符集(Coded Character Set, CCS)</h4><p><strong>已编码字符集是从抽象字符清单到非负整数(范围不必连续)的映射。</strong><br>这里要注意，所谓的非负整数并不是计算机中的2进制数字。这里只是根据一定的规则，给每一个要编码的字符分配一个唯一的数字代号。例如在编码汉字时，可以采用区位码方案：在一个94*94的点阵图里，将要编码的汉字按一定的规律放在其中的点上，这样，每一个汉字在点阵图中有唯一的位置，根据其所在的行列数也即有唯一的区位码代号。这样，给抽象字符清单中的每一个字符映射一个非负整数，即码点，就成为了已编码字符集。</p>
+<h4 id="1-3-字符编码格式-CEF"><a href="#1-3-字符编码格式-CEF" class="headerlink" title="1.3 字符编码格式(CEF)"></a>1.3 字符编码格式(CEF)</h4><p><strong>字符编码格式是已编码字符集中的码点集合到编码单元(code unit)序列的映射。</strong><br>从这里开始要考虑字符在计算机中具体表示了。编码单元为整数，在计算机架构中占据特定的二进制宽度。计算机中表示数据的基本单位是一个字节，即8 bit（比特），2进制的8位数。如何将在上一步制定好的码点转换成计算机内部能够使用的2进制数据，就是字符编码格式所需要考虑的问题。</p>
+<h4 id="1-4-字符编码方案-Character-Encoding-Scheme-CES"><a href="#1-4-字符编码方案-Character-Encoding-Scheme-CES" class="headerlink" title="1.4 字符编码方案(Character Encoding Scheme, CES)"></a>1.4 字符编码方案(Character Encoding Scheme, CES)</h4><p><strong>从编码单元序列集合(一个或多个CEF)到一个串行化字节序列的可逆转换。主要关注跨平台处理编码单元宽度超过一个字节的数据。</strong><br>这部分要关注的比较少。</p>
+<p><strong>抽象字符转换成能够在计算机中处理的数据一般经历以上这四个过程。对这四个概念的理解特别要注意的是，对于一个抽象字符清单，我们在为他制定已编码字符集的时候，通常也会制定对应的字符编码格式，故而，有时候，一个已编码字符集的名字往往也指代其默认的字符编码格式。我百度到的各种其他资料中，一般没有对这两个概念进行严格的区分，这也是常常会让我这种小白感到困惑的地方。</strong></p>
+<h3 id="二、实际应用中的各种编码格式"><a href="#二、实际应用中的各种编码格式" class="headerlink" title="二、实际应用中的各种编码格式"></a>二、实际应用中的各种编码格式</h3><h4 id="2-1-ASCII（初创）"><a href="#2-1-ASCII（初创）" class="headerlink" title="2.1 ASCII（初创）"></a>2.1 ASCII（初创）</h4><h5 id="ASCII-American-Standard-Code-for-Information-Interchange"><a href="#ASCII-American-Standard-Code-for-Information-Interchange" class="headerlink" title="ASCII(American Standard Code for Information Interchange)"></a>ASCII(American Standard Code for Information Interchange)</h5><p>计算机最初是在美国诞生的，故而最开始对字符编码有需求的也是英文相关字符。ASCII字符集一共包含128个字符，包括英文字母、阿拉伯数字、英式标点和控制字符等。按照一定的规则，将这些符号对应到0-127这128个码点中，形成已编码字符集。然后将这些数的二进制表示直接作为字符编码单元。即0x00(0, 0000000)-0x7F(127, 1111111)。<br>ASCII字符编码格式采用7字节编码，只用到了一个字节的低7位，最高位置0。</p>
+<h5 id="EASCII"><a href="#EASCII" class="headerlink" title="EASCII"></a>EASCII</h5><p>EASCII扩展ASCII编码字节中闲置的最高位，即8比特编码，以支持其他非英语语言。EASCII编码范围是0x80(128, 10000000)-0xFF(255, 11111111)共计256个字符。相当于把最高位置1后，结合低7位形成128个新的编码空间。</p>
+<p>不同的国家利用这128个编码空间表示不同的符号，如拉丁文，希腊文等等，形成了多个不同的编码格式。他们都能够兼容ASCII编码，0x00-0x7F之间与ASCII字符相同，大于0x80的码点表示的字符不同，故彼此之间互不兼容。</p>
+<p>ASCII和EASCII均为单字节编码(Single Byte Character System, SBCS)，即使用一个字节存放一个字符。只支持ASCII码的系统会忽略每个字节的最高位，只认为低7位是有效位。</p>
+<h4 id="2-2-MBCS-DBCS-ANSI（各国本地化）"><a href="#2-2-MBCS-DBCS-ANSI（各国本地化）" class="headerlink" title="2.2 MBCS/DBCS/ANSI（各国本地化）"></a>2.2 MBCS/DBCS/ANSI（各国本地化）</h4><p>即使对ASCII的最高位进行扩展形成各种EASCII，单个字节表示的字符数量最多只有256个，还是太少。同时也需要与ASCII编码保持兼容，所以不同国家和地区纷纷在ASCII基础上制定自己的字符集。</p>
+<p>这些字符集的基本规则是：使用大于0x80的编码作为一个前导字节，前导字节与紧跟其后的第二个字节一起作为单个字符的实际编码，而ASCII字符仍使用原来的编码。这类字符集统称为ANSI字符集，正式名称为MBCS(Multi-Byte Chactacter Set，多字节字符集)或DBCS(Double Byte Charecter Set，双字节字符集)。</p>
+<p>ANSI采用两个字节编码，他们都能兼容ASCII，但类似EASCII，其他的部分都不相同，故互不兼容。在不同的语言环境下，ANSI被理解为不同的字符集，例如在简体中文操作系统下，ANSI编码指代GBK编码；在日文操作系统下，ANSI编码指代JIS编码。为了解决不同语言字符集不兼容的问题，Windows操作系统使用码页转换表技术，为每一个字符集分配一个唯一的码页（Code Page）进行标识。</p>
+<h5 id="GB2312"><a href="#GB2312" class="headerlink" title="GB2312"></a>GB2312</h5><p>GB2312为中国国家标准简体中文字符集，全称《信息交换用汉字编码字符集 基本集》，由中国国家标准总局于1980年发布，1981年5月1日开始实施。标准号是GB 2312—1980。</p>
+<p>GB2312标准字符集共收录6763个简体汉字，其中一级汉字3755个，二级汉字3008个。此外，GB2312还收录数学符号、拉丁字母、希腊字母、日文平假名及片假名字母、俄语西里尔字母等682个字符。这些非汉字字符有些来自ASCII字符集，但被重新编码为双字节，并称为 <em>全角</em> 字符；ASCII原字符则称为 <em>半角</em> 字符。例如，全角a编码为0xA3E1，半角a则编码为0x61。</p>
+<p>GB2312是基于区位码设计的。区位码将整个字符集分成94个区，每区有94个位。每个区位上只有一个字符，因此可用汉字所在的区和位来对其编码。区位码是一个四位的10进制数，如1601表示16区1位，对应的字符是“啊”。</p>
+<p>区位码可视为已编码字符集，在将其编码为二进制的编码单元时，区码和位码分别用一个字节的低7位来表示。ISO-2022标准将区号和位号加上32，以避开ASCII的控制符区。而EUC(Extended Unix Code)基于ISO-2022，将其编码字节的最高位置1。这样小于0x7F的字节表示ASCII字符，两个大于0x7F的字节组合表示一个汉字。EUC-CN是GB2312最常用的表示方法，可认为通常所说的GB2312编码就指EUC-CN或EUC-GB2312。</p>
+<h5 id="GBK"><a href="#GBK" class="headerlink" title="GBK"></a>GBK</h5><p>GBK全称为《汉字内码扩展规范》，于1995年发布，向下完全兼容GB2312-1980国家标准，向上支持ISO 10646.1国际标准。该规范收录Unicode基本多文种平面中的所有CJK(中日韩)汉字，并包含BIG5(繁体中文)编码中的所有汉字。可以认为GBK就是GB2312的扩展。</p>
+<h5 id="GB18030"><a href="#GB18030" class="headerlink" title="GB18030"></a>GB18030</h5><p>GB18030全称为国家标准GB18030-2005《信息技术中文编码字符集》，是中国计算机系统必须遵循的基础性标准之一。GB18030与GB2312-1980完全兼容，与GBK基本兼容，收录GB13000及Unicode3.1的全部字符，包括70244个汉字、多种中国少数民族字符、GBK不支持的韩文表音字符等。</p>
+<h4 id="2-3-Unicode-国际统一化"><a href="#2-3-Unicode-国际统一化" class="headerlink" title="2.3 Unicode(国际统一化)"></a>2.3 Unicode(国际统一化)</h4><p>各国基于ASCII制定了自己的字符编码标准，可以跟英文数据互通，但是其他国家之间的数据交流还是受到限制。</p>
+<p>Unicode字符集由多语言软件制造商组成的统一码联盟(Unicode Consortium)与国际标准化组织的ISO-10646工作组制订，为各种语言中的每个字符指定统一且唯一的码点，以满足跨语言、跨平台转换和处理文本的要求。</p>
+<p>Unicode码点范围为0x0-0x10FFFF，共计1114112个码点，划分为编号0-16的17个字符平面，每个平面包含65536个码点（这里我理解为，两个字节所能表示数据最多就是65536=2^16=0xFFFF，在此基础之上扩展16倍，即2^4）。其中编号为0的平面最为常用，称为基本多语种平面(Basic Multilingual Plane, BMP)；其他则称为辅助语言平面。Unicode码点的表示方式是”U+”加上16进制的码点值，例如字母”A”的Unicode编码写为U+0041。通常所说的Unicode字符多指BMP字符。其中，U+0000到U+007F的范围与ASCII字符完全对应，U+4E00到U+9FA5的范围定义常用的20902个汉字字符(这些字符也在GBK字符集中)。</p>
+<p>Unicode有两种编码格式：ISO-10646标准将Unicode称为通用字符集(Universal Character Set, UCS)，其编码格式以”UCS-“加上编码所用的字节数命名。例如，UCS-2使用双字节编码，仅能表示BMP中的字符；UCS-4使用四字节编码(实际只用低31位)，可表示所有平面的字符。UCS-2中每两个字节前再加上0x0000就得到BMP字符的UCS-4编码。这两种编码格式都是等宽编码，且已经过时。</p>
+<p>另一种编码格式来自Unicode标准，名为通用编码转换格式(Unicode Translation Format, UTF)，其编码格式以”UTF-“加上编码所用的比特数命名。例如，UTF-8以8比特单字节为单位，BMP字符在UTF-8中被编码为1到3个字节，BMP之外的字符则映射为4个字节；UTF-16以16比特双字节为单位，BMP字符为2个字节，BMP之外的字符为4个字节；UTF-32则是定长的四字节。这三种编码格式均都可表示所有平面的字符。</p>
+<p>Windows系统中Unicode编码就指UCS-2或UTF-16编码（所以其实通常所说的Unicode编码就是指对Unicode已编码字符集采用UCS-2或是UTF-16编码），即英文字符和中文汉字均由两字节表示，也称为宽字节。但这种编码对互联网上广泛使用的ASCII字符而言会浪费空间，因此互联网字符编码主要使用UTF-8。</p>
+<h5 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h5><p>UTF-8是一种针对Unicode的可变宽度字符编码，可表示Unicode标准中的任何字符。UTF-8已逐渐成为电子邮件、网页及其他存储或传输文字的应用中，优先采用的编码。互联网工程工作小组(IETF)要求所有互联网协议都必须支持UTF-8编码。</p>
+<p>UTF-8使用1-4个字节为每个字符编码，其规则如下(x表示可用编码的比特位)：<br>1) 对于单字节符号，字节最高位置为0，后面7位为该符号的Unicode码。这与128个US-ASCII字符编码相同，即兼容ASCII编码。因此，原先处理ASCII字符的软件无须或只须做少部份修改，即可继续使用。<br>2）对于n字节符号(n&gt;1)，首字节的前n位均置为1，第n+1位置为0，后面字节的前两位一律设为10。其余二进制位为该符号的Unicode码。<br>可见，若首字节最高位为0，则表明该字节单独就是一个字符；若首字节最高位为1，则连续出现多少个1就表示当前字符占用多少个字节。</p>
+<p>以中文字符”汉”为例，其Unicode编码是U+6C49，位于0x0800-0xFFFF之间，因此”汉”的UTF-8编码需要三个字节，即格式是1110xxxx 10xxxxxx 10xxxxxx。将0x6C49写成二进制0110 110001 001001，用这个比特流依次代替x，得到11100110 10110001 10001001，即”汉”的UTF-8编码为0xE6B189。注意，常用汉字的UTF-8编码占用3个字节，中日韩超大字符集里的汉字占用4个字节。</p>
+<p>考虑到辅助平面字符很少使用，UTF-8规则可简记为(0), (110, 10), (1110, 10, 10)或(00-7F), (C0-DF, 80-BF), (E0-E7, 80-BF, 80-BF)。即，单字节编码的字节取值范围为0x00-0x7F，双字节编码的首字节为0xC0-0xDF，三字节编码的首字节为0xE0-0xEF。这样只要看到首字节范围就知道编码字节数，可大大简化算法。</p>
+<p>UTF-8具有(包括但不限于)如下优点：</p>
+<ul>
+<li>ASCII文本串也是合法的UTF-8文本，因此所有现存的ASCII文本不需要转换，且仅支持7比特字符的软件也可处理UTF-8文本。</li>
+<li>UTF-8可编码任意Unicode字符，而无需选择码页或字体，且支持同一文本内显示不同语种的字符。</li>
+<li>Unicode字符串经UTF-8编码后不含零字节，因此可由C语言字符串函数(如strcpy)处理，也能通过无法处理零字节的协议传输。</li>
+<li>UTF-8编码较为紧凑。ASCII字符占用一个字节，与ASCII编码相当；拉丁字符占用两个字节，与UTF-16相当；中文字符一般占用三个字节，虽逊于GBK但优于UTF-32。</li>
+<li>UTF-8为自同步编码，很容易扫描定位字符边界。若字节在传输过程中损坏或丢失，根据编码规律很容易定位下一个有效的UTF-8码点并继续处理(再同步)。许多双字节编码(尤其是GB2312这种高低字节均大于0x7F的编码)，一旦某个字节出现差错，就会影响到该字节之后的所有字符。</li>
+<li>UTF-8字符串可由简单的启发式算法可靠地识别。合法的UTF-8字符序列不可能出现最高位为1的单个字节，而出现最高位为1的字节对的概率仅为11.7%，这种概率随序列长度增长而减小。因此，任何其他编码的文本都不太可能是合法的UTF-8序列。</li>
+</ul>
+<h5 id="UTF-16"><a href="#UTF-16" class="headerlink" title="UTF-16"></a>UTF-16</h5><p>当Unicode字符码点位于BMP平面(即小于U+10000)时，UTF-16将其编码为1个16比特编码单元(即双字节)，该单元的数值与码点值相同。例如，U+8090的UTF-16编码为0x8090。同时可见，UTF-16不兼容ASCII。</p>
+<p>另：UTF-16是UCS-2的超集，在BMP平面内UCS-2完全等同于UTF-16。由于BMP之外的字符很少用到，实际使用中UCS-2和UTF-16可近似视为等价。类似地，UCS-4和UTF-32是等价的，但目前使用比较少。</p>
+<h5 id="编码适用场景"><a href="#编码适用场景" class="headerlink" title="编码适用场景"></a>编码适用场景</h5><p>当程序需要与现存的那些专为8比特数据而设计的实现协作时，应选择UTF-8编码；当程序需要处理BMP平面内的字符(尤其是东亚语言)时，应选择UTF-16编码；当程序需要处理单个字符(如接收键盘驱动产生的一个字符)，应选择UTF-32编码。因此，许多应用程序选用UTF-16作为其主要的编码格式 <strong>（即通常所说的Unicode编码）</strong>，而互联网则广泛使用UTF-8编码。</p>
+<h3 id="三、字符编码方案-CES"><a href="#三、字符编码方案-CES" class="headerlink" title="三、字符编码方案(CES)"></a>三、字符编码方案(CES)</h3><p>字符编码方案主要关注跨平台处理编码单元宽度超过一个字节的数据。<br>大多数等宽的单字节CEF或是混合宽度的单字节CEF可直接对应为CES，而多字节CES存在将哪一个字节识别为最高有效字节的字节序问题。</p>
+<p>Unicode编码采用字节顺序标记(Byte Order Mark, BOM)来解决这个问题，例如使用对应码点为U+FEFF的字符来表示处理器以内存高地址作为最高有效字节，即大字节序。通过在Unicode数据流头部添加BOM标记，可无歧义地指示编码单元的字节顺序，通常还能够借此识别编码方式。<br>UTF-16和UTF-32编码默认为大字节序。UTF-8以字节为编码单元，没有字节序问题，BOM用于表明其编码格式(signature)，但不建议如此。因为UTF-8编码特征明显，无需BOM即可检测出是否UTF-8序列(序列较短时可能不准确)。</p>
+<p>程序可通过一下步骤识别文本的字符集和编码：</p>
+<ol>
+<li>检查文本开头是否有BOM，若有则已指明文本编码。</li>
+<li>若无BOM，则查看是否有编码声明(针对Python脚本和XML文档等)。</li>
+<li>若既无BOM也无编码声明，则Python脚本应为ASCII编码，其他文本则需要猜测编码或请示用户。<br>各种源代码文件也是文本文件，编辑和保存源代码文件时也要考虑字符编码(除非仅使用ASCII字符)，否则编译器或解释器可能会以错误的编码格式去解析源代码。</li>
+</ol>
+<h3 id="四、中文字符乱码-Mojibake"><a href="#四、中文字符乱码-Mojibake" class="headerlink" title="四、中文字符乱码(Mojibake)"></a>四、中文字符乱码(Mojibake)</h3><p>乱码(mojibake)是指以非期望的编码格式解码文本时产生的混乱字符，通常表现为正常文本被系统地替换为其他书写系统中不相关的符号。常见乱码原因：</p>
+<ul>
+<li>未指定编码格式<br>若未指定编码格式，则由软件通过其他手段确定，例如字符集配置或编码特征检测。文本文件的编码通常由操作系统指定，这取决于系统类型和用户语言。当文件来自不同配置的计算机时，例如Windows和Linux之间传输文件，对文件编码的猜测往往是错的。一种解决方案是使用字节顺序标记(BOM)，但很多分析器不允许源代码和其他机器可读的文本中出现BOM。</li>
+<li>错误指定编码格式<br>错误指定编码格式时也会出现乱码，这常见于相似的编码之间。因为有些被人们视为等价的编码格式仍有细微差别。</li>
+<li>过度指定编码格式</li>
+</ul>
+<h3 id="五、Python2-7x字符编码问题"><a href="#五、Python2-7x字符编码问题" class="headerlink" title="五、Python2.7x字符编码问题"></a>五、Python2.7x字符编码问题</h3><h4 id="5-1-获取当前环境下的编码格式"><a href="#5-1-获取当前环境下的编码格式" class="headerlink" title="5.1 获取当前环境下的编码格式"></a>5.1 获取当前环境下的编码格式</h4><p>根据以下代码可以获得当前操作环境下的各种默认编码格式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys, locale</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SysCoding</span><span class="params">()</span>:</span></span><br><span class="line">    fmt = <span class="string">'&#123;0&#125;: &#123;1&#125;'</span></span><br><span class="line">    <span class="comment">#当前系统所使用的默认字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'DefaultEncoding    '</span>, sys.getdefaultencoding())</span><br><span class="line">    <span class="comment">#转换Unicode文件名至系统文件名时所用的编码('None'表示使用系统默认编码)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'FileSystemEncoding '</span>, sys.getfilesystemencoding())</span><br><span class="line">    <span class="comment">#默认的区域设置并返回元祖(语言, 编码)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'DefaultLocale      '</span>, locale.getdefaultlocale())</span><br><span class="line">    <span class="comment">#用户首选的文本数据编码(猜测结果)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'PreferredEncoding  '</span>, locale.getpreferredencoding())</span><br><span class="line">    <span class="comment">#解释器Shell标准输入字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'StdinEncoding      '</span>, sys.stdin.encoding)</span><br><span class="line">    <span class="comment">#解释器Shell标准输出字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'StdoutEncoding     '</span>, sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    SysCoding()</span><br></pre></td></tr></table></figure>
+
+<p>我在win10操作系统，语言为简体中文，用notepad++编辑器，Python2.7.13版本的运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DefaultEncoding    : ascii</span><br><span class="line">FileSystemEncoding : mbcs</span><br><span class="line">DefaultLocale      : (<span class="string">'zh_CN'</span>, <span class="string">'cp936'</span>)</span><br><span class="line">PreferredEncoding  : cp936</span><br><span class="line">StdinEncoding      : cp936  </span><br><span class="line">StdoutEncoding     : cp936</span><br></pre></td></tr></table></figure>
+
+<p>这里要注意的是从‘StdinEncoding’和‘StdoutEncoding’可以知道在通过调用<code>raw_input()</code>在命令行窗口输入一段数据时，默认为cp936即GBK编码的数据，调用<code>print</code>输出数据时，该段数据默认使用cp936解码。</p>
+<h4 id="5-2-Python中的str和Unicode类型"><a href="#5-2-Python中的str和Unicode类型" class="headerlink" title="5.2 Python中的str和Unicode类型"></a>5.2 Python中的str和Unicode类型</h4><p>Python中有两种字符串类型，分别是str和unicode，它们都由抽象类型basestring派生而来。其中str字符串指的一般就是我们在编程过程中使用<code>&#39;...&#39;, &quot;...&quot;</code>表示的字符串，它其实是字符经过特定编码格式（例如utf-8）编码后的一段字节组成的序列，在Python的官方文档中把它称为<code>8-bit string</code>。而unicode字符串则表示为unicode类型的实例，可将其视为字符的序列(对应C语言里真正的字符串)。通常，我们使用Unicode字符串的时候在前面加上<code>u&#39;...&#39;</code> or <code>u&quot;...&quot;</code>来表示。</p>
+<p>对这两种字符串有几种方法可以互相转换：</p>
+<ul>
+<li><code>unicode(string[, encoding, errors])</code><br>unicode()函数可以将提供的string（str字符串），以给定的encoding（编码格式）解码，然后编码为Unicode字符串。其中errors参数指定转换失败时的处理方式。其缺省值为’strict’，即转换失败时触发UnicodeDecodeError异常。errors参数值为’ignore’时将忽略无法转换的字符；值为’replace’时将以U+FFFD字符(REPLACEMENT CHARACTER)替换无法转换的字符。</li>
+<li><code>.encode([encoding], [errors=&#39;strict&#39;])</code><br>encode()方法可以将Unicode字符串以给定的encoding转换为str字符串。</li>
+<li><code>.decode([encoding], [errors=&#39;strict&#39;])</code><br>decode()方法则将str字符串以给定的encoding解码为Unicode字符串。实际上，unicode(str, encoding)与str.decode(encoding)是等效的。</li>
+</ul>
+<p>实际应用过程中，可以把Unicode字符串作为一种中间形式。例如要把str字符串转换一种编码方式，可以先按照目前的编码格式解码为Unicode字符串，然后按照目标编码格式编码为str字符串。</p>
+<h4 id="5-3-源码字符串常量-Literals"><a href="#5-3-源码字符串常量-Literals" class="headerlink" title="5.3 源码字符串常量(Literals)"></a>5.3 源码字符串常量(Literals)</h4><p>在Python的源代码中，若字符串常量（或是注释中）包含ASCII(Python脚本默认编码)以外的字符，则需要在文件首行或第二行声明字符编码，如<code>#-*- coding: utf-8 -*-</code>（注意这里coding后面的冒号只有左边有空格。实际上，Python只检查注释中的coding: name或coding=name，且字符编码通常还有别名，因此也可写为#coding:utf-8或#coding=u8。</p>
+<p>声明后，Python将以指定的coding解码源代码中的str字符串。</p>
+<h4 id="5-4-读写Unicode数据"><a href="#5-4-读写Unicode数据" class="headerlink" title="5.4 读写Unicode数据"></a>5.4 读写Unicode数据</h4><p>在写入磁盘文件或通过套接字发送前，通常需要将Unicode数据转换为特定的编码；从磁盘文件读取或从套接字接收的字节序列，应转换为Unicode数据后再处理。</p>
+<p>这些工作可以手工完成。例如：使用内置的open()方法打开文件后，将read()读取的str数据，按照文件编码格式进行decode()；write()写入前，将Unicode数据按照文件编码格式进行encode()，或将其他编码格式的str数据先按该str的编码decode()转换为Unicode数据，再按照文件编码格式encode()。若直接将Unicode数据传入write()方法，Python将按照源代码文件声明的字符编码进行encode()后再写入。</p>
+<p>这种手工转换的步骤可简记为”due”，即：<br>1) Decode early(将文件内容转换为Unicode数据)<br>2) Unicode everywhere(程序内部处理都用Unicode数据)<br>3) Encode late(存盘或输出前encode回所需的编码)</p>
+<h4 id="5-5-处理中文乱码"><a href="#5-5-处理中文乱码" class="headerlink" title="5.5 处理中文乱码"></a>5.5 处理中文乱码</h4><p>乱码可能发生在print输出、写入文件、数据库存储、网络传输、调用shell程序等过程中。解决方法分为事前事后：事前可约定相同的字符编码，事后则根据实际编码在代码侧重新转换。例如，简体中文Windows系统默认编码为GBK，Linux系统编码通常为en_US.UTF-8。那么，在跨平台处理文件前，可将Linux系统编码修改为zh_CN.UTF-8或zh_CN.GBK。</p>
+<p>乱码消除的步骤为：1)将乱码字节序列转换为Unicode字符串；2)将该串”打散”为单字节数组；3)按照预期的编码规则将字节数组解码为真实的字符串。</p>
+<h4 id="5-6-中文处理建议"><a href="#5-6-中文处理建议" class="headerlink" title="5.6 中文处理建议"></a>5.6 中文处理建议</h4><p>Python2.x中默认编码为ASCII，而Python3中默认编码为Unicode。因此，如果可能应尽快迁移到Python3。否则，应遵循以下建议：</p>
+<ol>
+<li>源代码文件使用字符编码声明，且保存为所声明的编码格式。同一工程中的所有源代码文件也应使用和保存为相同的字符编码。若工程跨平台，应尽量统一为UTF-8编码。</li>
+<li>程序内部全部使用Unicode字符串，只在输出时转换为特定的编码。对于源码内的字符串常量，可直接添加Unicode前缀(“u”或”U”)；对于从外部读取的字节序列，可按照”Decode early-&gt;Unicode everywhere-&gt;Encode late”的步骤处理。但按照”due”步骤手工处理文件时不太方便，可使用codecs.open()方法替代内置的open()。<br>此外，小段程序的编码问题可能并不明显，若能保证处理过程中使用相同编码，则无需转换为Unicode字符串。例如：</li>
+<li>并非所有Python2.x内置函数或方法都支持Unicode字符串。这种情况下，可临时以正确的编码转换为字节序列，调用内置函数或方法完成操作后，立即以正确的编码转换为Unicode字符串。</li>
+<li>通过encode()和decode()编解码时，需要确定待转换字符串的编码。除显式约定外，可通过以下方法猜测编码格式：a.检测文件头BOM标记，但并非所有文件都有该标记；b.使用chardet.detect(str)，但字符串较短时结果不准确；c.国际化产品最有可能使用UTF-8编码。</li>
+<li>避免在源码中显式地使用”mbcs”(别名”dbcs”)和”utf_16”(别名”U16”或”utf16”)的编码。<br>“mbcs”仅用于Windows系统，编码因当前系统ANSI码页而异。Linux系统的Python实现中并无”mbcs”编码，代码移植到Linux时会出现异常，如报告AttributeError: ‘module’ object has no attribute ‘mbcs_encode’。因此，应指定”gbk”等实际编码，而不要写为”mbcs”。<br>“utf_16”根据操作系统原生字节序指代”utf_16_be”或”utf_16_le”编码，也不利于移植。</li>
+<li>不要试图编写可同时处理Unicode字符串和字节序列的函数，这样很容易引入缺陷。</li>
+<li>测试数据中应包含非ASCII(包括EASCII)字符，以排除编码缺陷。</li>
+</ol>
+<h3 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h3><p>本文是参照<a href="https://blog.csdn.net/u013946404/article/details/78200837" target="_blank" rel="noopener">Python2.7字符编码详解</a>学习编码的过程中摘抄的一些笔记。原教程中还列举了大量的实例帮助理解，如有需要可以参看原教程。</p>
+<p>虽然认真看了几遍，但是还是没有完全看懂。不过解决目前的一些疑问是够了。根据<a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819196283586a37629844456ca7e5a7faa9b94ee8000" target="_blank" rel="noopener">廖雪峰的Python2.7教程</a>的建议：“如果没有特殊业务要求，请牢记仅使用Unicode和UTF-8这两种编码方式。”</p>
+<p>保持学习吧。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/编码/" rel="tag"># 编码</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/01/learn-python/" rel="next" title="人生苦短，我学Python">
+                <i class="fa fa-chevron-left"></i> 人生苦短，我学Python
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/21/probability-and-statistics/" rel="prev" title="概率论与数理统计-笔记">
+                概率论与数理统计-笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Axiuf">
+            
+              <p class="site-author-name" itemprop="name">Axiuf</p>
+              <p class="site-description motion-element" itemprop="description">Axiuf's personal website.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、基本概念"><span class="nav-text">一、基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-抽象字符清单-Abstract-Character-Repertoire-ACR"><span class="nav-text">1.1 抽象字符清单(Abstract Character Repertoire, ACR)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-已编码字符集-Coded-Character-Set-CCS"><span class="nav-text">1.2 已编码字符集(Coded Character Set, CCS)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-字符编码格式-CEF"><span class="nav-text">1.3 字符编码格式(CEF)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-字符编码方案-Character-Encoding-Scheme-CES"><span class="nav-text">1.4 字符编码方案(Character Encoding Scheme, CES)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、实际应用中的各种编码格式"><span class="nav-text">二、实际应用中的各种编码格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-ASCII（初创）"><span class="nav-text">2.1 ASCII（初创）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ASCII-American-Standard-Code-for-Information-Interchange"><span class="nav-text">ASCII(American Standard Code for Information Interchange)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#EASCII"><span class="nav-text">EASCII</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-MBCS-DBCS-ANSI（各国本地化）"><span class="nav-text">2.2 MBCS/DBCS/ANSI（各国本地化）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GB2312"><span class="nav-text">GB2312</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GBK"><span class="nav-text">GBK</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GB18030"><span class="nav-text">GB18030</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Unicode-国际统一化"><span class="nav-text">2.3 Unicode(国际统一化)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#UTF-8"><span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UTF-16"><span class="nav-text">UTF-16</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编码适用场景"><span class="nav-text">编码适用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、字符编码方案-CES"><span class="nav-text">三、字符编码方案(CES)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、中文字符乱码-Mojibake"><span class="nav-text">四、中文字符乱码(Mojibake)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、Python2-7x字符编码问题"><span class="nav-text">五、Python2.7x字符编码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-获取当前环境下的编码格式"><span class="nav-text">5.1 获取当前环境下的编码格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-Python中的str和Unicode类型"><span class="nav-text">5.2 Python中的str和Unicode类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-源码字符串常量-Literals"><span class="nav-text">5.3 源码字符串常量(Literals)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-读写Unicode数据"><span class="nav-text">5.4 读写Unicode数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-处理中文乱码"><span class="nav-text">5.5 处理中文乱码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-中文处理建议"><span class="nav-text">5.6 中文处理建议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、总结"><span class="nav-text">六、总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Axiuf</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
