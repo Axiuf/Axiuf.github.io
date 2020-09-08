@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="进化史">
 <meta property="og:description" content="The tidyverse style guide by Hadley Wickham.一些要点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-08T06:36:35.530Z">
+<meta property="og:updated_time" content="2020-09-08T09:23:19.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言代码规范">
 <meta name="twitter:description" content="The tidyverse style guide by Hadley Wickham.一些要点。">
@@ -346,14 +346,46 @@
 <a id="more"></a>
 
 <p>要写出简洁优美，易读可复用的代码，关键的一点是代码的格式要易读并且一致。这里总结了R语言一些要点。<br>主要参考：<a href="https://style.tidyverse.org/index.html" target="_blank" rel="noopener">The tidyverse style guide</a></p>
-<h3 id="单个分析文件"><a href="#单个分析文件" class="headerlink" title="单个分析文件"></a>单个分析文件</h3><h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><ul>
-<li>文件名命名：字母，数字以及下划线。名称应具有明显的意义，能表明文件内部代码的作用。并且以<code>.R</code>结尾。</li>
-<li>文件应该具有顺序，可以在开头加上数字来对其排序。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Good</span><br><span class="line">00_download.R</span><br><span class="line">01_explore.R</span><br><span class="line">...</span><br><span class="line">09_model.R</span><br><span class="line">10_visualize.R</span><br></pre></td></tr></table></figure>
-
+<h3 id="一、单个分析文件"><a href="#一、单个分析文件" class="headerlink" title="一、单个分析文件"></a>一、单个分析文件</h3><h4 id="1-文件命名"><a href="#1-文件命名" class="headerlink" title="1. 文件命名"></a>1. 文件命名</h4><ul>
+<li><p>文件名命名：字母，数字以及下划线。名称应具有明显的意义，能表明文件内部代码的作用。并且以<code>.R</code>结尾。</p>
+</li>
+<li><p>文件应该具有顺序，可以在开头加上数字来对其排序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Good</span><br><span class="line">00_download.R</span><br><span class="line">01_explore.R</span><br><span class="line">...</span><br><span class="line">09_model.R</span><br><span class="line">10_visualize.R</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单个文件内部用注释一整行短横线的方式对代码分块。</p>
 </li>
 </ul>
-<p>单个文件内部用注释一整行短横线的方式对代码分块。</p>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>#####</p>
+<h4 id="2-代码语法"><a href="#2-代码语法" class="headerlink" title="2. 代码语法"></a>2. 代码语法</h4><h5 id="2-1-对象命名"><a href="#2-1-对象命名" class="headerlink" title="2.1 对象命名"></a>2.1 对象命名</h5><ul>
+<li>对象名应该全小写，下划线连接。最好不要出现<code>.</code>，把<code>object.name</code>这种命名方式预留给内置的S3系统。避免造成歧义。</li>
+<li>变量名应该为名字短语，函数名为动词短语。</li>
+</ul>
+<h5 id="2-2-空格"><a href="#2-2-空格" class="headerlink" title="2.2 空格"></a>2.2 空格</h5><ul>
+<li>逗号前不加空格，逗号后面加空格。</li>
+<li>单目运算符不加空格，双目运算符两侧加空格。</li>
+<li>关于空格的使用有非常多的细节问题，这里不再一一展开。</li>
+</ul>
+<h5 id="2-3-长代码行"><a href="#2-3-长代码行" class="headerlink" title="2.3 长代码行"></a>2.3 长代码行</h5><ul>
+<li>若是参数过多导致单行太长，可将每个参数单独放在一行。</li>
+</ul>
+<h5 id="2-4-赋值"><a href="#2-4-赋值" class="headerlink" title="2.4 赋值"></a>2.4 赋值</h5><ul>
+<li>使用<code>&lt;-</code>，而避免使用<code>=</code>赋值。等号只用于调用函数时给参数赋值。</li>
+</ul>
+<h5 id="2-5-数据"><a href="#2-5-数据" class="headerlink" title="2.5 数据"></a>2.5 数据</h5><ul>
+<li>使用双引号表示字符。</li>
+<li>逻辑值应用全称，<code>TRUE</code>及<code>FALSE</code>，避免使用<code>T</code>及<code>F</code>。</li>
+</ul>
+<h4 id="3-函数"><a href="#3-函数" class="headerlink" title="3. 函数"></a>3. 函数</h4><ul>
+<li>命名时应尽量使用动词短语。</li>
+<li><code>return</code>的使用：这里有个矛盾的地方，原始文章说应该只在在内部早期需要返回值的时候<code>return</code>，其他的时候依赖R返回。<br>  但是在最新的<a href="https://google.github.io/styleguide/Rguide.html" target="_blank" rel="noopener">Google’s R Style Guide</a>中，建议使用<code>return</code>显式的返回。<br>  这里我个人觉得显式返回更符合编程的直觉，所以采用第二种。</li>
+<li>对函数进行注释时，应该重点关注在解释为什么，而不是是什么和怎么做的，后者是能够通过看代码直接看出来的。<br>  另外注释应保持句子的格式，并且在单行注释时不加句号，多行注 释时在单个句子的结尾加句号。</li>
+</ul>
+<h4 id="4-管道符"><a href="#4-管道符" class="headerlink" title="4. 管道符"></a>4. 管道符</h4><ul>
+<li><code>%&gt;%</code>是<code>dplyr</code>这个包提供的管道符。意思是将符号左边的输出作为符号右边的<strong>第一个输入或是剩下的唯一一个</strong>输入。<br>  在<a href="https://google.github.io/styleguide/Rguide.html" target="_blank" rel="noopener">Google’s R Style Guide</a>是不建议使用这种右向赋值的，理由是这种做法在大多数其他的编程语言中不常见，造成了理解上的偏差。我个人第一次见到这个也比较懵，这种赋值是隐式的，实际上略去了参数的名称和位置信息。只在整个pipes都只有一个输入参数，并且流程较长时比较方便。我目前还没有遇到这种情况，所以自己先避免使用这个符号吧。</li>
+</ul>
+<h4 id="5-ggplot"><a href="#5-ggplot" class="headerlink" title="5. ggplot"></a>5. ggplot</h4><ul>
+<li>ggplot中使用<code>+</code>作为图层的拼接，这里主要是注意<code>+</code>前一定要有空格，另外每个图层单独一行。</li>
+</ul>
+<h3 id="二、R包"><a href="#二、R包" class="headerlink" title="二、R包"></a>二、R包</h3><p>这部分我自己还没有开始涉及到。后续准备开始写一个R包的时候再补充。</p>
 
       
     </div>
@@ -517,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#单个分析文件"><span class="nav-text">单个分析文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件"><span class="nav-text">文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-text">语法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、单个分析文件"><span class="nav-text">一、单个分析文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-文件命名"><span class="nav-text">1. 文件命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-代码语法"><span class="nav-text">2. 代码语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-对象命名"><span class="nav-text">2.1 对象命名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-空格"><span class="nav-text">2.2 空格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-长代码行"><span class="nav-text">2.3 长代码行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-赋值"><span class="nav-text">2.4 赋值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-数据"><span class="nav-text">2.5 数据</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-函数"><span class="nav-text">3. 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-管道符"><span class="nav-text">4. 管道符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-ggplot"><span class="nav-text">5. ggplot</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、R包"><span class="nav-text">二、R包</span></a></li></ol></div>
             
 
           </div>
