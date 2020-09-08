@@ -100,7 +100,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="R,">
 
 
 
@@ -111,16 +111,18 @@
 
 
 
-<meta name="description" content="Axiuf&apos;s personal website.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="进化史">
-<meta property="og:url" content="http://yoursite.com/tags/GitHub/index.html">
+<meta name="description" content="The tidyverse style guide by Hadley Wickham.一些要点。">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言代码规范">
+<meta property="og:url" content="http://yoursite.com/2020/09/08/the-tidyverse-style-guide/index.html">
 <meta property="og:site_name" content="进化史">
-<meta property="og:description" content="Axiuf&apos;s personal website.">
+<meta property="og:description" content="The tidyverse style guide by Hadley Wickham.一些要点。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-09-08T06:36:35.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进化史">
-<meta name="twitter:description" content="Axiuf&apos;s personal website.">
+<meta name="twitter:title" content="R语言代码规范">
+<meta name="twitter:description" content="The tidyverse style guide by Hadley Wickham.一些要点。">
 
 
 
@@ -150,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/GitHub/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/08/the-tidyverse-style-guide/">
 
 
 
 
 
-  <title>标签: GitHub | 进化史</title>
+  <title>R语言代码规范 | 进化史</title>
   
 
 
@@ -175,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,52 +261,158 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>GitHub<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/08/the-tidyverse-style-guide/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Axiuf">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="进化史">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/05/29/new-start/" itemprop="url">
-              
-                <span itemprop="name">GitHub+Hexo搭建个人博客的主要流程</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">R语言代码规范</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-29T15:12:17+08:00" content="2019-05-29">
-          05-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-08T11:05:09+08:00">
+                2020-09-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>The tidyverse style guide by Hadley Wickham.<br>一些要点。</p>
+<a id="more"></a>
+
+<p>要写出简洁优美，易读可复用的代码，关键的一点是代码的格式要易读并且一致。这里总结了R语言一些要点。<br>主要参考：<a href="https://style.tidyverse.org/index.html" target="_blank" rel="noopener">The tidyverse style guide</a></p>
+<h3 id="单个分析文件"><a href="#单个分析文件" class="headerlink" title="单个分析文件"></a>单个分析文件</h3><h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><ul>
+<li>文件名命名：字母，数字以及下划线。名称应具有明显的意义，能表明文件内部代码的作用。并且以<code>.R</code>结尾。</li>
+<li>文件应该具有顺序，可以在开头加上数字来对其排序。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Good</span><br><span class="line">00_download.R</span><br><span class="line">01_explore.R</span><br><span class="line">...</span><br><span class="line">09_model.R</span><br><span class="line">10_visualize.R</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>单个文件内部用注释一整行短横线的方式对代码分块。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>#####</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/07/medical-statistics-by-r/" rel="next" title="医学统计软件的应用（R语言）">
+                <i class="fa fa-chevron-left"></i> 医学统计软件的应用（R语言）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -312,6 +420,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -332,8 +444,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -386,6 +507,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#单个分析文件"><span class="nav-text">单个分析文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件"><span class="nav-text">文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-text">语法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -519,6 +656,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -576,26 +717,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
