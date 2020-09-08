@@ -100,7 +100,7 @@
 
 
 
-  <meta name="keywords" content="统计 概率论,">
+  <meta name="keywords" content="统计,概率论,">
 
 
 
@@ -112,14 +112,14 @@
 
 
 <meta name="description" content="2019年秋冬学期《概率论与数理统计》上课笔记。">
-<meta name="keywords" content="统计 概率论">
+<meta name="keywords" content="统计,概率论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率论与数理统计-笔记">
 <meta property="og:url" content="http://yoursite.com/2019/12/21/probability-and-statistics/index.html">
 <meta property="og:site_name" content="进化史">
 <meta property="og:description" content="2019年秋冬学期《概率论与数理统计》上课笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-06T13:28:06.757Z">
+<meta property="og:updated_time" content="2020-01-10T06:33:05.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率论与数理统计-笔记">
 <meta name="twitter:description" content="2019年秋冬学期《概率论与数理统计》上课笔记。">
@@ -344,10 +344,11 @@
       
         <p>2019年秋冬学期《概率论与数理统计》上课笔记。</p>
 <a id="more"></a>
+
 <h3 id="第一章-概率论的基本概念"><a href="#第一章-概率论的基本概念" class="headerlink" title="第一章 概率论的基本概念"></a>第一章 概率论的基本概念</h3><h4 id="1-1-样本空间和随机事件"><a href="#1-1-样本空间和随机事件" class="headerlink" title="1.1 样本空间和随机事件"></a>1.1 样本空间和随机事件</h4><p><strong>随机试验：</strong> 对随机现象作一次观察（或记录、或试验）称为随机试验。<br>&emsp;&emsp;1）可以在相同的条件下重复进行。<br>&emsp;&emsp;2）每次试验可能出现的结果是不确定的， 但是事先能知道试验的所有可能的结果。<br><strong>基本事件：</strong> 只含有一个样本点的子集称为基本事件。<strong>基本事件两两不相容（积事件为空集，即互斥）。</strong><br>理解样本空间与随机事件，事件间的关系与运算，用 <strong><em>集合论</em></strong> 即可。<br><strong>德摩根定律：</strong> （注意理解及灵活运用）<br>$$\overline {\bigcup_{j=1}^n A_j} = \bigcap_{j=1}^n \overline A_j&emsp;&emsp;\overline {\bigcap_{j=1}^n A_j} = \bigcup_{j=1}^n \overline A_j$$</p>
 <h4 id="1-2-频率与概率"><a href="#1-2-频率与概率" class="headerlink" title="1.2 频率与概率"></a>1.2 频率与概率</h4><p><strong>注意概率的加法公式及其推广。</strong></p>
 <h4 id="1-3-等可能概型"><a href="#1-3-等可能概型" class="headerlink" title="1.3 等可能概型"></a>1.3 等可能概型</h4><p>即古典概型，注意 <strong>排列组合</strong> 的计算问题（多熟悉两个公式）。<br><strong>抽签问题：</strong> （不放回抽样，记住结论）从含有$a$个红球和$b$个白球的共$n$个球中每次随机抽取一个球，并且不放回，第$k$次抽取抽到红球的概率与第$1$次相同，与$k$无关。</p>
-<h4 id="1-4-条件概率"><a href="#1-4-条件概率" class="headerlink" title="1.4 条件概率"></a>1.4 条件概率</h4><p><strong>条件概率：</strong> （区分条件概率和积事件，特别是题干中表述模糊的时候要仔细判别。）$$P(A|B) = \frac{P(AB)}{P(B)}$$<br><strong>条件概率的乘法公式：</strong> （已知条件概率求积事件。）$$P(AB) = P(A) \cdot P(B|A) = P(B) \cdot P(A|B)$$<br><strong><em>全概率公式：</em></strong> （直接计算事件A的概率比较困难，通过与之密切相关的事件B的条件概率来求A。）$$P(A) = P(AB) + P(A\overline B) = P(B) \cdot P(A|B) + P(\overline B) \cdot P(A|\overline B)$$<br><strong><em>贝叶斯公式：</em></strong> （先验概率和后验概率。）$$P(B_k|A) = \frac{P(B_kA)}{P(A)} = \frac{P(B_k)P(A|B_k)}{\sum_{j=1}^nP(B_j)P(A|B_j)}$$</p>
+<h4 id="1-4-条件概率"><a href="#1-4-条件概率" class="headerlink" title="1.4 条件概率"></a>1.4 条件概率</h4><p><strong>条件概率：</strong> （区分条件概率和积事件，特别是题干中表述模糊的时候要仔细判别。）$$P(A|B) = \frac{P(AB)}{P(B)}$$<br><strong>条件概率的乘法公式：</strong> （已知条件概率求积事件。）$$P(AB) = P(A) \cdot P(B|A) = P(B) \cdot P(A|B)$$<br><strong><em>全概率公式：</em></strong> （直接计算事件A的概率比较困难，通过与之密切相关的事件B的条件概率来求A。应用全概率公式时，要仔细判断题设条件，以及完备事件组的划分。另外在与前面的事件计算结合起来时，要特别注意全概率公式得到的概率的实际适用情况。）$$P(A) = P(AB) + P(A\overline B) = P(B) \cdot P(A|B) + P(\overline B) \cdot P(A|\overline B)$$<br><strong><em>贝叶斯公式：</em></strong> （先验概率和后验概率。）$$P(B_k|A) = \frac{P(B_kA)}{P(A)} = \frac{P(B_k)P(A|B_k)}{\sum_{j=1}^nP(B_j)P(A|B_j)}$$</p>
 <h4 id="1-5-事件的独立性和独立实验"><a href="#1-5-事件的独立性和独立实验" class="headerlink" title="1.5 事件的独立性和独立实验"></a>1.5 事件的独立性和独立实验</h4><p>注意理解相互独立的事件和不相容事件的差别。可以把独立事件看作存在于不同的两个样本空间中的事件，其没有交集也互不影响，不相容事件存在于相同的样本空间但没有交集。<br>实际中独立事件的判定不依赖于公式的定义，而是根据具体的情况来判断。</p>
 <h3 id="第二章-随机变量及其概率分布"><a href="#第二章-随机变量及其概率分布" class="headerlink" title="第二章 随机变量及其概率分布"></a>第二章 随机变量及其概率分布</h3><h4 id="2-1-随机变量"><a href="#2-1-随机变量" class="headerlink" title="2.1 随机变量"></a>2.1 随机变量</h4><p><strong>随机变量：</strong> 随机变量$X = X(e)$为定义在样本空间$S = \lbrace e \rbrace$上的实值单值函数。</p>
 <h4 id="2-2-离散型随机变量"><a href="#2-2-离散型随机变量" class="headerlink" title="2.2 离散型随机变量"></a>2.2 离散型随机变量</h4><p><strong>离散型随机变量：</strong> 随机变量的取值为有限个或者可列个值。<br><strong>离散型随机变量的概率分布律：</strong> 列出随机变量每种可能的取值出现的概率。<br><strong>1. 0 - 1 分布</strong><br>&emsp;&emsp;可以看作$n=1$的二项分布。关键参数：$X$取值为$1$的概率$p$。<br><strong>2. 二项分布</strong><br>&emsp;&emsp;<strong>$n$重伯努利实验：</strong> 在n次独立重复实验中，每次实验都只有两种结果，且每次实验中他们发生的概率不变。<br>&emsp;&emsp;关键参数：实验总次数$n$以及单次实验事件发生的概率$p$。利用前述等可能概型理解。<br><strong>3. 泊松分布</strong><br>&emsp;&emsp;用来计算小概率事件的发生次数的概率分布。关键参数：$\lambda = np$。<br>&emsp;&emsp;二项分布的近似分布。当二项分布的参数$n$足够大、$p$足够小，$np$适当，可利用泊松分布近似描述二项分布。<br>&emsp;&emsp;实际计算时，二项分布连乘项太多，泊松分布计算更为方便。<br><strong>4.其他</strong><br>&emsp;&emsp;超几何分布：不放回抽样的概率分布。<br>&emsp;&emsp;几何分布：$n$重伯努利实验中，描述某种可能的结果首次发生时的实验次数的概率分布。</p>
@@ -409,7 +410,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/统计-概率论/" rel="tag"># 统计 概率论</a>
+            <a href="/tags/统计/" rel="tag"># 统计</a>
+          
+            <a href="/tags/概率论/" rel="tag"># 概率论</a>
           
         </div>
       
@@ -422,7 +425,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/19/python2-7x-coding/" rel="next" title="Python2.7x中的编码问题">
+              <a href="/2019/10/20/python2-7x-coding/" rel="next" title="Python2.7x中的编码问题">
                 <i class="fa fa-chevron-left"></i> Python2.7x中的编码问题
               </a>
             
@@ -431,6 +434,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/07/medical-statistics-by-r/" rel="prev" title="医学统计软件的应用（R语言）">
+                医学统计软件的应用（R语言） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -509,7 +516,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -522,7 +529,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
