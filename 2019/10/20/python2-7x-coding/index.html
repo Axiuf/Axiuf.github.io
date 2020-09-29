@@ -1,162 +1,51 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":280,"display":"hide","padding":28,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic|Consolas:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Python,编码,">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="这里是我学习编码问题的一些笔记。主要参考资料：Python2.7字符编码详解。">
-<meta name="keywords" content="Python,编码">
+  <meta name="description" content="这里是我学习编码问题的一些笔记。主要参考资料：Python2.7字符编码详解。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python2.7x中的编码问题">
 <meta property="og:url" content="http://yoursite.com/2019/10/20/python2-7x-coding/index.html">
 <meta property="og:site_name" content="进化史">
 <meta property="og:description" content="这里是我学习编码问题的一些笔记。主要参考资料：Python2.7字符编码详解。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-07T11:33:25.109Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-20T06:52:35.000Z">
+<meta property="article:modified_time" content="2020-01-07T11:33:25.109Z">
+<meta property="article:author" content="Axiuf">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="编码">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python2.7x中的编码问题">
-<meta name="twitter:description" content="这里是我学习编码问题的一些笔记。主要参考资料：Python2.7字符编码详解。">
+
+<link rel="canonical" href="http://yoursite.com/2019/10/20/python2-7x-coding/">
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2019/10/20/python2-7x-coding/">
-
-
-
-
 
   <title>Python2.7x中的编码问题 | 进化史</title>
   
@@ -166,172 +55,138 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">进化史</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle">想写的时候就写一点咯</p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">进化史</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
+
+
+
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
 
-      
-    </ul>
-  
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
-  
+  </li>
+  </ul>
 </nav>
 
 
 
- </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/20/python2-7x-coding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Axiuf">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Axiuf">
+      <meta itemprop="description" content="Axiuf's personal website.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="进化史">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Python2.7x中的编码问题</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          Python2.7x中的编码问题
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T14:52:35+08:00">
-                2019-10-20
-              </time>
-            
+              <span class="post-meta-item-text">发表于</span>
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
+              <time title="创建时间：2019-10-20 14:52:35" itemprop="dateCreated datePublished" datetime="2019-10-20T14:52:35+08:00">2019-10-20</time>
+            </span>
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -339,13 +194,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        <p>这里是我学习编码问题的一些笔记。<br>主要参考资料：<a href="https://blog.csdn.net/u013946404/article/details/78200837" target="_blank" rel="noopener">Python2.7字符编码详解</a>。</p>
+        <p>这里是我学习编码问题的一些笔记。<br>主要参考资料：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013946404/article/details/78200837">Python2.7字符编码详解</a>。</p>
 <a id="more"></a>
 
-<p>之前在百度上查了很多相关的解答和资料，但是都看得不是很懂，理解的也不够透彻。这次找到了一个讲解的很详细的教程：<a href="https://blog.csdn.net/u013946404/article/details/78200837" target="_blank" rel="noopener">Python2.7字符编码详解</a>。看了几遍之后，把自己认为比较重要的点概括了一下，在此列出，以便日后查看。</p>
+<p>之前在百度上查了很多相关的解答和资料，但是都看得不是很懂，理解的也不够透彻。这次找到了一个讲解的很详细的教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013946404/article/details/78200837">Python2.7字符编码详解</a>。看了几遍之后，把自己认为比较重要的点概括了一下，在此列出，以便日后查看。</p>
 <p><strong>要理解字符编码的原理，首先要熟悉一下2进制，10进制，16进制(0x)的转换。另外，计算机中表示数据的基本单位是一个字节，即8 bit（比特），2进制的8位数。</strong></p>
 <h3 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><h4 id="1-1-抽象字符清单-Abstract-Character-Repertoire-ACR"><a href="#1-1-抽象字符清单-Abstract-Character-Repertoire-ACR" class="headerlink" title="1.1 抽象字符清单(Abstract Character Repertoire, ACR)"></a>1.1 抽象字符清单(Abstract Character Repertoire, ACR)</h4><p><strong>待编码文字和符号的无序集合，包括各国文字、标点、图形符号、数字等。</strong><br>这是一个抽象的概念，即所需要在计算机中表示的符号的集合。例如，在中文环境中，这个抽象字符清单一般会包括常用的汉字，标点符号，英文大小写字母，数学符号等。</p>
 <h4 id="1-2-已编码字符集-Coded-Character-Set-CCS"><a href="#1-2-已编码字符集-Coded-Character-Set-CCS" class="headerlink" title="1.2 已编码字符集(Coded Character Set, CCS)"></a>1.2 已编码字符集(Coded Character Set, CCS)</h4><p><strong>已编码字符集是从抽象字符清单到非负整数(范围不必连续)的映射。</strong><br>这里要注意，所谓的非负整数并不是计算机中的2进制数字。这里只是根据一定的规则，给每一个要编码的字符分配一个唯一的数字代号。例如在编码汉字时，可以采用区位码方案：在一个94*94的点阵图里，将要编码的汉字按一定的规律放在其中的点上，这样，每一个汉字在点阵图中有唯一的位置，根据其所在的行列数也即有唯一的区位码代号。这样，给抽象字符清单中的每一个字符映射一个非负整数，即码点，就成为了已编码字符集。</p>
@@ -372,7 +224,10 @@
 <p>另一种编码格式来自Unicode标准，名为通用编码转换格式(Unicode Translation Format, UTF)，其编码格式以”UTF-“加上编码所用的比特数命名。例如，UTF-8以8比特单字节为单位，BMP字符在UTF-8中被编码为1到3个字节，BMP之外的字符则映射为4个字节；UTF-16以16比特双字节为单位，BMP字符为2个字节，BMP之外的字符为4个字节；UTF-32则是定长的四字节。这三种编码格式均都可表示所有平面的字符。</p>
 <p>Windows系统中Unicode编码就指UCS-2或UTF-16编码（所以其实通常所说的Unicode编码就是指对Unicode已编码字符集采用UCS-2或是UTF-16编码），即英文字符和中文汉字均由两字节表示，也称为宽字节。但这种编码对互联网上广泛使用的ASCII字符而言会浪费空间，因此互联网字符编码主要使用UTF-8。</p>
 <h5 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h5><p>UTF-8是一种针对Unicode的可变宽度字符编码，可表示Unicode标准中的任何字符。UTF-8已逐渐成为电子邮件、网页及其他存储或传输文字的应用中，优先采用的编码。互联网工程工作小组(IETF)要求所有互联网协议都必须支持UTF-8编码。</p>
-<p>UTF-8使用1-4个字节为每个字符编码，其规则如下(x表示可用编码的比特位)：<br>1) 对于单字节符号，字节最高位置为0，后面7位为该符号的Unicode码。这与128个US-ASCII字符编码相同，即兼容ASCII编码。因此，原先处理ASCII字符的软件无须或只须做少部份修改，即可继续使用。<br>2）对于n字节符号(n&gt;1)，首字节的前n位均置为1，第n+1位置为0，后面字节的前两位一律设为10。其余二进制位为该符号的Unicode码。<br>可见，若首字节最高位为0，则表明该字节单独就是一个字符；若首字节最高位为1，则连续出现多少个1就表示当前字符占用多少个字节。</p>
+<p>UTF-8使用1-4个字节为每个字符编码，其规则如下(x表示可用编码的比特位)：</p>
+<ol>
+<li>对于单字节符号，字节最高位置为0，后面7位为该符号的Unicode码。这与128个US-ASCII字符编码相同，即兼容ASCII编码。因此，原先处理ASCII字符的软件无须或只须做少部份修改，即可继续使用。<br>2）对于n字节符号(n&gt;1)，首字节的前n位均置为1，第n+1位置为0，后面字节的前两位一律设为10。其余二进制位为该符号的Unicode码。<br>可见，若首字节最高位为0，则表明该字节单独就是一个字符；若首字节最高位为1，则连续出现多少个1就表示当前字符占用多少个字节。</li>
+</ol>
 <p>以中文字符”汉”为例，其Unicode编码是U+6C49，位于0x0800-0xFFFF之间，因此”汉”的UTF-8编码需要三个字节，即格式是1110xxxx 10xxxxxx 10xxxxxx。将0x6C49写成二进制0110 110001 001001，用这个比特流依次代替x，得到11100110 10110001 10001001，即”汉”的UTF-8编码为0xE6B189。注意，常用汉字的UTF-8编码占用3个字节，中日韩超大字符集里的汉字占用4个字节。</p>
 <p>考虑到辅助平面字符很少使用，UTF-8规则可简记为(0), (110, 10), (1110, 10, 10)或(00-7F), (C0-DF, 80-BF), (E0-E7, 80-BF, 80-BF)。即，单字节编码的字节取值范围为0x00-0x7F，双字节编码的首字节为0xC0-0xDF，三字节编码的首字节为0xE0-0xEF。这样只要看到首字节范围就知道编码字节数，可大大简化算法。</p>
 <p>UTF-8具有(包括但不限于)如下优点：</p>
@@ -402,11 +257,9 @@
 <li>过度指定编码格式</li>
 </ul>
 <h3 id="五、Python2-7x字符编码问题"><a href="#五、Python2-7x字符编码问题" class="headerlink" title="五、Python2.7x字符编码问题"></a>五、Python2.7x字符编码问题</h3><h4 id="5-1-获取当前环境下的编码格式"><a href="#5-1-获取当前环境下的编码格式" class="headerlink" title="5.1 获取当前环境下的编码格式"></a>5.1 获取当前环境下的编码格式</h4><p>根据以下代码可以获得当前操作环境下的各种默认编码格式：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys, locale</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SysCoding</span><span class="params">()</span>:</span></span><br><span class="line">    fmt = <span class="string">'&#123;0&#125;: &#123;1&#125;'</span></span><br><span class="line">    <span class="comment">#当前系统所使用的默认字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'DefaultEncoding    '</span>, sys.getdefaultencoding())</span><br><span class="line">    <span class="comment">#转换Unicode文件名至系统文件名时所用的编码('None'表示使用系统默认编码)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'FileSystemEncoding '</span>, sys.getfilesystemencoding())</span><br><span class="line">    <span class="comment">#默认的区域设置并返回元祖(语言, 编码)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'DefaultLocale      '</span>, locale.getdefaultlocale())</span><br><span class="line">    <span class="comment">#用户首选的文本数据编码(猜测结果)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'PreferredEncoding  '</span>, locale.getpreferredencoding())</span><br><span class="line">    <span class="comment">#解释器Shell标准输入字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'StdinEncoding      '</span>, sys.stdin.encoding)</span><br><span class="line">    <span class="comment">#解释器Shell标准输出字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">'StdoutEncoding     '</span>, sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    SysCoding()</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys, locale</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SysCoding</span>():</span></span><br><span class="line">    fmt = <span class="string">&#x27;&#123;0&#125;: &#123;1&#125;&#x27;</span></span><br><span class="line">    <span class="comment">#当前系统所使用的默认字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">&#x27;DefaultEncoding    &#x27;</span>, sys.getdefaultencoding())</span><br><span class="line">    <span class="comment">#转换Unicode文件名至系统文件名时所用的编码(&#x27;None&#x27;表示使用系统默认编码)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">&#x27;FileSystemEncoding &#x27;</span>, sys.getfilesystemencoding())</span><br><span class="line">    <span class="comment">#默认的区域设置并返回元祖(语言, 编码)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">&#x27;DefaultLocale      &#x27;</span>, locale.getdefaultlocale())</span><br><span class="line">    <span class="comment">#用户首选的文本数据编码(猜测结果)</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">&#x27;PreferredEncoding  &#x27;</span>, locale.getpreferredencoding())</span><br><span class="line">    <span class="comment">#解释器Shell标准输入字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">&#x27;StdinEncoding      &#x27;</span>, sys.stdin.encoding)</span><br><span class="line">    <span class="comment">#解释器Shell标准输出字符编码</span></span><br><span class="line">    <span class="keyword">print</span> fmt.format(<span class="string">&#x27;StdoutEncoding     &#x27;</span>, sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    SysCoding()    </span><br></pre></td></tr></table></figure>
 <p>我在win10操作系统，语言为简体中文，用notepad++编辑器，Python2.7.13版本的运行结果如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DefaultEncoding    : ascii</span><br><span class="line">FileSystemEncoding : mbcs</span><br><span class="line">DefaultLocale      : (<span class="string">'zh_CN'</span>, <span class="string">'cp936'</span>)</span><br><span class="line">PreferredEncoding  : cp936</span><br><span class="line">StdinEncoding      : cp936  </span><br><span class="line">StdoutEncoding     : cp936</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DefaultEncoding    : ascii</span><br><span class="line">FileSystemEncoding : mbcs</span><br><span class="line">DefaultLocale      : (<span class="string">&#x27;zh_CN&#x27;</span>, <span class="string">&#x27;cp936&#x27;</span>)</span><br><span class="line">PreferredEncoding  : cp936</span><br><span class="line">StdinEncoding      : cp936  </span><br><span class="line">StdoutEncoding     : cp936  </span><br></pre></td></tr></table></figure>
 <p>这里要注意的是从‘StdinEncoding’和‘StdoutEncoding’可以知道在通过调用<code>raw_input()</code>在命令行窗口输入一段数据时，默认为cp936即GBK编码的数据，调用<code>print</code>输出数据时，该段数据默认使用cp936解码。</p>
 <h4 id="5-2-Python中的str和Unicode类型"><a href="#5-2-Python中的str和Unicode类型" class="headerlink" title="5.2 Python中的str和Unicode类型"></a>5.2 Python中的str和Unicode类型</h4><p>Python中有两种字符串类型，分别是str和unicode，它们都由抽象类型basestring派生而来。其中str字符串指的一般就是我们在编程过程中使用<code>&#39;...&#39;, &quot;...&quot;</code>表示的字符串，它其实是字符经过特定编码格式（例如utf-8）编码后的一段字节组成的序列，在Python的官方文档中把它称为<code>8-bit string</code>。而unicode字符串则表示为unicode类型的实例，可将其视为字符的序列(对应C语言里真正的字符串)。通常，我们使用Unicode字符串的时候在前面加上<code>u&#39;...&#39;</code> or <code>u&quot;...&quot;</code>来表示。</p>
 <p>对这两种字符串有几种方法可以互相转换：</p>
@@ -420,7 +273,12 @@
 <p>声明后，Python将以指定的coding解码源代码中的str字符串。</p>
 <h4 id="5-4-读写Unicode数据"><a href="#5-4-读写Unicode数据" class="headerlink" title="5.4 读写Unicode数据"></a>5.4 读写Unicode数据</h4><p>在写入磁盘文件或通过套接字发送前，通常需要将Unicode数据转换为特定的编码；从磁盘文件读取或从套接字接收的字节序列，应转换为Unicode数据后再处理。</p>
 <p>这些工作可以手工完成。例如：使用内置的open()方法打开文件后，将read()读取的str数据，按照文件编码格式进行decode()；write()写入前，将Unicode数据按照文件编码格式进行encode()，或将其他编码格式的str数据先按该str的编码decode()转换为Unicode数据，再按照文件编码格式encode()。若直接将Unicode数据传入write()方法，Python将按照源代码文件声明的字符编码进行encode()后再写入。</p>
-<p>这种手工转换的步骤可简记为”due”，即：<br>1) Decode early(将文件内容转换为Unicode数据)<br>2) Unicode everywhere(程序内部处理都用Unicode数据)<br>3) Encode late(存盘或输出前encode回所需的编码)</p>
+<p>这种手工转换的步骤可简记为”due”，即：</p>
+<ol>
+<li>Decode early(将文件内容转换为Unicode数据)</li>
+<li>Unicode everywhere(程序内部处理都用Unicode数据)</li>
+<li>Encode late(存盘或输出前encode回所需的编码)</li>
+</ol>
 <h4 id="5-5-处理中文乱码"><a href="#5-5-处理中文乱码" class="headerlink" title="5.5 处理中文乱码"></a>5.5 处理中文乱码</h4><p>乱码可能发生在print输出、写入文件、数据库存储、网络传输、调用shell程序等过程中。解决方法分为事前事后：事前可约定相同的字符编码，事后则根据实际编码在代码侧重新转换。例如，简体中文Windows系统默认编码为GBK，Linux系统编码通常为en_US.UTF-8。那么，在跨平台处理文件前，可将Linux系统编码修改为zh_CN.UTF-8或zh_CN.GBK。</p>
 <p>乱码消除的步骤为：1)将乱码字节序列转换为Unicode字符串；2)将该串”打散”为单字节数组；3)按照预期的编码规则将字节数组解码为真实的字符串。</p>
 <h4 id="5-6-中文处理建议"><a href="#5-6-中文处理建议" class="headerlink" title="5.6 中文处理建议"></a>5.6 中文处理建议</h4><p>Python2.x中默认编码为ASCII，而Python3中默认编码为Unicode。因此，如果可能应尽快迁移到Python3。否则，应遵循以下建议：</p>
@@ -433,256 +291,222 @@
 <li>不要试图编写可同时处理Unicode字符串和字节序列的函数，这样很容易引入缺陷。</li>
 <li>测试数据中应包含非ASCII(包括EASCII)字符，以排除编码缺陷。</li>
 </ol>
-<h3 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h3><p>本文是参照<a href="https://blog.csdn.net/u013946404/article/details/78200837" target="_blank" rel="noopener">Python2.7字符编码详解</a>学习编码的过程中摘抄的一些笔记。原教程中还列举了大量的实例帮助理解，如有需要可以参看原教程。</p>
-<p>虽然认真看了几遍，但是还是没有完全看懂。不过解决目前的一些疑问是够了。根据<a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819196283586a37629844456ca7e5a7faa9b94ee8000" target="_blank" rel="noopener">廖雪峰的Python2.7教程</a>的建议：“如果没有特殊业务要求，请牢记仅使用Unicode和UTF-8这两种编码方式。”</p>
+<h3 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h3><p>本文是参照<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013946404/article/details/78200837">Python2.7字符编码详解</a>学习编码的过程中摘抄的一些笔记。原教程中还列举了大量的实例帮助理解，如有需要可以参看原教程。</p>
+<p>虽然认真看了几遍，但是还是没有完全看懂。不过解决目前的一些疑问是够了。根据<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819196283586a37629844456ca7e5a7faa9b94ee8000">廖雪峰的Python2.7教程</a>的建议：“如果没有特殊业务要求，请牢记仅使用Unicode和UTF-8这两种编码方式。”</p>
 <p>保持学习吧。</p>
 
-      
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/编码/" rel="tag"># 编码</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/08/19/first-crawler-baidubaike/" rel="next" title="Python爬虫初探——爬取百度百科词条">
-                <i class="fa fa-chevron-left"></i> Python爬虫初探——爬取百度百科词条
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/21/probability-and-statistics/" rel="prev" title="概率论与数理统计-笔记">
-                概率论与数理统计-笔记 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Axiuf">
-            
-              <p class="site-author-name" itemprop="name">Axiuf</p>
-              <p class="site-description motion-element" itemprop="description">Axiuf's personal website.</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">标签</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、基本概念"><span class="nav-text">一、基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-抽象字符清单-Abstract-Character-Repertoire-ACR"><span class="nav-text">1.1 抽象字符清单(Abstract Character Repertoire, ACR)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-已编码字符集-Coded-Character-Set-CCS"><span class="nav-text">1.2 已编码字符集(Coded Character Set, CCS)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-字符编码格式-CEF"><span class="nav-text">1.3 字符编码格式(CEF)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-字符编码方案-Character-Encoding-Scheme-CES"><span class="nav-text">1.4 字符编码方案(Character Encoding Scheme, CES)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、实际应用中的各种编码格式"><span class="nav-text">二、实际应用中的各种编码格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-ASCII（初创）"><span class="nav-text">2.1 ASCII（初创）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ASCII-American-Standard-Code-for-Information-Interchange"><span class="nav-text">ASCII(American Standard Code for Information Interchange)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#EASCII"><span class="nav-text">EASCII</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-MBCS-DBCS-ANSI（各国本地化）"><span class="nav-text">2.2 MBCS/DBCS/ANSI（各国本地化）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GB2312"><span class="nav-text">GB2312</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GBK"><span class="nav-text">GBK</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GB18030"><span class="nav-text">GB18030</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Unicode-国际统一化"><span class="nav-text">2.3 Unicode(国际统一化)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#UTF-8"><span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UTF-16"><span class="nav-text">UTF-16</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编码适用场景"><span class="nav-text">编码适用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、字符编码方案-CES"><span class="nav-text">三、字符编码方案(CES)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、中文字符乱码-Mojibake"><span class="nav-text">四、中文字符乱码(Mojibake)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、Python2-7x字符编码问题"><span class="nav-text">五、Python2.7x字符编码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-获取当前环境下的编码格式"><span class="nav-text">5.1 获取当前环境下的编码格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-Python中的str和Unicode类型"><span class="nav-text">5.2 Python中的str和Unicode类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-源码字符串常量-Literals"><span class="nav-text">5.3 源码字符串常量(Literals)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-读写Unicode数据"><span class="nav-text">5.4 读写Unicode数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-处理中文乱码"><span class="nav-text">5.5 处理中文乱码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-中文处理建议"><span class="nav-text">5.6 中文处理建议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、总结"><span class="nav-text">六、总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\07\01\learn-python\" rel="bookmark">人生苦短，我学Python</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\08\19\first-crawler-baidubaike\" rel="bookmark">Python爬虫初探——爬取百度百科词条</a></div>
+    </li>
+  </ul>
 
         
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Axiuf</span>
-
-  
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Axiuf
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/10/20/python2-7x-coding/" title="Python2.7x中的编码问题">http://yoursite.com/2019/10/20/python2-7x-coding/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
-
-
-
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E7%BC%96%E7%A0%81/" rel="tag"># 编码</a>
+          </div>
 
         
 
 
-
-
-
-
-
         
-      </div>
-    </footer>
-
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/08/19/first-crawler-baidubaike/" rel="prev" title="Python爬虫初探——爬取百度百科词条">
+      <i class="fa fa-chevron-left"></i> Python爬虫初探——爬取百度百科词条
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/21/probability-and-statistics/" rel="next" title="概率论与数理统计-笔记">
+      概率论与数理统计-笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">一、基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E6%8A%BD%E8%B1%A1%E5%AD%97%E7%AC%A6%E6%B8%85%E5%8D%95-Abstract-Character-Repertoire-ACR"><span class="nav-text">1.1 抽象字符清单(Abstract Character Repertoire, ACR)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%B7%B2%E7%BC%96%E7%A0%81%E5%AD%97%E7%AC%A6%E9%9B%86-Coded-Character-Set-CCS"><span class="nav-text">1.2 已编码字符集(Coded Character Set, CCS)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F-CEF"><span class="nav-text">1.3 字符编码格式(CEF)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%96%B9%E6%A1%88-Character-Encoding-Scheme-CES"><span class="nav-text">1.4 字符编码方案(Character Encoding Scheme, CES)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="nav-text">二、实际应用中的各种编码格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-ASCII%EF%BC%88%E5%88%9D%E5%88%9B%EF%BC%89"><span class="nav-text">2.1 ASCII（初创）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ASCII-American-Standard-Code-for-Information-Interchange"><span class="nav-text">ASCII(American Standard Code for Information Interchange)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#EASCII"><span class="nav-text">EASCII</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-MBCS-DBCS-ANSI%EF%BC%88%E5%90%84%E5%9B%BD%E6%9C%AC%E5%9C%B0%E5%8C%96%EF%BC%89"><span class="nav-text">2.2 MBCS&#x2F;DBCS&#x2F;ANSI（各国本地化）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GB2312"><span class="nav-text">GB2312</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GBK"><span class="nav-text">GBK</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GB18030"><span class="nav-text">GB18030</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Unicode-%E5%9B%BD%E9%99%85%E7%BB%9F%E4%B8%80%E5%8C%96"><span class="nav-text">2.3 Unicode(国际统一化)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#UTF-8"><span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UTF-16"><span class="nav-text">UTF-16</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">编码适用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%96%B9%E6%A1%88-CES"><span class="nav-text">三、字符编码方案(CES)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6%E4%B9%B1%E7%A0%81-Mojibake"><span class="nav-text">四、中文字符乱码(Mojibake)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81Python2-7x%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-text">五、Python2.7x字符编码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="nav-text">5.1 获取当前环境下的编码格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-Python%E4%B8%AD%E7%9A%84str%E5%92%8CUnicode%E7%B1%BB%E5%9E%8B"><span class="nav-text">5.2 Python中的str和Unicode类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-%E6%BA%90%E7%A0%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F-Literals"><span class="nav-text">5.3 源码字符串常量(Literals)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-%E8%AF%BB%E5%86%99Unicode%E6%95%B0%E6%8D%AE"><span class="nav-text">5.4 读写Unicode数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-%E5%A4%84%E7%90%86%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="nav-text">5.5 处理中文乱码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-%E4%B8%AD%E6%96%87%E5%A4%84%E7%90%86%E5%BB%BA%E8%AE%AE"><span class="nav-text">5.6 中文处理建议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-text">六、总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Axiuf"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Axiuf</p>
+  <div class="site-description" itemprop="description">Axiuf's personal website.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Axiuf" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Axiuf" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cheng-shan-69" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cheng-shan-69" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Axiuf</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">31k</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
 
 
 
 
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -700,113 +524,10 @@
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
 
 
   
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
 
   
 

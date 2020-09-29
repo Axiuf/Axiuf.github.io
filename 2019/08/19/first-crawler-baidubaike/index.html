@@ -1,162 +1,51 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":280,"display":"hide","padding":28,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic|Consolas:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Python,爬虫,">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="什么是爬虫？按照我目前的理解：爬虫是一段脚本程序，能够自动从网站上下载网页，解析网页内容，并分析提取出所需要的数据。它最大的特点是能够自动循环运行，一个个遍历相关网页，可以抓取相当大的数据量。 就如同互联“网”上的”蜘蛛，巡视着这网上的每一个节点，择机捕获猎物。">
-<meta name="keywords" content="Python,爬虫">
+  <meta name="description" content="什么是爬虫？按照我目前的理解：爬虫是一段脚本程序，能够自动从网站上下载网页，解析网页内容，并分析提取出所需要的数据。它最大的特点是能够自动循环运行，一个个遍历相关网页，可以抓取相当大的数据量。 就如同互联“网”上的”蜘蛛，巡视着这网上的每一个节点，择机捕获猎物。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python爬虫初探——爬取百度百科词条">
 <meta property="og:url" content="http://yoursite.com/2019/08/19/first-crawler-baidubaike/index.html">
 <meta property="og:site_name" content="进化史">
 <meta property="og:description" content="什么是爬虫？按照我目前的理解：爬虫是一段脚本程序，能够自动从网站上下载网页，解析网页内容，并分析提取出所需要的数据。它最大的特点是能够自动循环运行，一个个遍历相关网页，可以抓取相当大的数据量。 就如同互联“网”上的”蜘蛛，巡视着这网上的每一个节点，择机捕获猎物。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-11T13:39:55.959Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-19T08:55:56.000Z">
+<meta property="article:modified_time" content="2020-09-11T13:39:55.959Z">
+<meta property="article:author" content="Axiuf">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python爬虫初探——爬取百度百科词条">
-<meta name="twitter:description" content="什么是爬虫？按照我目前的理解：爬虫是一段脚本程序，能够自动从网站上下载网页，解析网页内容，并分析提取出所需要的数据。它最大的特点是能够自动循环运行，一个个遍历相关网页，可以抓取相当大的数据量。 就如同互联“网”上的”蜘蛛，巡视着这网上的每一个节点，择机捕获猎物。">
+
+<link rel="canonical" href="http://yoursite.com/2019/08/19/first-crawler-baidubaike/">
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2019/08/19/first-crawler-baidubaike/">
-
-
-
-
 
   <title>Python爬虫初探——爬取百度百科词条 | 进化史</title>
   
@@ -166,172 +55,138 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">进化史</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle">想写的时候就写一点咯</p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">进化史</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
+
+
+
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
 
-      
-    </ul>
-  
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
-  
+  </li>
+  </ul>
 </nav>
 
 
 
- </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/first-crawler-baidubaike/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Axiuf">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Axiuf">
+      <meta itemprop="description" content="Axiuf's personal website.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="进化史">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Python爬虫初探——爬取百度百科词条</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          Python爬虫初探——爬取百度百科词条
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T16:55:56+08:00">
-                2019-08-19
-              </time>
-            
+              <span class="post-meta-item-text">发表于</span>
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
+              <time title="创建时间：2019-08-19 16:55:56" itemprop="dateCreated datePublished" datetime="2019-08-19T16:55:56+08:00">2019-08-19</time>
+            </span>
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -339,293 +194,249 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
         <p>什么是爬虫？按照我目前的理解：爬虫是一段脚本程序，能够自动从网站上下载网页，解析网页内容，并分析提取出所需要的数据。它最大的特点是能够自动循环运行，一个个遍历相关网页，可以抓取相当大的数据量。</p>
 <p>就如同互联“网”上的”蜘蛛，巡视着这网上的每一个节点，择机捕获猎物。</p>
 <a id="more"></a>
 
-<p>第一次接触爬虫，我是看的慕课网上的<a href="http://www.imooc.com/learn/563" target="_blank" rel="noopener">Python开发简单爬虫</a>。这个教程讲解了爬虫的基本知识，并介绍了一种逻辑非常清晰的爬虫架构，实现了从百度百科上爬取1000个词条和及其简介数据，输出到一个HTML文件里。非常的实用，但是对于Python新手的我来讲还是有点复杂。代码量还不够，对于Python中的类理解还不够深。所以我就自己鼓捣，从最简单的开始写。</p>
+<p>第一次接触爬虫，我是看的慕课网上的<a target="_blank" rel="noopener" href="http://www.imooc.com/learn/563">Python开发简单爬虫</a>。这个教程讲解了爬虫的基本知识，并介绍了一种逻辑非常清晰的爬虫架构，实现了从百度百科上爬取1000个词条和及其简介数据，输出到一个HTML文件里。非常的实用，但是对于Python新手的我来讲还是有点复杂。代码量还不够，对于Python中的类理解还不够深。所以我就自己鼓捣，从最简单的开始写。</p>
 <p>本篇就记录我从零开始，自己摸索，直至能够如写出上述教程中结构清晰的爬虫的一整个过程。</p>
 <h4 id="一、拟定需求"><a href="#一、拟定需求" class="headerlink" title="一、拟定需求"></a>一、拟定需求</h4><p>开始写一段程序之前，要明白自己的需求是什么。单纯一个“爬取百度百科词条”一句话，可以是客户给的需求，但是作为实际编程的人而言，要把需求细化到每一个步骤，然后再根据这些步骤一一去实现，最终达到最后的目标。下面是我初步拟出的需求：</p>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 制作一个百度百科爬虫</span></span><br><span class="line"><span class="meta"># 基本功能：</span></span><br><span class="line"><span class="meta"># 1.手动给定初始页面URL</span></span><br><span class="line"><span class="meta"># 2.自动下载初始页面</span></span><br><span class="line"><span class="meta"># 3.分析初始页面中包含的其他链接</span></span><br><span class="line"><span class="meta"># 4.依次自动下载并分析各链接的网页</span></span><br><span class="line"><span class="meta"># 5.依次打印出各链接对应的词条名</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="二、爬虫-Version-1-0-单次下载"><a href="#二、爬虫-Version-1-0-单次下载" class="headerlink" title="二、爬虫 Version 1.0 单次下载"></a>二、爬虫 Version 1.0 单次下载</h4><p>由于很多模块的使用还不熟悉，直接实现上述需求对我来说还是有点困难，故而先实现一个无循环的简单功能：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#V1.0 给定一个百度百科的页面，打印出该页面的词条</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(url)</span>:</span> <span class="comment">#将主要功能包装成一个函数</span></span><br><span class="line">    Page = urllib2.urlopen(url)  <span class="comment">#下载对应的页面，作为Page对象</span></span><br><span class="line">    <span class="comment">#将页面的内容作为soup对象，并指定html.parser解析器</span></span><br><span class="line">    soup = bs4.BeautifulSoup(Page.read(),<span class="string">'html.parser'</span>)</span><br><span class="line">    <span class="keyword">print</span> soup.h1.string    <span class="comment">#打印出页面的词条</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root_url = <span class="string">r'https://baike.baidu.com/item/Python'</span> <span class="comment">#提供要下载的网页链接</span></span><br><span class="line"></span><br><span class="line">download(root_url) <span class="comment">#运行</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#V1.0 给定一个百度百科的页面，打印出该页面的词条</span></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">url</span>):</span> <span class="comment">#将主要功能包装成一个函数</span></span><br><span class="line">    Page = urllib2.urlopen(url)  <span class="comment">#下载对应的页面，作为Page对象</span></span><br><span class="line">    <span class="comment">#将页面的内容作为soup对象，并指定html.parser解析器</span></span><br><span class="line">    soup = bs4.BeautifulSoup(Page.read(),<span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">    <span class="keyword">print</span> soup.h1.string    <span class="comment">#打印出页面的词条</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root_url = <span class="string">r&#x27;https://baike.baidu.com/item/Python&#x27;</span> <span class="comment">#提供要下载的网页链接</span></span><br><span class="line"></span><br><span class="line">download(root_url) <span class="comment">#运行</span></span><br></pre></td></tr></table></figure>
 <p>这段简单的代码中导入了两个模块，<code>urllib2</code>是内置模块，用来实现下载指定链接的网页，<code>bs4</code>是第三方模块，用来对网页内容进行解析。这样就实现了爬虫最最基本的功能：下载指定网页——解析网页内容——提取出所需要的信息。</p>
 <h4 id="三、爬虫-Version-2-0-实现循环"><a href="#三、爬虫-Version-2-0-实现循环" class="headerlink" title="三、爬虫 Version 2.0 实现循环"></a>三、爬虫 Version 2.0 实现循环</h4><p>上面只是一个简单的单次下载的过程。下面要实现爬虫的自动循环的功能：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#V2.0 完成爬虫的初始形态</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding( <span class="string">"utf-8"</span> )   <span class="comment">#解决编码格式问题,还不知道为什么，网上查的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">urltogo = set() <span class="comment">#定义 将要访问的链接 集合</span></span><br><span class="line">urlhasgone = set()  <span class="comment">#定义 已经访问过的链接 集合</span></span><br><span class="line">n = <span class="number">0</span>   <span class="comment">#定义计数器   </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(url)</span>:</span> <span class="comment">#对应V1.0中的下载功能</span></span><br><span class="line">    Page = urllib2.urlopen(url)  </span><br><span class="line">    soup = bs4.BeautifulSoup(Page.read(),<span class="string">'html.parser'</span>)  <span class="comment">#下载网页</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#下面是提取网页中的百科词条链接，作为我们接下来要访问的网页      </span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> soup.find_all(<span class="string">'a'</span>,href=re.compile(<span class="string">r"/item/"</span>)):  <span class="comment">#提取页面链接</span></span><br><span class="line">        url = <span class="string">"https://baike.baidu.com"</span>+item[<span class="string">'href'</span>]    <span class="comment">#拼接完善链接</span></span><br><span class="line">        <span class="comment">#判断是否在已访问的集合中，如果没有，加入到将要访问的集合中</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> url <span class="keyword">in</span> urlhasgone:</span><br><span class="line">          urltogo.add(url)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#下面是提取网页的词条信息       </span></span><br><span class="line">    <span class="keyword">global</span> n <span class="comment">#声明全局变量</span></span><br><span class="line">    <span class="keyword">print</span> soup.h1.string,n,<span class="string">'has crawled'</span>,len(urltogo),<span class="string">'left to crawl'</span></span><br><span class="line"></span><br><span class="line">    urlhasgone.add(url) <span class="comment">#将此下载完的链接放入已访问的集合</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crawler</span><span class="params">(url)</span>:</span> <span class="comment">#爬虫主程序，主要完成循环调度功能</span></span><br><span class="line">    urltogo.add(url) <span class="comment">#将初始链接放入将要访问的集合中</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        next = urltogo.pop() <span class="comment">#提取一个将要的访问的链接</span></span><br><span class="line">        <span class="keyword">global</span> n</span><br><span class="line">        n = n+<span class="number">1</span> <span class="comment">#计数器计数</span></span><br><span class="line">        download(next) <span class="comment">#下载并解析该网页</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加了一个输入命令，可以让用户自定义初始链接</span></span><br><span class="line">keyword = raw_input(<span class="string">"Please input a English word you want to research: "</span>)   </span><br><span class="line"></span><br><span class="line">root_url = <span class="string">r'https://baike.baidu.com/item/'</span>+keyword</span><br><span class="line"></span><br><span class="line">crawler(root_url)</span><br><span class="line"></span><br><span class="line"><span class="comment">#注意！！！！！迭代set的过程中不能更新set</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#V2.0 完成爬虫的初始形态</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding( <span class="string">&quot;utf-8&quot;</span> )   <span class="comment">#解决编码格式问题,还不知道为什么，网上查的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">urltogo = set() <span class="comment">#定义 将要访问的链接 集合</span></span><br><span class="line">urlhasgone = set()  <span class="comment">#定义 已经访问过的链接 集合</span></span><br><span class="line">n = <span class="number">0</span>   <span class="comment">#定义计数器   </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">url</span>):</span> <span class="comment">#对应V1.0中的下载功能</span></span><br><span class="line">    Page = urllib2.urlopen(url)  </span><br><span class="line">    soup = bs4.BeautifulSoup(Page.read(),<span class="string">&#x27;html.parser&#x27;</span>)  <span class="comment">#下载网页</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#下面是提取网页中的百科词条链接，作为我们接下来要访问的网页      </span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> soup.find_all(<span class="string">&#x27;a&#x27;</span>,href=re.compile(<span class="string">r&quot;/item/&quot;</span>)):  <span class="comment">#提取页面链接</span></span><br><span class="line">        url = <span class="string">&quot;https://baike.baidu.com&quot;</span>+item[<span class="string">&#x27;href&#x27;</span>]    <span class="comment">#拼接完善链接</span></span><br><span class="line">        <span class="comment">#判断是否在已访问的集合中，如果没有，加入到将要访问的集合中</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> url <span class="keyword">in</span> urlhasgone:</span><br><span class="line">          urltogo.add(url)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#下面是提取网页的词条信息       </span></span><br><span class="line">    <span class="keyword">global</span> n <span class="comment">#声明全局变量</span></span><br><span class="line">    <span class="keyword">print</span> soup.h1.string,n,<span class="string">&#x27;has crawled&#x27;</span>,len(urltogo),<span class="string">&#x27;left to crawl&#x27;</span></span><br><span class="line"></span><br><span class="line">    urlhasgone.add(url) <span class="comment">#将此下载完的链接放入已访问的集合</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crawler</span>(<span class="params">url</span>):</span> <span class="comment">#爬虫主程序，主要完成循环调度功能</span></span><br><span class="line">    urltogo.add(url) <span class="comment">#将初始链接放入将要访问的集合中</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        next = urltogo.pop() <span class="comment">#提取一个将要的访问的链接</span></span><br><span class="line">        <span class="keyword">global</span> n</span><br><span class="line">        n = n+<span class="number">1</span> <span class="comment">#计数器计数</span></span><br><span class="line">        download(next) <span class="comment">#下载并解析该网页</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加了一个输入命令，可以让用户自定义初始链接</span></span><br><span class="line">keyword = raw_input(<span class="string">&quot;Please input a English word you want to research: &quot;</span>)   </span><br><span class="line"></span><br><span class="line">root_url = <span class="string">r&#x27;https://baike.baidu.com/item/&#x27;</span>+keyword</span><br><span class="line"></span><br><span class="line">crawler(root_url)</span><br><span class="line"></span><br><span class="line"><span class="comment">#注意！！！！！迭代set的过程中不能更新set</span></span><br></pre></td></tr></table></figure>
 <p>导入了内置的<code>sys</code>模块解决编码问题（但是还不知道原理，已经遇到过好几次，下次单独研究一下），导入内置的<code>re</code>实现模糊匹配功能。如上所示，已经基本实现了一个爬虫的雏形。但是实际运行过程中，大约爬取两千个词条左右就会报错，应该是百度的反爬虫功能导致的。下面应该添加异常处理。然后再添加输出功能。</p>
-<h4 id="四、爬虫-Version-3-0-初具雏形"><a href="#四、爬虫-Version-3-0-初具雏形" class="headerlink" title="四、爬虫 Version 3.0 初具雏形"></a>四、爬虫 Version 3.0 初具雏形</h4><p>基本实现了爬虫功能后，我尝试将上述代码进行重构,按照不同的功能分为Url管理器，网页下载器，网页解析器，输出器，总调度程度五个部分分开编写，即<a href="http://www.imooc.com/learn/563" target="_blank" rel="noopener">Python开发简单爬虫</a>中的架构。这样做的好处是将不同的功能模块分开管理，方便之后维护和代码的重用。最终，运行下面的<code>SpiderMain.py</code>程序，能够成功的下载1000个相关百度百科页面，并提取出其中的词条条目、词条简介、相关词条链接，最终输出到<code>datas.xlsx</code>文件中。<br><code>UrlManager.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL管理器</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 1.添加一个url</span></span><br><span class="line"><span class="comment"># 2.添加一批url</span></span><br><span class="line"><span class="comment"># 3.给出一个新的url</span></span><br><span class="line"><span class="comment"># 4.判断是否存在新的url</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">URL</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.oldurls = set()</span><br><span class="line">        self.newurls = set()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_url</span><span class="params">(self,url)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.oldurls:</span><br><span class="line">            self.newurls.add(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span><span class="params">(self,urls)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">           <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.oldurls:</span><br><span class="line">            self.newurls.add(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span><span class="params">(self)</span>:</span></span><br><span class="line">        url = self.newurls.pop()</span><br><span class="line">        self.oldurls.add(url)</span><br><span class="line">        <span class="keyword">return</span> url</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  len(self.newurls) != <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
+<h4 id="四、爬虫-Version-3-0-初具雏形"><a href="#四、爬虫-Version-3-0-初具雏形" class="headerlink" title="四、爬虫 Version 3.0 初具雏形"></a>四、爬虫 Version 3.0 初具雏形</h4><p>基本实现了爬虫功能后，我尝试将上述代码进行重构,按照不同的功能分为Url管理器，网页下载器，网页解析器，输出器，总调度程度五个部分分开编写，即<a target="_blank" rel="noopener" href="http://www.imooc.com/learn/563">Python开发简单爬虫</a>中的架构。这样做的好处是将不同的功能模块分开管理，方便之后维护和代码的重用。最终，运行下面的<code>SpiderMain.py</code>程序，能够成功的下载1000个相关百度百科页面，并提取出其中的词条条目、词条简介、相关词条链接，最终输出到<code>datas.xlsx</code>文件中。<br><code>UrlManager.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL管理器</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 1.添加一个url</span></span><br><span class="line"><span class="comment"># 2.添加一批url</span></span><br><span class="line"><span class="comment"># 3.给出一个新的url</span></span><br><span class="line"><span class="comment"># 4.判断是否存在新的url</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">URL</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.oldurls = set()</span><br><span class="line">        self.newurls = set()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_url</span>(<span class="params">self,url</span>):</span></span><br><span class="line">        <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.oldurls:</span><br><span class="line">            self.newurls.add(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span>(<span class="params">self,urls</span>):</span></span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">           <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.oldurls:</span><br><span class="line">            self.newurls.add(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span>(<span class="params">self</span>):</span></span><br><span class="line">        url = self.newurls.pop()</span><br><span class="line">        self.oldurls.add(url)</span><br><span class="line">        <span class="keyword">return</span> url</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span>  len(self.newurls) != <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p><code>HtmlDownloader.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网页下载器</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 给定一个url：</span></span><br><span class="line"><span class="comment"># 1.下载页面，判断是否下载成功，返回页面内容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DOWNLOAD</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(self,url)</span>:</span></span><br><span class="line">        response = urllib2.urlopen(url)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> response.getcode() != <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> response.read()</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网页下载器</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 给定一个url：</span></span><br><span class="line"><span class="comment"># 1.下载页面，判断是否下载成功，返回页面内容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DOWNLOAD</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">self,url</span>):</span></span><br><span class="line">        response = urllib2.urlopen(url)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> response.getcode() != <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> response.read()</span><br></pre></td></tr></table></figure>
 <p><code>HtmlParser.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网页解析器</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 给定网页内容：</span></span><br><span class="line"><span class="comment"># 1.解析出网页的所有百科词条链接，并拼接成完整链接，封装成一个list</span></span><br><span class="line"><span class="comment"># 2.解析出网页的词条名及词条简介</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PARSER</span><span class="params">(object)</span>:</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_urls</span><span class="params">(self,soup)</span>:</span></span><br><span class="line">        newurls = set()</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> soup.find_all(<span class="string">'a'</span>,href=re.compile(<span class="string">r"/item/"</span>)):  </span><br><span class="line">            url = <span class="string">"https://baike.baidu.com"</span>+item[<span class="string">'href'</span>]</span><br><span class="line">            newurls.add(url)</span><br><span class="line">        <span class="keyword">return</span> newurls</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_data</span><span class="params">(self,url,soup)</span>:</span></span><br><span class="line">        newdata = &#123;&#125;</span><br><span class="line">        newdata[<span class="string">'url'</span>] = url</span><br><span class="line">        newdata[<span class="string">'item'</span>] = soup.h1.string</span><br><span class="line">        newdata[<span class="string">'urls'</span>] = len(self.get_new_urls(soup))</span><br><span class="line">        summary_node = soup.find(<span class="string">'div'</span>, class_=<span class="string">'lemma-summary'</span>)</span><br><span class="line">        newdata[<span class="string">'summary'</span>] = summary_node.get_text()</span><br><span class="line">        <span class="keyword">return</span> newdata</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parser</span><span class="params">(self,url,page)</span>:</span></span><br><span class="line">        soup = bs4.BeautifulSoup(page,<span class="string">'html.parser'</span>,from_encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        newurls = self.get_new_urls(soup)</span><br><span class="line">        newdata = self.get_new_data(url,soup)</span><br><span class="line">        <span class="keyword">return</span> newurls,newdata</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网页解析器</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 给定网页内容：</span></span><br><span class="line"><span class="comment"># 1.解析出网页的所有百科词条链接，并拼接成完整链接，封装成一个list</span></span><br><span class="line"><span class="comment"># 2.解析出网页的词条名及词条简介</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PARSER</span>(<span class="params">object</span>):</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_urls</span>(<span class="params">self,soup</span>):</span></span><br><span class="line">        newurls = set()</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> soup.find_all(<span class="string">&#x27;a&#x27;</span>,href=re.compile(<span class="string">r&quot;/item/&quot;</span>)):  </span><br><span class="line">            url = <span class="string">&quot;https://baike.baidu.com&quot;</span>+item[<span class="string">&#x27;href&#x27;</span>]</span><br><span class="line">            newurls.add(url)</span><br><span class="line">        <span class="keyword">return</span> newurls</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_data</span>(<span class="params">self,url,soup</span>):</span></span><br><span class="line">        newdata = &#123;&#125;</span><br><span class="line">        newdata[<span class="string">&#x27;url&#x27;</span>] = url</span><br><span class="line">        newdata[<span class="string">&#x27;item&#x27;</span>] = soup.h1.string</span><br><span class="line">        newdata[<span class="string">&#x27;urls&#x27;</span>] = len(self.get_new_urls(soup))</span><br><span class="line">        summary_node = soup.find(<span class="string">&#x27;div&#x27;</span>, class_=<span class="string">&#x27;lemma-summary&#x27;</span>)</span><br><span class="line">        newdata[<span class="string">&#x27;summary&#x27;</span>] = summary_node.get_text()</span><br><span class="line">        <span class="keyword">return</span> newdata</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parser</span>(<span class="params">self,url,page</span>):</span></span><br><span class="line">        soup = bs4.BeautifulSoup(page,<span class="string">&#x27;html.parser&#x27;</span>,from_encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        newurls = self.get_new_urls(soup)</span><br><span class="line">        newdata = self.get_new_data(url,soup)</span><br><span class="line">        <span class="keyword">return</span> newurls,newdata</span><br></pre></td></tr></table></figure>
 <p><code>HtmlOutputer.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出器</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 1.收集每次下载后的数据</span></span><br><span class="line"><span class="comment"># 2.最后一次性输出到一个xslx文件中</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> openpyxl</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OUTPUT</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.datas = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">collect_data</span><span class="params">(self,data)</span>:</span></span><br><span class="line">        self.datas.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output</span><span class="params">(self)</span>:</span></span><br><span class="line">        wb = openpyxl.Workbook()</span><br><span class="line">        ws = wb.active</span><br><span class="line">        ws[<span class="string">'A1'</span>] = <span class="string">'num'</span></span><br><span class="line">        ws[<span class="string">'B1'</span>] = <span class="string">'url'</span></span><br><span class="line">        ws[<span class="string">'C1'</span>] = <span class="string">'item'</span></span><br><span class="line">        ws[<span class="string">'D1'</span>] = <span class="string">'urls'</span></span><br><span class="line">        ws[<span class="string">'E1'</span>] = <span class="string">'summary'</span></span><br><span class="line">        <span class="keyword">for</span> n,data <span class="keyword">in</span> enumerate(self.datas):</span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">1</span>).value = n+<span class="number">1</span></span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">2</span>).value = data[<span class="string">'url'</span>]</span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">3</span>).value = data[<span class="string">'item'</span>]</span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">4</span>).value = data[<span class="string">'urls'</span>]</span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">5</span>).value = data[<span class="string">'summary'</span>]</span><br><span class="line">        wb.save(<span class="string">'datas.xlsx'</span>)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出器</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 1.收集每次下载后的数据</span></span><br><span class="line"><span class="comment"># 2.最后一次性输出到一个xslx文件中</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> openpyxl</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OUTPUT</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.datas = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">collect_data</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.datas.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output</span>(<span class="params">self</span>):</span></span><br><span class="line">        wb = openpyxl.Workbook()</span><br><span class="line">        ws = wb.active</span><br><span class="line">        ws[<span class="string">&#x27;A1&#x27;</span>] = <span class="string">&#x27;num&#x27;</span></span><br><span class="line">        ws[<span class="string">&#x27;B1&#x27;</span>] = <span class="string">&#x27;url&#x27;</span></span><br><span class="line">        ws[<span class="string">&#x27;C1&#x27;</span>] = <span class="string">&#x27;item&#x27;</span></span><br><span class="line">        ws[<span class="string">&#x27;D1&#x27;</span>] = <span class="string">&#x27;urls&#x27;</span></span><br><span class="line">        ws[<span class="string">&#x27;E1&#x27;</span>] = <span class="string">&#x27;summary&#x27;</span></span><br><span class="line">        <span class="keyword">for</span> n,data <span class="keyword">in</span> enumerate(self.datas):</span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">1</span>).value = n+<span class="number">1</span></span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">2</span>).value = data[<span class="string">&#x27;url&#x27;</span>]</span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">3</span>).value = data[<span class="string">&#x27;item&#x27;</span>]</span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">4</span>).value = data[<span class="string">&#x27;urls&#x27;</span>]</span><br><span class="line">            ws.cell(row = n+<span class="number">2</span>, column = <span class="number">5</span>).value = data[<span class="string">&#x27;summary&#x27;</span>]</span><br><span class="line">        wb.save(<span class="string">&#x27;datas.xlsx&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p><code>SpiderMain.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 爬虫总调度程序：</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 1.要求用户输入一个关键词，将关键词拼接成百度百科链接</span></span><br><span class="line"><span class="comment"># 2.将第一个链接传入新链接集合</span></span><br><span class="line"><span class="comment"># 3.循环：判断是否存在新链接——获取一个新链接——用下载器下载该链接——将下载的内容传给解析器——</span></span><br><span class="line"><span class="comment">#   将返回的链接传给URL管理器——将返回的数据传给输出器</span></span><br><span class="line"><span class="comment"># 4.输出文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入上面四个模块</span></span><br><span class="line"><span class="keyword">import</span> UrlManager,HtmlDownloader,HtmlParser,HtmlOutputer</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SPIDER</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.URL = UrlManager.URL()</span><br><span class="line">        self.DOWNLOAD = HtmlDownloader.DOWNLOAD()</span><br><span class="line">        self.PARSER = HtmlParser.PARSER()</span><br><span class="line">        self.OUTPUT = HtmlOutputer.OUTPUT()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">crawler</span><span class="params">(self,root_url)</span>:</span></span><br><span class="line">        self.URL.add_new_url(root_url) <span class="comment">#把第一个链接放入新链接集合</span></span><br><span class="line">        count = <span class="number">1</span> <span class="comment">#定义计数器</span></span><br><span class="line">        <span class="keyword">while</span> self.URL.has_new_url(): <span class="comment">#判断是否存在新链接</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                url = self.URL.get_new_url() <span class="comment">#提取一个新链接</span></span><br><span class="line">                <span class="keyword">print</span> <span class="string">'Crawl %d %s'</span> %(count,url)</span><br><span class="line">                page = self.DOWNLOAD.download(url) <span class="comment">#把链接传递给下载器下载，并返回网页内容</span></span><br><span class="line">                <span class="comment">#把网页内容传递给解析器，返回新链接集合以及所需数据</span></span><br><span class="line">                newurls,newdata = self.PARSER.parser(url,page) </span><br><span class="line">                self.URL.add_new_urls(newurls) <span class="comment">#把新链接结合传递给Url管理器添加</span></span><br><span class="line">                self.OUTPUT.collect_data(newdata) <span class="comment">#把数据传递给输出器保存</span></span><br><span class="line">                <span class="keyword">if</span> count == <span class="number">1000</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                count = count + <span class="number">1</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'Crawl failed!'</span></span><br><span class="line"></span><br><span class="line">        self.OUTPUT.output() <span class="comment">#写文件</span></span><br><span class="line"></span><br><span class="line">keyword = raw_input(<span class="string">"Please input a English word you want to research: "</span>)   </span><br><span class="line">root_url = <span class="string">r'https://baike.baidu.com/item/'</span>+keyword</span><br><span class="line">mycrawler = SPIDER()</span><br><span class="line">mycrawler.crawler(root_url)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 爬虫总调度程序：</span></span><br><span class="line"><span class="comment"># 要实现的功能：</span></span><br><span class="line"><span class="comment"># 1.要求用户输入一个关键词，将关键词拼接成百度百科链接</span></span><br><span class="line"><span class="comment"># 2.将第一个链接传入新链接集合</span></span><br><span class="line"><span class="comment"># 3.循环：判断是否存在新链接——获取一个新链接——用下载器下载该链接——将下载的内容传给解析器——</span></span><br><span class="line"><span class="comment">#   将返回的链接传给URL管理器——将返回的数据传给输出器</span></span><br><span class="line"><span class="comment"># 4.输出文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入上面四个模块</span></span><br><span class="line"><span class="keyword">import</span> UrlManager,HtmlDownloader,HtmlParser,HtmlOutputer</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SPIDER</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.URL = UrlManager.URL()</span><br><span class="line">        self.DOWNLOAD = HtmlDownloader.DOWNLOAD()</span><br><span class="line">        self.PARSER = HtmlParser.PARSER()</span><br><span class="line">        self.OUTPUT = HtmlOutputer.OUTPUT()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">crawler</span>(<span class="params">self,root_url</span>):</span></span><br><span class="line">        self.URL.add_new_url(root_url) <span class="comment">#把第一个链接放入新链接集合</span></span><br><span class="line">        count = <span class="number">1</span> <span class="comment">#定义计数器</span></span><br><span class="line">        <span class="keyword">while</span> self.URL.has_new_url(): <span class="comment">#判断是否存在新链接</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                url = self.URL.get_new_url() <span class="comment">#提取一个新链接</span></span><br><span class="line">                <span class="keyword">print</span> <span class="string">&#x27;Crawl %d %s&#x27;</span> %(count,url)</span><br><span class="line">                page = self.DOWNLOAD.download(url) <span class="comment">#把链接传递给下载器下载，并返回网页内容</span></span><br><span class="line">                <span class="comment">#把网页内容传递给解析器，返回新链接集合以及所需数据</span></span><br><span class="line">                newurls,newdata = self.PARSER.parser(url,page) </span><br><span class="line">                self.URL.add_new_urls(newurls) <span class="comment">#把新链接结合传递给Url管理器添加</span></span><br><span class="line">                self.OUTPUT.collect_data(newdata) <span class="comment">#把数据传递给输出器保存</span></span><br><span class="line">                <span class="keyword">if</span> count == <span class="number">1000</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                count = count + <span class="number">1</span></span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">print</span> <span class="string">&#x27;Crawl failed!&#x27;</span></span><br><span class="line"></span><br><span class="line">        self.OUTPUT.output() <span class="comment">#写文件</span></span><br><span class="line"></span><br><span class="line">keyword = raw_input(<span class="string">&quot;Please input a English word you want to research: &quot;</span>)   </span><br><span class="line">root_url = <span class="string">r&#x27;https://baike.baidu.com/item/&#x27;</span>+keyword</span><br><span class="line">mycrawler = SPIDER()</span><br><span class="line">mycrawler.crawler(root_url)</span><br></pre></td></tr></table></figure>
 <h4 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h4><ol>
 <li>练习了Python的基本语法，另外学习了几个写爬虫需要用到的库：<code>urllib2</code>——下载网页、<code>bs4</code>,<code>re</code>——解析网页、<code>openpyxl</code>——操作Excel文件。</li>
 <li>学习了爬虫的一种基本架构：把一个爬虫分为Url管理器、网页下载器、网页解析器、输出器、总调度程序五个部分。</li>
 <li>异常处理的思想：最开始是利用<code>if response.getcode() != 200:</code>这个语句简单判断一下网页下载是否成功。然后在总调度程序中，将主要的循环体用一个<code>try</code>语句包含起来，将一次循环的整个过程进行异常判断。其实在课程的源代码中，作者在每个模块的输入部分都加入了异常处理，判断输入为空时，应如何操作。我的代码中暂时没有加入这些。但是显然的，这些异常处理的语句让整个爬虫的容错率得到了提高。</li>
 </ol>
 
-      
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/07/01/learn-python/" rel="next" title="人生苦短，我学Python">
-                <i class="fa fa-chevron-left"></i> 人生苦短，我学Python
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/20/python2-7x-coding/" rel="prev" title="Python2.7x中的编码问题">
-                Python2.7x中的编码问题 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Axiuf">
-            
-              <p class="site-author-name" itemprop="name">Axiuf</p>
-              <p class="site-description motion-element" itemprop="description">Axiuf's personal website.</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">标签</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、拟定需求"><span class="nav-text">一、拟定需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、爬虫-Version-1-0-单次下载"><span class="nav-text">二、爬虫 Version 1.0 单次下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、爬虫-Version-2-0-实现循环"><span class="nav-text">三、爬虫 Version 2.0 实现循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、爬虫-Version-3-0-初具雏形"><span class="nav-text">四、爬虫 Version 3.0 初具雏形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、总结"><span class="nav-text">五、总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\07\01\learn-python\" rel="bookmark">人生苦短，我学Python</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\10\20\python2-7x-coding\" rel="bookmark">Python2.7x中的编码问题</a></div>
+    </li>
+  </ul>
 
         
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Axiuf</span>
-
-  
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Axiuf
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/08/19/first-crawler-baidubaike/" title="Python爬虫初探——爬取百度百科词条">http://yoursite.com/2019/08/19/first-crawler-baidubaike/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
-
-
-
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"># 爬虫</a>
+          </div>
 
         
 
 
-
-
-
-
-
         
-      </div>
-    </footer>
-
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/07/01/learn-python/" rel="prev" title="人生苦短，我学Python">
+      <i class="fa fa-chevron-left"></i> 人生苦短，我学Python
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/20/python2-7x-coding/" rel="next" title="Python2.7x中的编码问题">
+      Python2.7x中的编码问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
+  </article>
+  
+  
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%8B%9F%E5%AE%9A%E9%9C%80%E6%B1%82"><span class="nav-text">一、拟定需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%88%AC%E8%99%AB-Version-1-0-%E5%8D%95%E6%AC%A1%E4%B8%8B%E8%BD%BD"><span class="nav-text">二、爬虫 Version 1.0 单次下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%88%AC%E8%99%AB-Version-2-0-%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF"><span class="nav-text">三、爬虫 Version 2.0 实现循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%88%AC%E8%99%AB-Version-3-0-%E5%88%9D%E5%85%B7%E9%9B%8F%E5%BD%A2"><span class="nav-text">四、爬虫 Version 3.0 初具雏形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-text">五、总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Axiuf"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Axiuf</p>
+  <div class="site-description" itemprop="description">Axiuf's personal website.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Axiuf" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Axiuf" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cheng-shan-69" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cheng-shan-69" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Axiuf</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">31k</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
 
 
 
 
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -643,113 +454,10 @@
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
 
 
   
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
 
   
 
