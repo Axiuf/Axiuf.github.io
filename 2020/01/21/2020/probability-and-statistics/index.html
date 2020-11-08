@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"axiuf.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":280,"display":"hide","padding":28,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2019年秋冬学期《概率论与数理统计》上课笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论与数理统计-笔记">
+<meta property="og:url" content="https://axiuf.github.io/2020/01/21/2020/probability-and-statistics/index.html">
+<meta property="og:site_name" content="进化史">
+<meta property="og:description" content="2019年秋冬学期《概率论与数理统计》上课笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-21T11:59:57.000Z">
+<meta property="article:modified_time" content="2020-11-08T14:12:43.014Z">
+<meta property="article:author" content="Axiuf">
+<meta property="article:tag" content="统计">
+<meta property="article:tag" content="概率论">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://axiuf.github.io/2020/01/21/2020/probability-and-statistics/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>概率论与数理统计-笔记 | 进化史</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">进化史</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://axiuf.github.io/2020/01/21/2020/probability-and-statistics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Axiuf">
+      <meta itemprop="description" content="Axiuf's personal website.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="进化史">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          概率论与数理统计-笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-21 19:59:57" itemprop="dateCreated datePublished" datetime="2020-01-21T19:59:57+08:00">2020-01-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>2019年秋冬学期《概率论与数理统计》上课笔记。</p>
+<a id="more"></a>
+
+<h3 id="第一章-概率论的基本概念"><a href="#第一章-概率论的基本概念" class="headerlink" title="第一章 概率论的基本概念"></a>第一章 概率论的基本概念</h3><h4 id="1-1-样本空间和随机事件"><a href="#1-1-样本空间和随机事件" class="headerlink" title="1.1 样本空间和随机事件"></a>1.1 样本空间和随机事件</h4><p><strong>随机试验：</strong> 对随机现象作一次观察（或记录、或试验）称为随机试验。<br>1）可以在相同的条件下重复进行。<br>2）每次试验可能出现的结果是不确定的， 但是事先能知道试验的所有可能的结果。<br><strong>基本事件：</strong> 只含有一个样本点的子集称为基本事件。<strong>基本事件两两不相容（积事件为空集，即互斥）。</strong><br>理解样本空间与随机事件，事件间的关系与运算，用 <strong><em>集合论</em></strong> 即可。<br><strong>德摩根定律：</strong> （注意理解及灵活运用）<br>$$\overline {\bigcup_{j=1}^n A_j} = \bigcap_{j=1}^n \overline A_j&emsp;&emsp;\overline {\bigcap_{j=1}^n A_j} = \bigcup_{j=1}^n \overline A_j$$</p>
+<h4 id="1-2-频率与概率"><a href="#1-2-频率与概率" class="headerlink" title="1.2 频率与概率"></a>1.2 频率与概率</h4><p><strong>注意概率的加法公式及其推广。</strong></p>
+<h4 id="1-3-等可能概型"><a href="#1-3-等可能概型" class="headerlink" title="1.3 等可能概型"></a>1.3 等可能概型</h4><p>即古典概型，注意 <strong>排列组合</strong> 的计算问题（多熟悉两个公式）。<br><strong>抽签问题：</strong> （不放回抽样，记住结论）从含有$a$个红球和$b$个白球的共$n$个球中每次随机抽取一个球，并且不放回，第$k$次抽取抽到红球的概率与第$1$次相同，与$k$无关。</p>
+<h4 id="1-4-条件概率"><a href="#1-4-条件概率" class="headerlink" title="1.4 条件概率"></a>1.4 条件概率</h4><p><strong>条件概率：</strong> （区分条件概率和积事件，特别是题干中表述模糊的时候要仔细判别。）$$P(A|B) = \frac{P(AB)}{P(B)}$$<br><strong>条件概率的乘法公式：</strong> （已知条件概率求积事件。）$$P(AB) = P(A) \cdot P(B|A) = P(B) \cdot P(A|B)$$<br><strong><em>全概率公式：</em></strong> （直接计算事件A的概率比较困难，通过与之密切相关的事件B的条件概率来求A。应用全概率公式时，要仔细判断题设条件，以及完备事件组的划分。另外在与前面的事件计算结合起来时，要特别注意全概率公式得到的概率的实际适用情况。）$$P(A) = P(AB) + P(A\overline B) = P(B) \cdot P(A|B) + P(\overline B) \cdot P(A|\overline B)$$<br><strong><em>贝叶斯公式：</em></strong> （先验概率和后验概率。）$$P(B_k|A) = \frac{P(B_kA)}{P(A)} = \frac{P(B_k)P(A|B_k)}{\sum_{j=1}^nP(B_j)P(A|B_j)}$$</p>
+<h4 id="1-5-事件的独立性和独立实验"><a href="#1-5-事件的独立性和独立实验" class="headerlink" title="1.5 事件的独立性和独立实验"></a>1.5 事件的独立性和独立实验</h4><p>注意理解相互独立的事件和不相容事件的差别。可以把独立事件看作存在于不同的两个样本空间中的事件，其没有交集也互不影响，不相容事件存在于相同的样本空间但没有交集。<br>实际中独立事件的判定不依赖于公式的定义，而是根据具体的情况来判断。</p>
+<h3 id="第二章-随机变量及其概率分布"><a href="#第二章-随机变量及其概率分布" class="headerlink" title="第二章 随机变量及其概率分布"></a>第二章 随机变量及其概率分布</h3><h4 id="2-1-随机变量"><a href="#2-1-随机变量" class="headerlink" title="2.1 随机变量"></a>2.1 随机变量</h4><p><strong>随机变量：</strong> 随机变量$X = X(e)$为定义在样本空间$S = \lbrace e \rbrace$上的实值单值函数。</p>
+<h4 id="2-2-离散型随机变量"><a href="#2-2-离散型随机变量" class="headerlink" title="2.2 离散型随机变量"></a>2.2 离散型随机变量</h4><p><strong>离散型随机变量：</strong> 随机变量的取值为有限个或者可列个值。<br><strong>离散型随机变量的概率分布律：</strong> 列出随机变量每种可能的取值出现的概率。<br><strong>1. 0 - 1 分布</strong><br>可以看作$n=1$的二项分布。关键参数：$X$取值为$1$的概率$p$。</p>
+<p><strong>2. 二项分布</strong><br>$n$重伯努利实验：在n次独立重复实验中，每次实验都只有两种结果，且每次实验中他们发生的概率不变。关键参数：实验总次数$n$以及单次实验事件发生的概率$p$。利用前述等可能概型理解。</p>
+<p><strong>3. 泊松分布</strong><br>用来计算小概率事件的发生次数的概率分布。关键参数：$\lambda = np$。二项分布的近似分布。当二项分布的参数$n$足够大、$p$足够小，$np$适当，可利用泊松分布近似描述二项分布。实际计算时，二项分布连乘项太多，泊松分布计算更为方便。</p>
+<p><strong>4.其他</strong><br>超几何分布：不放回抽样的概率分布。<br>几何分布：$n$重伯努利实验中，描述某种可能的结果首次发生时的实验次数的概率分布。</p>
+<h4 id="2-3-随机变量的概率分布函数"><a href="#2-3-随机变量的概率分布函数" class="headerlink" title="2.3 随机变量的概率分布函数"></a>2.3 随机变量的概率分布函数</h4><p><strong>概率分布函数是累计概率函数。</strong></p>
+<h4 id="2-4-连续型随机变量"><a href="#2-4-连续型随机变量" class="headerlink" title="2.4 连续型随机变量"></a>2.4 连续型随机变量</h4><p><strong>理解概率密度函数。</strong><br><strong>1. 均匀分布</strong><br>均匀分布在每个点处取值的概率相同，即密度函数为常数，分布函数为关于$x$的线性函数。</p>
+<p><strong>2. 正态分布</strong><br>最重要的概率分布。关键参数：位置参数（均数）$\mu$、尺度参数（方差）$\sigma^2$。<br>原始正态变量$Z$变换后服从标准正态分布，参数确定，分布已知。</p>
+<p><strong>3. 指数分布</strong><br>准确理解指数分布的无记忆性：若$X \sim E(\lambda), P\lbrace X &gt; t_0 + t | X &gt; t_0\rbrace = P\lbrace X &gt; t \rbrace$。<br>或者$P\lbrace X &gt; t_0 + t \rbrace = P\lbrace X &gt; t_0 \rbrace \cdot P\lbrace X &gt; t \rbrace$。</p>
+<h4 id="2-5-随机变量函数的分布"><a href="#2-5-随机变量函数的分布" class="headerlink" title="2.5 随机变量函数的分布"></a>2.5 随机变量函数的分布</h4><p><strong>本质是找等价事件，求等价事件的概率。</strong></p>
+<h3 id="第三章-多元随机变量及其分布"><a href="#第三章-多元随机变量及其分布" class="headerlink" title="第三章 多元随机变量及其分布"></a>第三章 多元随机变量及其分布</h3><h4 id="3-1-二元离散型随机变量"><a href="#3-1-二元离散型随机变量" class="headerlink" title="3.1 二元离散型随机变量"></a>3.1 二元离散型随机变量</h4><p><strong>注意联合分布，边际分布，条件分布的概念。</strong></p>
+<h4 id="3-2-二元随机变量的分布函数"><a href="#3-2-二元随机变量的分布函数" class="headerlink" title="3.2 二元随机变量的分布函数"></a>3.2 二元随机变量的分布函数</h4><p><strong>各种分布函数均为累积概率函数。</strong></p>
+<h4 id="3-3-二元连续型随机变量"><a href="#3-3-二元连续型随机变量" class="headerlink" title="3.3 二元连续型随机变量"></a>3.3 二元连续型随机变量</h4><p><strong>注意偏微分和重积分的计算！！！</strong></p>
+<h4 id="3-4-随机变量的独立性"><a href="#3-4-随机变量的独立性" class="headerlink" title="3.4 随机变量的独立性"></a>3.4 随机变量的独立性</h4><p>$$f(x, y) = f_X(x) \cdot f_Y(y)$$</p>
+<h4 id="3-5-二元随机变量函数的分布"><a href="#3-5-二元随机变量函数的分布" class="headerlink" title="3.5 二元随机变量函数的分布"></a>3.5 二元随机变量函数的分布</h4><ol>
+<li>$Z = X + Y$的分布<br> 利用积分变换来解决。</li>
+<li>$M = max(X, Y), N = min(X, Y)$的分布。<br> 利用第一章中事件的关系和运算来解决。</li>
+</ol>
+<p><strong>这一章很多微积分的计算问题，包括分部积分法等要重新熟悉起来。</strong></p>
+<h3 id="第四章-随机变量的数字特征"><a href="#第四章-随机变量的数字特征" class="headerlink" title="第四章 随机变量的数字特征"></a>第四章 随机变量的数字特征</h3><h4 id="4-1-数学期望"><a href="#4-1-数学期望" class="headerlink" title="4.1 数学期望"></a>4.1 数学期望</h4><p><strong>极限的计算问题。</strong><br>$$E(X) = \int_{-\infty}^{+\infty} xf(x)dx$$<br><strong>数学期望的性质：</strong><br>计算多个随机变量的一次方程的函数的期望时，各随机变量的系数与对应的随机变量的期望相乘，常数项单独提出后相加。多个相互独立的随机变量乘积的数学期望等于它们数学期望的乘积。</p>
+<h4 id="4-2-方差、变异系数"><a href="#4-2-方差、变异系数" class="headerlink" title="4.2 方差、变异系数"></a>4.2 方差、变异系数</h4><p><strong>方差的定义及计算公式：</strong> $$Var(X) = E[(X - E(X))^2]&emsp;&emsp;Var(X) = E(X^2) - (E(X))^2$$<br><strong>方差的性质：</strong><br>$Var(cX) = c^2Var(X)$&emsp;&emsp;$Var(X + c) = Var(X)$<br>多个随机变量和的方差等于方差的和。<br><strong>标准化变量：</strong> $$X^* = \frac{X - E(X)}{\sqrt{Var(X)}}$$<br><strong>变异系数：</strong> $$C_v = \frac{\sqrt{Var(X)}}{E(X)}$$</p>
+<h4 id="4-3-协方差与相关系数"><a href="#4-3-协方差与相关系数" class="headerlink" title="4.3 协方差与相关系数"></a>4.3 协方差与相关系数</h4><p><strong>协方差的定义及计算公式：</strong> $$Cov(X, Y) = E[(X - E(X))(Y - E(Y))]&emsp;&emsp;Cov(X, Y) = E(XY) - E(X)E(Y)$$<br><strong>协方差的性质：</strong><br>$Cov(X, Y) = Cov(Y, X)$&emsp;&emsp;$Cov(X, X) = Var(X)$<br>$Cov(aX, bY) = abCov(X, Y)$&emsp;&emsp;$Cov(X_1 + X_2, Y) = Cov(X_1, Y) + Cov(X_2, Y)$<br><strong>相关系数：</strong> $$\rho_{XY} = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}$$<br><strong>不相关的判定、相关与独立的区别。</strong></p>
+<h4 id="4-4-其他数字特征"><a href="#4-4-其他数字特征" class="headerlink" title="4.4 其他数字特征"></a>4.4 其他数字特征</h4><p><strong>矩的定义，中心矩和原点矩的差别。</strong><br><strong>分位数的定义，$x_{\alpha}$代表的是分位线以上的部分。</strong></p>
+<h4 id="4-5-多元随机变量的数字特征"><a href="#4-5-多元随机变量的数字特征" class="headerlink" title="4.5 多元随机变量的数字特征"></a>4.5 多元随机变量的数字特征</h4><p><strong>多元随机变量的数学期望与协方差矩阵：</strong><br>多元随机变量的协方差阵对角线上的元素是各分量的方差，非对角线元素是协方差。<br><strong>多元正态随机变量：</strong><br>多元正态变量中的任意$k$元子向量，各分量的任意线性组合，多个线性组合组成的新的多元变量均服从对应的正态分布。</p>
+<h3 id="第五章-大数定律及中心极限定理"><a href="#第五章-大数定律及中心极限定理" class="headerlink" title="第五章 大数定律及中心极限定理"></a>第五章 大数定律及中心极限定理</h3><h4 id="5-1-大数定律"><a href="#5-1-大数定律" class="headerlink" title="5.1 大数定律"></a>5.1 大数定律</h4><p><strong>理解依概率收敛的定义。</strong> 这个很重要，后面很多概念需要对依概率收敛的理解。</p>
+<p><strong>马尔可夫不等式和切比雪夫不等式：</strong> 马尔可夫不等式提供了随机变量在某个界值处的概率与该随机变量$k$阶原点矩的关系。<br>切比雪夫不等式是马尔可夫不等式取$k = 2$的特殊情况，其重要性在于，不管随机变量的具体分布是什么，只要已知其期望和方差，就可以给出其落入某个界值内的概率估计。</p>
+<p><strong>弱大数定律（大数定律）：</strong> 对任一随机变量的序列，其均值依概率收敛于一常数序列（或常数）。</p>
+<p><strong>伯努利大数定律：</strong> $n$重伯努利实验中，事件$A$发生的次数为$n_A$，则$\frac{n_A}n$依概率收敛于单次事件发生的概率$p$。</p>
+<p><strong>辛钦大数定律：</strong> 独立同分布的随机变量序列的均值依概率收敛于原分布的期望。</p>
+<h4 id="5-2-中心极限定理"><a href="#5-2-中心极限定理" class="headerlink" title="5.2 中心极限定理"></a>5.2 中心极限定理</h4><p><strong>独立同分布的情形：</strong><br>数学期望为$\mu$，方差为$\sigma^2$的独立同分布的随机变量的部分和的标准化变量近似服从标准正态分布。<br>由棣莫弗-拉普拉斯中心极限定理，$n$充分大时，二项分布$B(n, p)$可用正态分布$N(np, np(1 - p))$来逼近。<br><strong>注意独立不同分布的情形。</strong></p>
+<h3 id="第六章-统计量及抽样分布"><a href="#第六章-统计量及抽样分布" class="headerlink" title="第六章 统计量及抽样分布"></a>第六章 统计量及抽样分布</h3><h4 id="6-1-随机样本与统计量"><a href="#6-1-随机样本与统计量" class="headerlink" title="6.1 随机样本与统计量"></a>6.1 随机样本与统计量</h4><p><strong>简单随机样本的定义。</strong> 简单随机样本可以看成是独立同分布的随机变量。<br><strong>统计量</strong> 是样本的函数，不含有未知参数。<br>特别注意样本方差（修正样本方差，注意到其与总体方差，或者是二阶中心矩定义的区别）的定义，分母为$n-1$，根据这个公式计算得到的统计量是总体方差的无偏估计。 <a target="_blank" rel="noopener" href="https://blog.csdn.net/hearthougan/article/details/77859173">彻底理解样本方差为何除以$n-1$。</a></p>
+<h4 id="6-2-chi-2-分布，-t-分布，-F-分布"><a href="#6-2-chi-2-分布，-t-分布，-F-分布" class="headerlink" title="6.2 $\chi^2$分布，$t$分布，$F$分布"></a>6.2 $\chi^2$分布，$t$分布，$F$分布</h4><p><strong>统计量的分布称为抽样分布。</strong> （一次抽样可以计算得到统计量的一个值，多次抽样可以得到统计量的多个值，这些值的分布情况就是抽样分布。）<br>一下三种分布都是人为构造的分布，重点理解三种分布的定义。</p>
+<p><strong>$\chi^2$分布</strong> 设$X_1, X_2, …, X_n$为独立同分布的随机变量，且都服从$N(0, 1)$。记$Y = X_1^2 + X_2^2 + … + X_n^2$，则称$Y$服从自由度为$n$的$\chi^2$分布，记为$Y \sim \chi^2(n)$。</p>
+<p><strong>$t$分布</strong> 设$X \sim N(0, 1)$，$Y \sim \chi^2(n)$，且$X$与$Y$相互独立，则称随机变量$t = \frac{X}{\sqrt{Y/n}}$服从自由度为$n$的$t$分布，记为$t \sim t(n)$。</p>
+<p><strong>$F$分布</strong> 设$U \sim \chi^2(n_1)$，$V \sim \chi^2(n_2)$，并且$U$与$V$相互独立，则称随机变量$F = \frac{U/n_1}{V/n_2}$服从自由度为$(n_1, n_2)$的$F$分布，记为$F \sim F(n_1, n_2)$。</p>
+<p><strong>三种分布另各有一些非常好的性质，要注意记住并灵活运用。</strong></p>
+<h4 id="6-3-正态总体下的抽样分布"><a href="#6-3-正态总体下的抽样分布" class="headerlink" title="6.3 正态总体下的抽样分布"></a>6.3 正态总体下的抽样分布</h4><p>来自正态总体的样本统计量的抽样分布具有很完美的结果，这为后面经典数理统计的参数估计和假设检验奠定了坚实的基础，有大量的应用是基于这些性质。下面给出具体描述。<br>来自正态总体$N(\mu, \sigma^2)$的简单随机样本的样本均值$\overline X$有$\overline X \sim N(\mu, \frac{\sigma^2}n)$，样本方差$S^2$有$\frac{(n - 1)S^2}{\sigma^2} \sim \chi^2(n - 1)$，且$\overline X$与$S^2$互相独立，另有$\frac{\overline X - \mu}{S / \sqrt n} \sim t(n - 1)$（可以作为总体方差未知，样本方差已知时均值的标准化变量）。另来自两正态总体的两个相互独立的简单随机样本，样本方差/总体方差的比值服从$F$分布，均值之差也有对应的$t$分布。</p>
+<h3 id="第七章-参数估计"><a href="#第七章-参数估计" class="headerlink" title="第七章 参数估计"></a>第七章 参数估计</h3><p><strong>参数估计：</strong> 总体的参数未知，需要由样本的统计量对其给出估计。<br>参数估计分为两类：点估计和区间估计。</p>
+<h4 id="7-1-点估计"><a href="#7-1-点估计" class="headerlink" title="7.1 点估计"></a>7.1 点估计</h4><p><strong>点估计</strong> 的基本思想：根据简单随机样本$X_1, …, X_n$，构建合适的统计量$\hat \theta$的函数，以此作为总体的参数$\theta$的点估计量。当给定样本的具体观测值$x_1, …, x_n$，可计算点估计值。<br>常用的点估计法有两种：矩法和最大似然法。</p>
+<h5 id="矩法估计"><a href="#矩法估计" class="headerlink" title="矩法估计"></a>矩法估计</h5><p><strong>矩法</strong> 由英国统计学家<em>Pearson</em>首先提出，基本思想：以样本矩估计总体矩，以样本矩的函数估计总体矩的函数。<br>主要理论依据：辛钦大数定律及其推论（样本容量足够大时，样本矩依概率收敛于相应的总体矩）。<br>矩法估计的基本步骤：</p>
+<ol>
+<li>求总体的前$m$阶矩关于待估计参数的函数（一般是原点矩，为了求解方便，也可以使用中心距）。</li>
+<li>解方程求得待估计参数关于总体的前$m$阶矩的函数（即把方程反过来）。</li>
+<li>以样本矩代替方程中的总体矩，相应的，得到的统计量视为原参数的矩估计。</li>
+</ol>
+<p><strong>用的最多的是一阶和二阶原点矩，一阶原点矩即为数学期望$E(X)$，由样本的均值可得，二阶原点矩即为$X^2$的期望$E(X^2)$，一般利用$Var(X) = E(X^2) - (E(X))^2$来求。</strong></p>
+<h5 id="最大似然法估计"><a href="#最大似然法估计" class="headerlink" title="最大似然法估计"></a>最大似然法估计</h5><p><strong>最大似然法</strong> 由德国数学家<em>Gauss</em>首先提出，由英国统计学家<em>R. A. Fisher</em>重新发现，基本思想：从总体中取得样本$X_1, …, X_n$的观测值为$x_1, …, x_n$这一事件发生的概率$L(\theta)$依赖于参数$\theta$，取$\theta$的估计值使得$L(\theta)$最大。<br>最大似然法估计的基本步骤：</p>
+<ol>
+<li>构建最大似然函数，设概率密度函数为$f(x, \theta)$。 $$L(\theta) = \prod_{i=1}^{n}f(x_i, \theta)$$</li>
+<li>求得最大似然函数取最大值时对应参数的取值。<br> <em>为了计算方便，一般对$L(\theta)$取对数，将等式右边连乘转换为加和，构建对数似然函数。<br> 对参数$\theta$求偏导（可能存在不止一个参数），求得使导函数为零时（此时原函数取得极值）对应参数的值，即为最大似然估计值。<br> 若$L(\theta)$对某个参数单调递增（减），则对应参数的最大似然估计值在边界取得。</em></li>
+</ol>
+<p>重点在于最大似然函数的构建。</p>
+<h4 id="7-2-估计量的评价标准"><a href="#7-2-估计量的评价标准" class="headerlink" title="7.2 估计量的评价标准"></a>7.2 估计量的评价标准</h4><p><strong>（一）无偏性准则</strong> 样本估计量的期望等于总体参数，称为无偏估计量。这里涉及到期望的计算，注意灵活运用之前的期望的性质。<br><strong>（二）有效性准则</strong> 对同一参数的两个不同统计量，方差小的那个更为有效。这里涉及到方差的计算，注意方差的性质。<br><strong>（三）均方误差准则</strong> 对同一参数的两个不同统计量，均方误差$E[(\hat \theta - \theta)^2]$小的较优。<br><strong>（四）相合性准则</strong> 统计量$\hat \theta$依概率收敛于参数$\theta$称之为相合估计量。这里注意与无偏性准则相区别，其实就是区别数学意义上的收敛和概率意义上的收敛。</p>
+<h4 id="7-3-区间估计"><a href="#7-3-区间估计" class="headerlink" title="7.3 区间估计"></a>7.3 区间估计</h4><p><strong>置信区间的定义。</strong><br><strong>枢轴量法求置信区间的思想。</strong> 构造样本$X_1, …, X_n$和参数$\theta$的函数$G(X_1, …, X_n; \theta)$，其分布完全已知，并且不依赖于参数$\theta$，则称$G$为枢轴量。在给定的概率区间（置信水平）内，求枢轴量的上下限，然后将参数分离，得到参数的上下限，即为参数的置信区间。  </p>
+<h4 id="7-4-正态总体参数的区间估计"><a href="#7-4-正态总体参数的区间估计" class="headerlink" title="7.4 正态总体参数的区间估计"></a>7.4 正态总体参数的区间估计</h4><p>枢轴量法的关键在于枢轴量的构造。上述6.3中描述了正态总体的抽样分布有很完美的结果，据此可以解决正态总体的区间估计问题。<br>这里要特别注意的是不同条件下枢轴量的选择，比如对单个正态总体的均值作区间估计，总体方差已知和未知的情况下选择的枢轴量是不同的。</p>
+<h4 id="7-5-非正态总体参数的区间估计"><a href="#7-5-非正态总体参数的区间估计" class="headerlink" title="7.5 非正态总体参数的区间估计"></a>7.5 非正态总体参数的区间估计</h4><p><strong>大样本法：</strong> 在样本容量比较大时，利用中心极限定理转化为正态分布下的求法。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02\07\2020\medical-statistics-by-r\" rel="bookmark">医学统计软件的应用（R语言）</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Axiuf
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://axiuf.github.io/2020/01/21/2020/probability-and-statistics/" title="概率论与数理统计-笔记">https://axiuf.github.io/2020/01/21/2020/probability-and-statistics/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%9F%E8%AE%A1/" rel="tag"># 统计</a>
+              <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" rel="tag"># 概率论</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/20/2019/python2-7x-coding/" rel="prev" title="Python2.7x中的编码问题">
+      <i class="fa fa-chevron-left"></i> Python2.7x中的编码问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/07/2020/medical-statistics-by-r/" rel="next" title="医学统计软件的应用（R语言）">
+      医学统计软件的应用（R语言） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">第一章 概率论的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E6%A0%B7%E6%9C%AC%E7%A9%BA%E9%97%B4%E5%92%8C%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.1 样本空间和随机事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E9%A2%91%E7%8E%87%E4%B8%8E%E6%A6%82%E7%8E%87"><span class="nav-text">1.2 频率与概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E7%AD%89%E5%8F%AF%E8%83%BD%E6%A6%82%E5%9E%8B"><span class="nav-text">1.3 等可能概型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="nav-text">1.4 条件概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7%E5%92%8C%E7%8B%AC%E7%AB%8B%E5%AE%9E%E9%AA%8C"><span class="nav-text">1.5 事件的独立性和独立实验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83"><span class="nav-text">第二章 随机变量及其概率分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-text">2.1 随机变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-text">2.2 离散型随机变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-text">2.3 随机变量的概率分布函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-text">2.4 连续型随机变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-text">2.5 随机变量函数的分布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%9A%E5%85%83%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E5%88%86%E5%B8%83"><span class="nav-text">第三章 多元随机变量及其分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E4%BA%8C%E5%85%83%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-text">3.1 二元离散型随机变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E4%BA%8C%E5%85%83%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-text">3.2 二元随机变量的分布函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E4%BA%8C%E5%85%83%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-text">3.3 二元连续型随机变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="nav-text">3.4 随机变量的独立性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-%E4%BA%8C%E5%85%83%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-text">3.5 二元随机变量函数的分布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-text">第四章 随机变量的数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%9B"><span class="nav-text">4.1 数学期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E6%96%B9%E5%B7%AE%E3%80%81%E5%8F%98%E5%BC%82%E7%B3%BB%E6%95%B0"><span class="nav-text">4.2 方差、变异系数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E5%8D%8F%E6%96%B9%E5%B7%AE%E4%B8%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0"><span class="nav-text">4.3 协方差与相关系数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-%E5%85%B6%E4%BB%96%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-text">4.4 其他数字特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-%E5%A4%9A%E5%85%83%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-text">4.5 多元随机变量的数字特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%8F%8A%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="nav-text">第五章 大数定律及中心极限定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-text">5.1 大数定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="nav-text">5.2 中心极限定理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E9%87%8F%E5%8F%8A%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83"><span class="nav-text">第六章 统计量及抽样分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-%E9%9A%8F%E6%9C%BA%E6%A0%B7%E6%9C%AC%E4%B8%8E%E7%BB%9F%E8%AE%A1%E9%87%8F"><span class="nav-text">6.1 随机样本与统计量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-chi-2-%E5%88%86%E5%B8%83%EF%BC%8C-t-%E5%88%86%E5%B8%83%EF%BC%8C-F-%E5%88%86%E5%B8%83"><span class="nav-text">6.2 $\chi^2$分布，$t$分布，$F$分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E4%B8%8B%E7%9A%84%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83"><span class="nav-text">6.3 正态总体下的抽样分布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1"><span class="nav-text">第七章 参数估计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="nav-text">7.1 点估计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9F%A9%E6%B3%95%E4%BC%B0%E8%AE%A1"><span class="nav-text">矩法估计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E6%B3%95%E4%BC%B0%E8%AE%A1"><span class="nav-text">最大似然法估计</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-%E4%BC%B0%E8%AE%A1%E9%87%8F%E7%9A%84%E8%AF%84%E4%BB%B7%E6%A0%87%E5%87%86"><span class="nav-text">7.2 估计量的评价标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1"><span class="nav-text">7.3 区间估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E5%8F%82%E6%95%B0%E7%9A%84%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1"><span class="nav-text">7.4 正态总体参数的区间估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-%E9%9D%9E%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E5%8F%82%E6%95%B0%E7%9A%84%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1"><span class="nav-text">7.5 非正态总体参数的区间估计</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Axiuf"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Axiuf</p>
+  <div class="site-description" itemprop="description">Axiuf's personal website.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Axiuf" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Axiuf" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cheng-shan-69" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cheng-shan-69" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Axiuf</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">31k</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

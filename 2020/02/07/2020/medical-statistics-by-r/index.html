@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"axiuf.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":280,"display":"hide","padding":28,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2019年冬学期《医学统计软件的应用（R语言）》笔记。持续更新。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="医学统计软件的应用（R语言）">
+<meta property="og:url" content="https://axiuf.github.io/2020/02/07/2020/medical-statistics-by-r/index.html">
+<meta property="og:site_name" content="进化史">
+<meta property="og:description" content="2019年冬学期《医学统计软件的应用（R语言）》笔记。持续更新。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-07T03:05:09.000Z">
+<meta property="article:modified_time" content="2020-11-08T14:12:32.539Z">
+<meta property="article:author" content="Axiuf">
+<meta property="article:tag" content="统计">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://axiuf.github.io/2020/02/07/2020/medical-statistics-by-r/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>医学统计软件的应用（R语言） | 进化史</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">进化史</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://axiuf.github.io/2020/02/07/2020/medical-statistics-by-r/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Axiuf">
+      <meta itemprop="description" content="Axiuf's personal website.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="进化史">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          医学统计软件的应用（R语言）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-07 11:05:09" itemprop="dateCreated datePublished" datetime="2020-02-07T11:05:09+08:00">2020-02-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>2019年冬学期《医学统计软件的应用（R语言）》笔记。<br>持续更新。</p>
+<a id="more"></a>
+
+<h3 id="第一部分-R语言的基本知识"><a href="#第一部分-R语言的基本知识" class="headerlink" title="第一部分 R语言的基本知识"></a>第一部分 R语言的基本知识</h3><h4 id="1-1-R语言的基本符号体系"><a href="#1-1-R语言的基本符号体系" class="headerlink" title="1.1 R语言的基本符号体系"></a>1.1 R语言的基本符号体系</h4><p>赋值：<code>&lt;-</code> 或者 <code>=</code>，常用的是左箭头，等号一般用在参数传递里。<br>基本运算：<code>+ - * /</code> 加减乘除，这里的除法不是整数除法，会取到小数点。<code>%</code> 不代表取余操作。<br>结果提示符：<code>&gt;</code> 命令行中代表运算结果。 注释：<code>#</code> 单个井号代表注释。<br>整数序列：<code>a : b</code> 返回a，b之间所有的整数。<br>对象（变量）命名：不能以数字开头，不能包含特殊字符，避免与保留字重复，大小写区别。定义新的变量时不用声明类型。<br>空值：<code>NULL</code></p>
+<h4 id="1-2-R语言的基本数据类型"><a href="#1-2-R语言的基本数据类型" class="headerlink" title="1.2 R语言的基本数据类型"></a>1.2 R语言的基本数据类型</h4><p>查看数据的类型：<code>typeof(变量)</code><br><strong>双整型：</strong> 双整型用来存储普通的数值型数据，可正可负，可大可小，可包含小数部分。是R语言中默认的数值类型。<br><strong>整型：</strong> 整型只包含整数部分，在计算机内部占用的存储空间比双整型小。定义整型时在整数后面加大写字母L，例如<code>2L</code>表示整型2。不然默认存储为双整型。<br>这里提到整型和双整型时，要注意到浮点计算误差，例如 <code>sqrt(2)^2 - 2</code> 的计算结果为 <code>4.440892e-16</code> 而不是零。<br><strong>字符串：</strong> 双引号包含的字符。<br><strong>逻辑型：</strong> <code>TRUE T</code> <code>FALSE F</code><br><strong>复数：</strong> 形如 <code>a + bi</code> 使用较少。<br><strong>原始向量：</strong> 存储数据的原始字节。使用较少。</p>
+<h4 id="1-3-R语言的数据结构"><a href="#1-3-R语言的数据结构" class="headerlink" title="1.3 R语言的数据结构"></a>1.3 R语言的数据结构</h4><h5 id="1-3-1-原子型向量"><a href="#1-3-1-原子型向量" class="headerlink" title="1.3.1 原子型向量"></a>1.3.1 原子型向量</h5><p>原子型向量的定义：<code>函数名 &lt;- c(数据1，数据2，数据3，...)</code> 这里的c是combine的意思，会将括号里的数据组合成一个向量。<br>原子型向量是一维向量，一个向量内只能包含一种基本数据类型的数据（双整型，整型，字符型，逻辑值，复数型，原始类型）。<br>判断是否为原子向量：<code>is.vector(变量名)</code></p>
+<h5 id="1-3-2-属性"><a href="#1-3-2-属性" class="headerlink" title="1.3.2 属性"></a>1.3.2 属性</h5><p>属性是赋予给原子向量（或者其他对象）的额外的信息。属性并不影响对象的取值，一般也不予显示。一般情况下，R语言会忽略属性信息，但是在某些特定的情况下，R语言会检查对象是否具有特定的属性值，以此来判断是否进行一些特定的操作。<br>查看对象的属性：<code>attributes(对象名)</code><br>一个原子型向量常见的三种属性：名称，维度，类。<br><strong>名称属性：</strong> <code>names(对象名)</code> 取对象的名称属性，如果没有则返回 <code>NULL</code>，直接对其赋值能添加名称属性。对原子型向量，名称属性为与原向量等长的字符串向量。名称属性不影响取值，即使改变了原向量的值，名称属性也不变。<br><strong>维度属性：</strong> <code>dim(对象名)</code> 取对象的维度属性。原子向量是一维的，可以对其赋维度将其变成一个n维数组。维度属性是一个数值型向量，第一个值代表行，第二个代表列，往后就是切片等。填充这个数组时，总是优先填充完列的部分。<br><strong>类：</strong> 后续介绍。</p>
+<h5 id="1-3-3-矩阵"><a href="#1-3-3-矩阵" class="headerlink" title="1.3.3 矩阵"></a>1.3.3 矩阵</h5><p>可以使用 <code>matrix(原子型向量，nrow = ?，ncol = ?，byrow = TRUE)</code> 函数单独直接生成二维的矩阵，并且可以自定义填充的方式（默认按列）。</p>
+<h5 id="1-3-4-数组"><a href="#1-3-4-数组" class="headerlink" title="1.3.4 数组"></a>1.3.4 数组</h5><p>可以使用 <code>array(原子型向量，dim = 维度向量)</code> 函数单独直接生成n维的数组。</p>
+<h5 id="1-3-5-类"><a href="#1-3-5-类" class="headerlink" title="1.3.5 类"></a>1.3.5 类</h5><h5 id="1-3-6-强制转换"><a href="#1-3-6-强制转换" class="headerlink" title="1.3.6 强制转换"></a>1.3.6 强制转换</h5><h5 id="1-3-7-列表"><a href="#1-3-7-列表" class="headerlink" title="1.3.7 列表"></a>1.3.7 列表</h5><h5 id="1-3-8-数据框"><a href="#1-3-8-数据框" class="headerlink" title="1.3.8 数据框"></a>1.3.8 数据框</h5><h4 id="1-4-R语言的计算方式"><a href="#1-4-R语言的计算方式" class="headerlink" title="1.4 R语言的计算方式"></a>1.4 R语言的计算方式</h4><p>个人觉得R语言的最大特点之一就是其使用的元素方式执行的计算方法。</p>
+<ol>
+<li>当对单个数据集进行操作时，R会将相同的计算分别应用于每个元素。</li>
+<li>执行两个数据集之间的操作时，R会将两个数据集分别排成一列，对相同位置的元素进行操作。当两个数据集长度不等，会对较短的数据集进行循环操作。</li>
+<li>想进行常规的举证操作：<code>%*%</code> 矩阵内乘法 <code>%o%</code> 矩阵外乘法。</li>
+</ol>
+<p>这种计算方法体现在R语言的方方面面，极大的方便了对数据进行处理。</p>
+<h4 id="1-5-R语言的环境"><a href="#1-5-R语言的环境" class="headerlink" title="1.5 R语言的环境"></a>1.5 R语言的环境</h4><p>安装包：<code>install.packages(&quot;函数名&quot;)</code> 安装任何新的函数包。<br>载入包：<code>library(&quot;函数名&quot;)</code> 将指定的包载入到当前的工作环境。<br>查看当前环境的所有对象：<code>ls()</code> 这里括号内的默认参数是当前环境。</p>
+<h4 id="1-6-R语言的索引体系"><a href="#1-6-R语言的索引体系" class="headerlink" title="1.6 R语言的索引体系"></a>1.6 R语言的索引体系</h4><h4 id="1-7-判断，循环和函数"><a href="#1-7-判断，循环和函数" class="headerlink" title="1.7 判断，循环和函数"></a>1.7 判断，循环和函数</h4><p>定义函数：<code>my_function &lt;- function(参数列表)&#123;函数体&#125;</code> R语言的参数传递类似于C和Python，包括参数默认值的设置。R语言的函数没有返回语句，函数体中最后一个语句的结果即为函数的返回值。<br>函数名后的 <code>()</code> 可理解为函数的触发器，带了括号就会运行函数体内的语句，不带括号就是指函数对象。<br>查看未知函数的参数：<code>args(函数名)</code><br><strong>常用函数：</strong><br>抽样函数：<code>sample(数据集，size = 抽样数，replace = FALSE， prob = 各元素概率)</code><br>取小数位：<code>round(数据，corners = 小数位)</code><br>重复运行代码：<code>replicate(重复次数，代码)</code> 将多次运行的结果存储为一个向量返回。<br>查看帮助：<code>?函数名</code> 查看具体函数的帮助页面 <code>??部分函数名</code> 搜索关键词。</p>
+<h3 id="第二部分-描述性统计及统计图形"><a href="#第二部分-描述性统计及统计图形" class="headerlink" title="第二部分 描述性统计及统计图形"></a>第二部分 描述性统计及统计图形</h3><h4 id="2-1-R语言的描述性统计函数"><a href="#2-1-R语言的描述性统计函数" class="headerlink" title="2.1 R语言的描述性统计函数"></a>2.1 R语言的描述性统计函数</h4><style>
+table th:first-of-type {
+    width: 200px;
+}
+table th:nth-of-type(2) {
+    width: 200px;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">描述</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>mean(x)</code></td>
+<td align="center">均数</td>
+<td align="center">这里的 x 大多数指的是数值型的向量</td>
+</tr>
+<tr>
+<td align="center"><code>median(x)</code></td>
+<td align="center">中位数</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>sd(x)</code></td>
+<td align="center">标准差</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>var(x)</code></td>
+<td align="center">方差</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>mad(x)</code></td>
+<td align="center">绝对中位差</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>quantile(x, probs)</code></td>
+<td align="center">求分位数</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>range(x)</code></td>
+<td align="center">全距范围</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>sum(x)</code></td>
+<td align="center">求和</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>diff(x, lag = n)</code></td>
+<td align="center">滞后差分</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>min(x)</code></td>
+<td align="center">最小值</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>max(x)</code></td>
+<td align="center">最大值</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>scale(x, center = T, scale = T)</code></td>
+<td align="center">中心化或者标准化</td>
+<td align="center">按列，中心化是各值减去均值，整体平移至原点附近，标准化是各值减去均值后除以标准差</td>
+</tr>
+</tbody></table>
+<h4 id="2-2-R语言的概率分布函数"><a href="#2-2-R语言的概率分布函数" class="headerlink" title="2.2 R语言的概率分布函数"></a>2.2 R语言的概率分布函数</h4><p>R语言中内置了多种不同的概率分布函数，每一种分布又分别有：密度函数d（概率密度函数），分布函数p（单侧累积概率函数），分位数函数q（分布函数的反函数，求给定概率处的界值），随机函数r（给定条件下返回若干随机值）。</p>
+<style>
+table th:first-of-type {
+    width: 200px;
+}
+table th:nth-of-type(2) {
+    width: 200px;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">分布</th>
+<th align="center">函数</th>
+<th align="center">分布</th>
+</tr>
+</thead>
+</table>
+<h4 id="2-3-数值变量的描述性统计"><a href="#2-3-数值变量的描述性统计" class="headerlink" title="2.3 数值变量的描述性统计"></a>2.3 数值变量的描述性统计</h4><p>总体概览：<code>summary()</code> 能够计算数值变量的最小值、最大值、四分位数、中位数和均数及因子变量的频数计数。<br>矩阵分行列计算：<code>apply(object, 1 or 2, function)</code> 1为按行计算，2为按列计算。<br>数据框分组计算：<code>by(data, factor, function)</code> data为待计算的数据（数据框中的待计算的变量），factor为分类变量。<br>    <code>aggregate(data, by = list(factor), function)</code> 传入一个列表作为为分类变量。</p>
+<h4 id="2-4-分类变量的描述性统计"><a href="#2-4-分类变量的描述性统计" class="headerlink" title="2.4 分类变量的描述性统计"></a>2.4 分类变量的描述性统计</h4><p>分类变量用频数表和二维列联表来描述。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+</table>
+<h4 id="2-5-基本图形"><a href="#2-5-基本图形" class="headerlink" title="2.5 基本图形"></a>2.5 基本图形</h4><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+</table>
+<h3 id="第三部分-假设检验"><a href="#第三部分-假设检验" class="headerlink" title="第三部分 假设检验"></a>第三部分 假设检验</h3><h4 id="3-1-t-检验"><a href="#3-1-t-检验" class="headerlink" title="3.1 $t$检验"></a>3.1 $t$检验</h4><h4 id="3-2-非参检验"><a href="#3-2-非参检验" class="headerlink" title="3.2 非参检验"></a>3.2 非参检验</h4><h4 id="3-3-卡方检验"><a href="#3-3-卡方检验" class="headerlink" title="3.3 卡方检验"></a>3.3 卡方检验</h4><h3 id="第四部分-方差分析"><a href="#第四部分-方差分析" class="headerlink" title="第四部分 方差分析"></a>第四部分 方差分析</h3><h3 id="第五部分-回归分析"><a href="#第五部分-回归分析" class="headerlink" title="第五部分 回归分析"></a>第五部分 回归分析</h3><h3 id="第六部分-广义线性模型"><a href="#第六部分-广义线性模型" class="headerlink" title="第六部分 广义线性模型"></a>第六部分 广义线性模型</h3><h3 id="第七部分-Meta分析"><a href="#第七部分-Meta分析" class="headerlink" title="第七部分 Meta分析"></a>第七部分 Meta分析</h3>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\01\21\2020\probability-and-statistics\" rel="bookmark">概率论与数理统计-笔记</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\08\15\2020\the-tidyverse-style-guide\" rel="bookmark">R语言代码规范</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Axiuf
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://axiuf.github.io/2020/02/07/2020/medical-statistics-by-r/" title="医学统计软件的应用（R语言）">https://axiuf.github.io/2020/02/07/2020/medical-statistics-by-r/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%9F%E8%AE%A1/" rel="tag"># 统计</a>
+              <a href="/tags/R/" rel="tag"># R</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/21/2020/probability-and-statistics/" rel="prev" title="概率论与数理统计-笔记">
+      <i class="fa fa-chevron-left"></i> 概率论与数理统计-笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/15/2020/the-tidyverse-style-guide/" rel="next" title="R语言代码规范">
+      R语言代码规范 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-R%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="nav-text">第一部分 R语言的基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-R%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7%E4%BD%93%E7%B3%BB"><span class="nav-text">1.1 R语言的基本符号体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-R%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.2 R语言的基本数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-R%E8%AF%AD%E8%A8%80%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">1.3 R语言的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-1-%E5%8E%9F%E5%AD%90%E5%9E%8B%E5%90%91%E9%87%8F"><span class="nav-text">1.3.1 原子型向量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-2-%E5%B1%9E%E6%80%A7"><span class="nav-text">1.3.2 属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-3-%E7%9F%A9%E9%98%B5"><span class="nav-text">1.3.3 矩阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-4-%E6%95%B0%E7%BB%84"><span class="nav-text">1.3.4 数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-5-%E7%B1%BB"><span class="nav-text">1.3.5 类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-6-%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="nav-text">1.3.6 强制转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-7-%E5%88%97%E8%A1%A8"><span class="nav-text">1.3.7 列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-8-%E6%95%B0%E6%8D%AE%E6%A1%86"><span class="nav-text">1.3.8 数据框</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-R%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F"><span class="nav-text">1.4 R语言的计算方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-R%E8%AF%AD%E8%A8%80%E7%9A%84%E7%8E%AF%E5%A2%83"><span class="nav-text">1.5 R语言的环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-R%E8%AF%AD%E8%A8%80%E7%9A%84%E7%B4%A2%E5%BC%95%E4%BD%93%E7%B3%BB"><span class="nav-text">1.6 R语言的索引体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-%E5%88%A4%E6%96%AD%EF%BC%8C%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%87%BD%E6%95%B0"><span class="nav-text">1.7 判断，循环和函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E5%8F%8A%E7%BB%9F%E8%AE%A1%E5%9B%BE%E5%BD%A2"><span class="nav-text">第二部分 描述性统计及统计图形</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-R%E8%AF%AD%E8%A8%80%E7%9A%84%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0"><span class="nav-text">2.1 R语言的描述性统计函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-R%E8%AF%AD%E8%A8%80%E7%9A%84%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-text">2.2 R语言的概率分布函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E6%95%B0%E5%80%BC%E5%8F%98%E9%87%8F%E7%9A%84%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1"><span class="nav-text">2.3 数值变量的描述性统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E7%9A%84%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1"><span class="nav-text">2.4 分类变量的描述性统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-%E5%9F%BA%E6%9C%AC%E5%9B%BE%E5%BD%A2"><span class="nav-text">2.5 基本图形</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="nav-text">第三部分 假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-t-%E6%A3%80%E9%AA%8C"><span class="nav-text">3.1 $t$检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E9%9D%9E%E5%8F%82%E6%A3%80%E9%AA%8C"><span class="nav-text">3.2 非参检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="nav-text">3.3 卡方检验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90"><span class="nav-text">第四部分 方差分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90"><span class="nav-text">第五部分 回归分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">第六部分 广义线性模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E9%83%A8%E5%88%86-Meta%E5%88%86%E6%9E%90"><span class="nav-text">第七部分 Meta分析</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Axiuf"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Axiuf</p>
+  <div class="site-description" itemprop="description">Axiuf's personal website.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Axiuf" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Axiuf" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cheng-shan-69" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cheng-shan-69" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Axiuf</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">31k</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
