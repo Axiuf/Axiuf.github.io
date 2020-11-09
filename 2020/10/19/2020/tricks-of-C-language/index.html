@@ -28,7 +28,7 @@
 <meta property="og:description" content="这里记录了一些我在使用C语言过程中用到的小的知识点。以便后续查询。持续更新。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-19T03:05:09.000Z">
-<meta property="article:modified_time" content="2020-11-09T14:43:05.140Z">
+<meta property="article:modified_time" content="2020-11-09T14:47:06.065Z">
 <meta property="article:author" content="Axiuf">
 <meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
@@ -196,7 +196,7 @@
         <p>这里记录了一些我在使用C语言过程中用到的小的知识点。以便后续查询。<br>持续更新。</p>
 <a id="more"></a>
 <h4 id="5-for循环的执行顺序"><a href="#5-for循环的执行顺序" class="headerlink" title="5. for循环的执行顺序"></a>5. <code>for</code>循环的执行顺序</h4><p>切换使用不同的语言会导致忽略一些非常基本的规则差异。以至于出了Bug看了几遍都找不到问题，花费了大量时间一点点的调试才解决。<br>C语言中的<code>for</code>循环是每次都会进行中间的判断语句的，顺序为：<code>for(1; 2 ; 4) &#123;3&#125;;</code>。<br>包括第一次也会进行条件判断。这点要注意。</p>
-<h4 id="4-指针的指针初始化的问题"><a href="#4-指针的指针初始化的问题" class="headerlink" title="4. 指针的指针初始化的问题"></a>4. 指针的指针初始化的问题</h4><p>结构体指针定义之后需要初始化才能访问内部变量。除了直接赋值之外，一般是使用<code>malloc()</code>动态分配内存。<br>这就出现一个问题，对最外层的指针动态分配内存初始化之后，内层的指针需要另外再次动态分配内存吗？<br>目前看好像不用，只对外层指针动态分配内存后，再访问内部结构体指针的内部变量并没有出现报错。</p>
+<h4 id="4-指针的指针初始化的问题"><a href="#4-指针的指针初始化的问题" class="headerlink" title="4. 指针的指针初始化的问题"></a>4. 指针的指针初始化的问题</h4><p>结构体指针定义之后需要初始化才能访问内部变量。除了直接赋值之外，一般是使用<code>malloc()</code>动态分配内存。<br>这就出现一个问题，对最外层的指针动态分配内存初始化之后，内层的指针需要另外再次动态分配内存吗？<br>答案是需要的。对内层的指针变量也需要初始化才能访问内层结构体的内部节点。</p>
 <h4 id="3-scanf-和getchar-使用的差别"><a href="#3-scanf-和getchar-使用的差别" class="headerlink" title="3. scanf()和getchar()使用的差别"></a>3. <code>scanf()</code>和<code>getchar()</code>使用的差别</h4><h4 id="2-结构体的使用及重命名的技巧"><a href="#2-结构体的使用及重命名的技巧" class="headerlink" title="2. 结构体的使用及重命名的技巧"></a>2. 结构体的使用及重命名的技巧</h4><p>C语言中可以使用<code>struct</code>关键字自己定义一种数据类型：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">DataNode</span></span></span><br><span class="line"><span class="class">&#123;</span><span class="comment">// 定义结构体（新的数据类型）</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    <span class="keyword">int</span> Frequency;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">DataNode</span> <span class="title">NewNode</span>;</span> <span class="comment">// 定义结构体变量</span></span><br></pre></td></tr></table></figure>
 <p>这样<code>struct DataNode</code>这个结构体中就包含两个分量，一个是所指示的字符，一个是这个字符出现的频率。结构体的使用与基本数据类型是一样的，也可以定义新变量，指针，定义数组等等。结构体变量访问结构体内部的分量时使用这样的格式<code>NewNode.Data</code>。<br>结构体的使用必须要带上struct关键字，考虑到这个名字过长，可以和下面的<code>typedef</code>结合使用：</p>
