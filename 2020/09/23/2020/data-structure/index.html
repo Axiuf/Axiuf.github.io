@@ -28,7 +28,7 @@
 <meta property="og:description" content="中国大学MOOC(慕课)：浙江大学-陈越、何钦铭-《数据结构》笔记。代码库：对应的学习资料，以及自己写的数据结构算法题的代码持续更新。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-23T03:05:09.000Z">
-<meta property="article:modified_time" content="2020-11-11T15:46:53.140Z">
+<meta property="article:modified_time" content="2020-11-12T12:47:35.346Z">
 <meta property="article:author" content="Axiuf">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="算法">
@@ -209,15 +209,20 @@
 <h4 id="3-4-二叉搜索树"><a href="#3-4-二叉搜索树" class="headerlink" title="3.4 二叉搜索树"></a>3.4 二叉搜索树</h4><p>二叉搜索树的定义。</p>
 <h4 id="3-5-平衡二叉树"><a href="#3-5-平衡二叉树" class="headerlink" title="3.5 平衡二叉树"></a>3.5 平衡二叉树</h4><p>平衡二叉树的调整问题。四种不同的情况。</p>
 <h4 id="3-6-堆"><a href="#3-6-堆" class="headerlink" title="3.6 堆"></a>3.6 堆</h4><p>堆的定义及应用场景。</p>
-<h4 id="3-7-哈夫曼树与哈夫曼编码"><a href="#3-7-哈夫曼树与哈夫曼编码" class="headerlink" title="3.7 哈夫曼树与哈夫曼编码"></a>3.7 哈夫曼树与哈夫曼编码</h4><h4 id="3-8-集合及运算"><a href="#3-8-集合及运算" class="headerlink" title="3.8 集合及运算"></a>3.8 集合及运算</h4><h3 id="第四部分-图"><a href="#第四部分-图" class="headerlink" title="第四部分 图"></a>第四部分 图</h3><h4 id="4-1-什么是图"><a href="#4-1-什么是图" class="headerlink" title="4.1 什么是图"></a>4.1 什么是图</h4><h4 id="4-2-图的遍历"><a href="#4-2-图的遍历" class="headerlink" title="4.2 图的遍历"></a>4.2 图的遍历</h4><h4 id="4-3-最短路径问题"><a href="#4-3-最短路径问题" class="headerlink" title="4.3 最短路径问题"></a>4.3 最短路径问题</h4><h4 id="4-4-最小生成树问题"><a href="#4-4-最小生成树问题" class="headerlink" title="4.4 最小生成树问题"></a>4.4 最小生成树问题</h4><p>基本概念：</p>
-<ul>
-<li>树的特点：特殊的图，全连通，没有回路，V个顶点一定有V-1条边。</li>
-<li>生成树：包含全部的顶点，V-1条边都在图里面，任加一条边都会够构成回路。</li>
-<li>最小：边的权重和最小。（和之前的最短路径问题有相似点。）</li>
-</ul>
-<p><strong>图连通&lt;——&gt;存在最小生成树</strong><br><strong>贪心算法</strong>：每一步最优&amp;权重最小。约束：只能用图中已有的边，只能正好用掉V-1条边，不能有回路。<br>Prim算法基本思想：从顶点出发，每次在未收录的顶点中找到一个与已有生成树最近的点V收录到树内，并记录由哪个树内节点出发到V的。收录完之后，更新V所有邻接点距离。限速步骤在查找最小距离的顶点，时间复杂度为V^2，适合稠密图。<br>Kruskal算法基本思想：出示状态把所有点视为顶点，将森林合并为树。处理并收录的为边，从边的集合里找一条权重最小的边，拿出来之后检查其是否在已有的生成树中存在回路，没有回路即收录，有回路即丢弃。限速步骤：查找最小边——最小堆，查看是否构成回路——并查集（检查边的两个顶点是否属于同一个集合），时间复杂度为E*log(E)，稀疏图的情况下等价于V*log(V)。</p>
-<h4 id="4-5-拓扑排序问题"><a href="#4-5-拓扑排序问题" class="headerlink" title="4.5 拓扑排序问题"></a>4.5 拓扑排序问题</h4><p>其实是一个从图中按照有向边依次访问的过程。<br>拓扑序：如果图中V-&gt;W有一条有向的路径，则V一定排在W之前。<br>Activity On Vertex，AOV(网络)，活动用顶点表示，如果有合理的拓扑排序，那么一定是Directed Acyclic Graph，DAG（有向无环图）。<br>算法基本思想：依次找到图中每一个入度为0的未输出过的结点，输出他并将他到每个邻接点的度减掉。限速步骤为第一步，若每次为全图扫描，时间复杂度为V^2，另一种方法，每次把度为0的结点放到一个队列，再从队列访问，时间复杂度为V+E。此算法可以用来检测图是否为DAG。</p>
-<p>Activity On Edge，AOE(网络)，活动用边表示，顶点表示活动结束，一般用于安排项目的工序。边的权重为活动时间，顶点要表示最早完成及最晚完成时间。计算整个的工期从首节点往右递推，每个节点取最大的入度值作为最早完成时间。判断关键节点，从后往前推(相当于边反向了），取最小的入度值作为最晚完成时间，机动时间为后个节点的最晚减去前个节点的最早，再减去边的权重，即为机动时间，为0则为关键点。</p>
+<h4 id="3-7-哈夫曼树与哈夫曼编码"><a href="#3-7-哈夫曼树与哈夫曼编码" class="headerlink" title="3.7 哈夫曼树与哈夫曼编码"></a>3.7 哈夫曼树与哈夫曼编码</h4><h4 id="3-8-集合及运算"><a href="#3-8-集合及运算" class="headerlink" title="3.8 集合及运算"></a>3.8 集合及运算</h4><h3 id="第四部分-图"><a href="#第四部分-图" class="headerlink" title="第四部分 图"></a>第四部分 图</h3><h4 id="4-1-什么是图"><a href="#4-1-什么是图" class="headerlink" title="4.1 什么是图"></a>4.1 什么是图</h4><h4 id="4-2-图的遍历"><a href="#4-2-图的遍历" class="headerlink" title="4.2 图的遍历"></a>4.2 图的遍历</h4><h4 id="4-3-最短路径问题"><a href="#4-3-最短路径问题" class="headerlink" title="4.3 最短路径问题"></a>4.3 最短路径问题</h4><h4 id="4-4-最小生成树问题"><a href="#4-4-最小生成树问题" class="headerlink" title="4.4 最小生成树问题"></a>4.4 最小生成树问题</h4><p><strong>基本概念</strong>：<br>树的特点：特殊的图，全连通，没有回路，V个顶点一定有V-1条边。<br>生成树：包含全部的顶点，V-1条边都在图里面，任加一条边都会够构成回路。<br>最小：边的权重和最小。（和之前的最短路径问题有相似点。）<br><em>图连通&lt;——&gt;存在最小生成树</em><br><strong>贪心算法</strong>：每一步最优&amp;权重最小。约束：只能用图中已有的边，只能正好用掉V-1条边，不能有回路。<br><strong>Prim算法</strong>基本思想：从顶点出发，每次在未收录的顶点中找到一个与已有生成树最近的点V收录到树内，并记录由哪个树内节点出发到V的。收录完之后，更新V所有邻接点距离。限速步骤在查找最小距离的顶点，时间复杂度为$O(V^2)$，适合稠密图。</p>
+<p><strong>Kruskal算法</strong>基本思想：出示状态把所有点视为顶点，将森林合并为树。处理并收录的为边，从边的集合里找一条权重最小的边，拿出来之后检查其是否在已有的生成树中存在回路，没有回路即收录，有回路即丢弃。限速步骤：查找最小边——最小堆，查看是否构成回路——并查集（检查边的两个顶点是否属于同一个集合），时间复杂度为$O(E*log(E))$，稀疏图的情况下等价于$O(V*log(V))$。</p>
+<h4 id="4-5-拓扑排序问题"><a href="#4-5-拓扑排序问题" class="headerlink" title="4.5 拓扑排序问题"></a>4.5 拓扑排序问题</h4><p>其实是一个从图中按照有向边依次访问的过程。<br><strong>拓扑序</strong>：如果图中V-&gt;W有一条有向的路径，则V一定排在W之前。</p>
+<p><strong>Activity On Vertex，AOV</strong>(网络)，活动用顶点表示，如果有合理的拓扑排序，那么一定是Directed Acyclic Graph，DAG（有向无环图）。<br>算法基本思想：依次找到图中每一个入度为0的未输出过的结点，输出他并将他到每个邻接点的度减掉。限速步骤为第一步，若每次为全图扫描，时间复杂度为$O(V^2)$，另一种方法，每次把度为0的结点放到一个队列，再从队列访问，时间复杂度为$O(V+E)$。此算法可以用来检测图是否为DAG。</p>
+<p><strong>Activity On Edge，AOE</strong>(网络)，活动用边表示，顶点表示活动结束，一般用于安排项目的工序。边的权重为活动时间，顶点要表示最早完成及最晚完成时间。计算整个的工期从首节点往右递推，每个节点取最大的入度值作为最早完成时间。判断关键节点，从后往前推(相当于边反向了），取最小的入度值作为最晚完成时间，机动时间为后个节点的最晚减去前个节点的最早，再减去边的权重，即为机动时间，为0则为关键点。</p>
+<h3 id="第五部分-排序算法"><a href="#第五部分-排序算法" class="headerlink" title="第五部分 排序算法"></a>第五部分 排序算法</h3><p>若干前提：简单起见，谈论从小到大的整数排序。只谈论基于比较的排序。只讨论内部排序（都在内存中，相对的是内存外的排序）。稳定性：任意两个相等的数据，排序前后的相对位置不变。不同的算法适合不同特征的数据。</p>
+<h4 id="5-1-冒泡排序"><a href="#5-1-冒泡排序" class="headerlink" title="5.1 冒泡排序"></a>5.1 冒泡排序</h4><p><strong>基本思想</strong>：每次循环把前N个元素中两两相邻的元素依次比较，较大的往后排，最终把最大的放在最后。继续在前N-1个元素中执行以上循环。Tips：可以设置一个flag标记中途已完成所有排序，然后退出。最好时间复杂度$O(N)$，最坏情况下，两层N循环，时间复杂度为$O(N^2)$。适用于数组和链表的数据结构，并且具有稳定性。</p>
+<h4 id="5-2-插入排序"><a href="#5-2-插入排序" class="headerlink" title="5.2 插入排序"></a>5.2 插入排序</h4><p><strong>基本思想</strong>：每次取一个元素，跟队列的最后一个元素相比，若比他大，则放在最后，若比他小，就将队列的元素往后挪动一位，再跟前面的元素相比，直到找到合适的位置。实际算法就是在一个数组里，每次把在未排序队列里第一个元素依次往前比较，找到合适的位置插入。最好最坏时间复杂度为$O(N)$，$O(N^2)$。</p>
+<p>逆序对的概念：对于i &lt; j， 如果A[i] &gt; A[j]，则称(i, j)为一个逆序对。<br>每次交换两个相邻元素则消去一个逆序对。插入排序复杂度为$O(N+I（逆序对）)$。<br>任意N个不同元素的序列平均逆序对为$N(N-1)/4$，由此，任意仅仅以交换<em>相邻</em>元素来排序的算法，平均时间复杂度为$\Omega(N^2)$。<br>排序算法的优化方向：1. 每次消去不止一个逆序对，2. 每次交换相隔较远的两个元素。</p>
+<h4 id="5-3-希尔排序"><a href="#5-3-希尔排序" class="headerlink" title="5.3 希尔排序"></a>5.3 希尔排序</h4><p>实际上是一种插入排序的优化。例如首先每间隔5个元素进行插入排序，然后进行每间隔3个元素的插入排序，最后进行每1个元素的插入排序。<br>首先遇到的问题是如何确定间隔，即增量序列的大小:<br>原始的希尔排序是间隔$D_k = \lfloor N/2 \rfloor, D_k= \lfloor D_k / 2  \rfloor$， 会遇到极端情况，前面所有的间隔因为不互质正好全错开，排序无效，要等到最后间隔为1进行全排序，即最坏情况时间复杂度为$\Theta(N^2)$。<br>Hibbard增量序列：$D_k = 2^k-1$，相邻元素互质。最坏情况时间复杂度为$\Theta(N^{3/2})$。<br>Sedgewick增量序列：略。其猜测的最坏情况时间复杂度为$\Theta(N^{4/3})$。</p>
+<p><em>算法本身可能非常的简单，但是对其进行时间复杂度的分析非常难。</em></p>
+<h4 id="5-4-堆排序"><a href="#5-4-堆排序" class="headerlink" title="5.4 堆排序"></a>5.4 堆排序</h4><p><strong>选择排序</strong>：首先在未排序的序列中找到最小元素，然后将其与已经排序好的序列的后一个元素交换。最坏时间复杂度为$O(N^2)$。限速步骤在于如何在未排序的序列中找到这个最小值。</p>
+<p><strong>堆排序</strong>：实际上是选择排序的改进。把最小堆或者最大堆应用到找到最小元素这一步里面。一般的想法是，读入序列后把它改造成一个最小堆，由于我们需要的序列是从小到大排序的，所以依次弹出一个最小值，赋值给一个新的数组，问题在于需要额外开一个新的数组的空间。优化后的想法是利用最大堆，把原序列改造成最大堆之后，把顶点元素和和最后一个元素交换，并把剩下的元素再改造为最大堆，循环进行。这种情况下，最坏情况的时间复杂度比$O(N*log(N))$稍小，但是实际效果比不上使用Sedgewick增量序列的希尔排序。</p>
+<h4 id="5-5-归并排序"><a href="#5-5-归并排序" class="headerlink" title="5.5 归并排序"></a>5.5 归并排序</h4><p><strong>核心</strong>：有序子列的归并。主要的内容就是分别比较两个子列的头结点的大小，把较小的结点放到新序列的顶端。<br><strong>二分法</strong>：分别递归的对左边排序，再递归的给右边排序。最后再把两段序列按照上面的有序子列的归并算法合起来。稳定。<br><strong>非递归的算法</strong>：<br>归并排序有很多优点，比如说时间复杂度稳定在$O(N*log(N))$，并且排序结果是稳定的。但是归并排序的缺点在于需要另外一个等长的数组空间，并且数据在这两个数组之间要来回的读写。所以不适合用于全部在内存中完成的内排序。比较适合外排序。</p>
 
     </div>
 
@@ -328,7 +333,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">第一部分 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">1.1 什么是数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95"><span class="nav-text">1.2 什么是算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98"><span class="nav-text">1.3 最大子列和问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="nav-text">第二部分 线性结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-text">2.1 线性表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E5%A0%86%E6%A0%88"><span class="nav-text">2.2 堆栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E9%98%9F%E5%88%97"><span class="nav-text">2.3 队列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E6%A0%91"><span class="nav-text">第三部分 树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E6%A0%91%E4%B8%8E%E6%A0%91%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">3.1 树与树的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%8F%8A%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">3.2 二叉树及存储结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E9%97%AE%E9%A2%98"><span class="nav-text">3.3 二叉树的遍历问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-text">3.4 二叉搜索树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">3.5 平衡二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-%E5%A0%86"><span class="nav-text">3.6 堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E4%B8%8E%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81"><span class="nav-text">3.7 哈夫曼树与哈夫曼编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-%E9%9B%86%E5%90%88%E5%8F%8A%E8%BF%90%E7%AE%97"><span class="nav-text">3.8 集合及运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E5%9B%BE"><span class="nav-text">第四部分 图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%BE"><span class="nav-text">4.1 什么是图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-text">4.2 图的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="nav-text">4.3 最短路径问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98"><span class="nav-text">4.4 最小生成树问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="nav-text">4.5 拓扑排序问题</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">第一部分 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">1.1 什么是数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95"><span class="nav-text">1.2 什么是算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98"><span class="nav-text">1.3 最大子列和问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="nav-text">第二部分 线性结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-text">2.1 线性表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E5%A0%86%E6%A0%88"><span class="nav-text">2.2 堆栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E9%98%9F%E5%88%97"><span class="nav-text">2.3 队列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E6%A0%91"><span class="nav-text">第三部分 树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E6%A0%91%E4%B8%8E%E6%A0%91%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">3.1 树与树的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%8F%8A%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">3.2 二叉树及存储结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E9%97%AE%E9%A2%98"><span class="nav-text">3.3 二叉树的遍历问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-text">3.4 二叉搜索树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">3.5 平衡二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-%E5%A0%86"><span class="nav-text">3.6 堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E4%B8%8E%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81"><span class="nav-text">3.7 哈夫曼树与哈夫曼编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-%E9%9B%86%E5%90%88%E5%8F%8A%E8%BF%90%E7%AE%97"><span class="nav-text">3.8 集合及运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E5%9B%BE"><span class="nav-text">第四部分 图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%BE"><span class="nav-text">4.1 什么是图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-text">4.2 图的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="nav-text">4.3 最短路径问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98"><span class="nav-text">4.4 最小生成树问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="nav-text">4.5 拓扑排序问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-text">第五部分 排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-text">5.1 冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-text">5.2 插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="nav-text">5.3 希尔排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="nav-text">5.4 堆排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-text">5.5 归并排序</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -397,7 +402,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">34k</span>
+    <span title="站点总字数">36k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
@@ -452,6 +457,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
