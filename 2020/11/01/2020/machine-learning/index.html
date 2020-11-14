@@ -28,7 +28,7 @@
 <meta property="og:description" content="Coursera：Stanford University-Andrew Ng-Machine Learning 笔记。代码库：对应的学习资料，以及自己写的代码。持续更新。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-01T03:05:09.000Z">
-<meta property="article:modified_time" content="2020-11-14T09:06:19.304Z">
+<meta property="article:modified_time" content="2020-11-14T15:47:00.073Z">
 <meta property="article:author" content="Axiuf">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="机器学习">
@@ -203,8 +203,11 @@
 <h3 id="Linear-Regression-with-One-Variable"><a href="#Linear-Regression-with-One-Variable" class="headerlink" title="Linear Regression with One Variable"></a>Linear Regression with One Variable</h3><p>线性回归是一种监督学习，因为我们对每个x给了正确的y值对应（例如房价预测，其结果是一个连续变量，是回归问题。而肿瘤是否恶性，是分类问题）。</p>
 <p><strong>一元线性回归</strong>：$h_\theta = \theta_0 + \theta_1x$ ，给定m个已知的数据对，拟合一个y关于x的一次方程，对每个单独的x，能预测一个对应的y值。</p>
 <p><strong>均方误差损失函数</strong>：$J(\theta_0, \theta_1) = {1 \over 2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$ ，在整个给定的数据集的基础上，判断我们拟合的一次方程与实际值之间偏差的大小。我们的目标是找到合适的$\theta_0$和 $\theta_1$使得损失函数最小，也就是模型与实际拟合的最好。两个变量的损失函数可以在一个三维的坐标系画3D图。或者在二维的坐标系中画一个等高线图，图上每同一根线上的点代表损失函数的值相同。</p>
-<p><strong>梯度下降算法</strong>：for j = 1 and j = 0, repeat until convergence: $\theta_j := \theta_j - \alpha {&part; \over &part;\theta_j} J(\theta_0, \theta_1)$。我们已经有了一个假设的函数模型，然后有了一个方法（均方误差损失函数）来判断这个模型拟合的好坏程度。接下来我们要估计函数模型中的参数，使模型与实际拟合的最好。梯度下降算法每次循环中实际上每个参数减去对应参数偏导数和常数的乘积，最终会收敛在局部最优。这个常数&alpha;过大会导致无法收敛甚至发散，过小则运行过慢。特别要注意的一点是所有的参数要同时更新。</p>
-<p><em>梯度下降算法会收敛在局部最优。但是线性回归的损失函数是凸函数（convex quadratic function），局部最优即全局最优，所以通过梯度下降算法找到最优解。</em> batch gradient descent：每次都会使用全部的训练数据。</p>
+<p><strong>梯度下降算法</strong>：for j = 1 and j = 0, repeat until convergence: $\theta_j := \theta_j - \alpha {&part; \over &part;\theta_j} J(\theta_0, \theta_1)$。我们已经有了一个假设的函数模型，然后有了一个方法（均方误差损失函数）来判断这个模型拟合的好坏程度。接下来我们要估计函数模型中的参数，使模型与实际拟合的最好。梯度下降算法每次循环实际上是每个参数减去对应参数偏导数和一个常数&alpha;（下降步幅）的乘积，最终会收敛在局部最优。但如果这个常数&alpha;过大会导致无法收敛甚至发散，过小则运行过慢。特别要注意的一点是所有的参数要同时更新。另：这里用的batch gradient descent：即每次都会使用全部的训练数据。</p>
+<p><em>梯度下降算法会收敛在局部最优。但是线性回归的损失函数是凸函数（convex quadratic function），局部最优即全局最优，所以通过梯度下降算法找到最优解。</em> </p>
+<h3 id="Linear-Algebra-Review"><a href="#Linear-Algebra-Review" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h3><p>矩阵，向量的标记体系。<br>矩阵间的加减法，矩阵和常量间的四则运算。<br>矩阵和向量的乘法。矩阵间的乘法。<br>矩阵间的乘法没有交换律，不能随意交换前后位置。有结合律，可以先计算后面的部分。<br>单位矩阵：行列数相等（方阵），对角线全为1。<br>逆矩阵：矩阵（方阵）和矩阵的逆相乘结果为单位矩阵。<br>转置矩阵：行列互换。<br>Matlab中矩阵相关的基本操作：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize matrix A </span></span><br><span class="line">A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>;<span class="number">0</span>,<span class="number">5</span>,<span class="number">6</span>;<span class="number">7</span>,<span class="number">0</span>,<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% Transpose A </span></span><br><span class="line">A_trans = A&#x27; </span><br><span class="line"></span><br><span class="line"><span class="comment">% Take the inverse of A </span></span><br><span class="line">A_inv = inv(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% Initialize a 3 by 3 identity matrix</span></span><br><span class="line">I = <span class="built_in">eye</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% Get the dimension of the matrix A where m = rows and n = columns</span></span><br><span class="line">[m,n] = <span class="built_in">size</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% Now let&#x27;s index into the 2nd row 3rd column of matrix A</span></span><br><span class="line">A_23 = A(<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -311,7 +314,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression-with-One-Variable"><span class="nav-text">Linear Regression with One Variable</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression-with-One-Variable"><span class="nav-text">Linear Regression with One Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Algebra-Review"><span class="nav-text">Linear Algebra Review</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
