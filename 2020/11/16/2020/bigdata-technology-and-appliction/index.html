@@ -20,20 +20,22 @@
     var CONFIG = {"hostname":"axiuf.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":280,"display":"hide","padding":28,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Life is short (You need Python)  ——Bruce EckelANSI C++ Commitee member, author of «Thinking in C++» and «Thinking in Java»">
+  <meta name="description" content="中国大学MOOC(慕课)：厦门大学-林子雨-《大数据技术原理与应用》笔记。持续更新。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人生苦短，我学Python">
-<meta property="og:url" content="https://axiuf.github.io/2019/10/11/2019/learn-python/index.html">
+<meta property="og:title" content="大数据技术原理与应用-笔记">
+<meta property="og:url" content="https://axiuf.github.io/2020/11/16/2020/bigdata-technology-and-appliction/index.html">
 <meta property="og:site_name" content="进化史">
-<meta property="og:description" content="Life is short (You need Python)  ——Bruce EckelANSI C++ Commitee member, author of «Thinking in C++» and «Thinking in Java»">
+<meta property="og:description" content="中国大学MOOC(慕课)：厦门大学-林子雨-《大数据技术原理与应用》笔记。持续更新。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-10-11T14:26:59.000Z">
-<meta property="article:modified_time" content="2020-11-08T14:11:34.607Z">
+<meta property="og:image" content="https://axiuf.github.io/images/Hadoop.png">
+<meta property="article:published_time" content="2020-11-16T05:05:09.000Z">
+<meta property="article:modified_time" content="2020-11-16T14:06:21.602Z">
 <meta property="article:author" content="Axiuf">
-<meta property="article:tag" content="Python">
+<meta property="article:tag" content="大数据">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://axiuf.github.io/images/Hadoop.png">
 
-<link rel="canonical" href="https://axiuf.github.io/2019/10/11/2019/learn-python/">
+<link rel="canonical" href="https://axiuf.github.io/2020/11/16/2020/bigdata-technology-and-appliction/">
 
 
 <script id="page-configurations">
@@ -46,7 +48,7 @@
   };
 </script>
 
-  <title>人生苦短，我学Python | 进化史</title>
+  <title>大数据技术原理与应用-笔记 | 进化史</title>
   
 
 
@@ -156,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://axiuf.github.io/2019/10/11/2019/learn-python/">
+    <link itemprop="mainEntityOfPage" href="https://axiuf.github.io/2020/11/16/2020/bigdata-technology-and-appliction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_1.jpg">
@@ -169,7 +171,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          人生苦短，我学Python
+          大数据技术原理与应用-笔记
         </h1>
 
         <div class="post-meta">
@@ -179,7 +181,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-11 22:26:59" itemprop="dateCreated datePublished" datetime="2019-10-11T22:26:59+08:00">2019-10-11</time>
+              <time title="创建时间：2020-11-16 13:05:09" itemprop="dateCreated datePublished" datetime="2020-11-16T13:05:09+08:00">2020-11-16</time>
             </span>
 
           
@@ -193,22 +195,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p style="font-family: Trebuchet MS, Arial, Helvetica, sans-serif; font-size: 14pt; font-weight: bold; font-style: italic;" align="center">Life is short (You need Python)</p>
-
-<p align="right"><i>——Bruce Eckel<br/>ANSI C++ Commitee member, author of «Thinking in C++» and «Thinking in Java»</i></p>
-
+        <p>中国大学MOOC(慕课)：<a target="_blank" rel="noopener" href="https://www.icourse163.org/course/XMU-1002335004">厦门大学-林子雨-《大数据技术原理与应用》</a>笔记。<br>持续更新。</p>
 <a id="more"></a>
 
-<p>“人生苦短，我学Python” 这个梗，就算不是搞计算机的我，也听了有好几年了。然而对我而言，还算不上选择使用Python，只是开始学罢了。</p>
-<h4 id="1-什么是Python"><a href="#1-什么是Python" class="headerlink" title="1. 什么是Python"></a>1. 什么是Python</h4><p>Python是一种计算机语言，就如同我们常听到的C++，Java一样。计算语言有非常多的种类，各自有不同的特点，适用于不用的应用场景。Python由于其强大的可扩展性及代码的简洁性、易读性，已经成为最受欢迎的计算机语言之一。</p>
-<h4 id="2-为什么学Python"><a href="#2-为什么学Python" class="headerlink" title="2. 为什么学Python"></a>2. 为什么学Python</h4><p>或者先说为什么学编程吧。<del>（为了将来转行搞计算机呀）</del>  虽然大家都说 <em>二十一世纪是生物的世纪</em> ，但是更显而易见的是，计算机 <strong><em>正在</em></strong>  深刻改变着我们的生存方式。不管我们在实验室做的生物研究有多大可能造福全人类，我觉得还应该花时间考虑下造福自己的生活。学一点编程的知识，让生活学习中一些简单可重复的工作自动化，就是我现在的小目标。</p>
-<p>至于为什么是Python。简单点说，Python的语法规则非常简洁易懂，更贴近人的思维方式，对小白来说更容易上手。另外，Python有非常丰富的第三方库，对很多实用的功能实现了封装，不用自己造轮子，能很快学以致用。</p>
-<h4 id="3-部署Python开发环境"><a href="#3-部署Python开发环境" class="headerlink" title="3. 部署Python开发环境"></a>3. 部署Python开发环境</h4><h5 id="下载Python"><a href="#下载Python" class="headerlink" title="下载Python"></a>下载Python</h5><p><a target="_blank" rel="noopener" href="https://www.python.org/">https://www.python.org</a> 直接上Python的官网下载，小白入门可以从原版Python学起。<br><a target="_blank" rel="noopener" href="https://www.anaconda.com/">https://www.anaconda.com</a> Python的第三方发行版，整合了许多科学计算中非常有用的工具，如果要做数据分析，建议使用anaconda。</p>
-<h5 id="Python的两个版本"><a href="#Python的两个版本" class="headerlink" title="Python的两个版本"></a>Python的两个版本</h5><p>Python目前有2.x和3.x两个版本。Python2是老版本，但是有很多的第三方库是基于2编写。Python3是新版，修改了一些2中的语法，不兼容2，但后续可发展性更好。<br>目前官方宣布对于Python2.x版本的支持将在2020年结束，而且绝大多数的第三方库已经迁移到3.x版。所以直接学后者即可。</p>
-<h5 id="下载Notepad"><a href="#下载Notepad" class="headerlink" title="下载Notepad++"></a>下载Notepad++</h5><p>我们需要一款软件来编辑Python的源代码。对新手来说，一个好用的编辑器就足够了。推荐<a target="_blank" rel="noopener" href="https://notepad-plus-plus.org/">Notepad++</a>，提供基本的代码高亮和缩进功能，小巧简洁。推荐使用Obsidian黑曜石主题 + consolas 11号字体。<br>附：<a target="_blank" rel="noopener" href="http://blog.csdn.net/evabook/article/details/52261282">初次使用python之在notepad++中直接运行python代码</a><br>另外可以尝试<a target="_blank" rel="noopener" href="https://atom.io/">Atom</a>和<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>。</p>
-<h4 id="4-Python学习资源（保持更新）"><a href="#4-Python学习资源（保持更新）" class="headerlink" title="4. Python学习资源（保持更新）"></a>4. Python学习资源（保持更新）</h4><p>这里推荐一些我自己看过的Python学习资源，也算自己做个整理记录吧：</p>
-<p><strong>入门资源</strong><br>《Python编程——从入门到实践》：非常推荐新手阅读的一本书。没有过早的引入复杂的编程概念，跟着书一章一章的码下来很顺畅。书后面附了3个实战项目，可按兴趣选择做。<br><a target="_blank" rel="noopener" href="https://bop.mol.uno/">《简明Python教程》：</a>较详细的介绍了Python的基础知识，看过上面的Python入门后可以看这个整理思路。</p>
-<p><strong>进阶资源</strong><br><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">廖雪峰的Python3教程：</a>非常推荐！由简及深讲的很好。<br><a target="_blank" rel="noopener" href="https://www.python.org/doc/">Python官方文档：</a> 对Python中一些内置库理解有问题，百度不到解决方案的时候可以查查。</p>
+<h3 id="第1章-大数据概述"><a href="#第1章-大数据概述" class="headerlink" title="第1章 大数据概述"></a>第1章 大数据概述</h3><p><strong>信息化浪潮</strong>：1980年前后，个人计算机。1995年前后，互联网普及。2010年，物联网，云计算和大数据。存储（单位存储的价格不断下降），计算（CPU处理能力大幅增加），网络（带宽不断增加），数据产生的方式不断变化。<br><strong>概念，影响及应用</strong>：4V：大量化（大数据摩尔定律），快速化（响应时间要快），多样化（结构化和非结构化数据），价值密度低（商业价值高）。全量而非抽样，效率而非精确，相关而非因果。应用例子：大数据影响影视剧投拍决策，大数据预测流感趋势。<br><strong>关键技术</strong>：数据采集，<em>数据存储与管理</em>，<em>数据处理与分析</em>，数据隐私和安全。分布式存储&amp;分布式处理，单机无法存储也无法处理，利用计算机集群。分布式数据库（BigTable），分布式文件系统（GFS），分布式并行处理技术（MapReduce）。不同的计算模式服务于不同的应用：批处理（MapReduce，另Spark适合迭代式计算例如数据挖掘，实时性不行），流计算（S4，Storm， Flume，针对流数据的实时计算，需要实时计算给出结果），图计算（Google Pregel），交互式查询分析计算（Google Dremel，Hive，Cassandra)。<br><strong>大数据，云计算和物联网的关系</strong>：云计算：解决了海量数据的分布式存储和分布式计算的问题。典型特征：虚拟化，多租户。公有云（百度网盘，面对全国用户），私有云（企业内部），混合云。Iaas：基础设施即服务，将基础设计（计算和存储资源直接作为服务出租）。PaaS：平台即服务。SaaS：软件即服务，例如云财务软件。云计算数据中心，刀片式服务器，集群。数据中心的能耗非常大，绝大多数用于散热。所以建在地址稳定，气温低的地方。物联网（The Internet of Thing，IoT）：感知层（各类传感器），网络层（信息传输的通道），处理层，应用层（掌上智能公交）。物联网的关键技术：感知，识别。</p>
+<h3 id="第2章-大数据处理架构Hadoop"><a href="#第2章-大数据处理架构Hadoop" class="headerlink" title="第2章 大数据处理架构Hadoop"></a>第2章 大数据处理架构Hadoop</h3><h4 id="2-1-简介和版本演变"><a href="#2-1-简介和版本演变" class="headerlink" title="2.1 简介和版本演变"></a>2.1 简介和版本演变</h4><p>Hadoop是Apache软件基金会旗下的开源软件（项目）。Hadoop是用Java开发的，但是支持多种编程语言。Hadoop的两个核心：HDFS（分布式文件系统，是2003年谷歌提出的分布式文件系统GFS的开源实现） + MapReduce（分布式并行编程框架，谷歌2004年提出）。高可靠性（冗余集群），高效性（并行计算），高扩展性，成本低（除了高性能计算机，可以用普通的PC机构成集群），支持多种编程语言。</p>
+<p>访问层：数据分析（离线分析，批处理），数据实时查询，数据挖掘。<br>大数据层：高级分析（Hive（数据仓库），Pig，MapReduce），实时查询（Solr，Redis，Hbase（分布式存储数据库）），BI分析（Mahout（数据挖掘，机器学习等算法的集成））。以上的底层是HDFS分布式文件存储。<br>最后是数据源。</p>
+<p>Hadoop不同版本的问题：主要有1.0和2.0两个版本。最主要的差别：1.0中有两个核心部分，HDFS分布式文件存储系统，以及MapReduce并行计算框架（包含数据处理部分和集群的资源调度）。其中MapReduce涉及到的任务太多了，所以效率低下。在2.0中，把MapReduce的功能分开了，把其对资源的调度功能划分出来做成一个新的框架YARN，做整个资源调度（CPU，内存，带宽）。MapReduce则只做数据分析，相当于在架构在YARN调度框架上的一个应用。YARN还可以支持其他的计算框架，例如Storm，Spark。HDFS增加了NameNode（NN Federation）（便于扩展），High Availability(容灾)。<br>另外还有不同的商业发行版，企业推荐cloudera，各方面最好，个人用开源版。</p>
+<h4 id="2-2-Hadoop项目结构"><a href="#2-2-Hadoop项目结构" class="headerlink" title="2.2 Hadoop项目结构"></a>2.2 Hadoop项目结构</h4><img style="display: block; margin: 0 auto;" src="/images/Hadoop.png" width = "500" height = "300" alt="[Picture source.](https://www.icourse163.org/learn/XMU-1002335004?tid=1460162442#/learn/content?type=detail&id=1236274025)" />
+
+<p><strong>要理解各个部分的功能。</strong><br><strong>Linux和Hadoop的安装</strong>：<a target="_blank" rel="noopener" href="http://dblab.xmu.edu.cn/blog/2441-2/">Hadoop3.1.3安装教程_单机/伪分布式配置_Hadoop3.1.3/Ubuntu18.04(16.04)</a>。这个教程非常良心，步骤详细清晰。<br><strong>hadoop集群的部署和使用</strong>：</p>
 
     </div>
 
@@ -216,15 +212,6 @@
     
     
       
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019\11\19\2019\first-crawler-baidubaike\" rel="bookmark">Python爬虫初探——爬取百度百科词条</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019\12\20\2019\python2-7x-coding\" rel="bookmark">Python2.7x中的编码问题</a></div>
-    </li>
-  </ul>
 
         
 
@@ -235,7 +222,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://axiuf.github.io/2019/10/11/2019/learn-python/" title="人生苦短，我学Python">https://axiuf.github.io/2019/10/11/2019/learn-python/</a>
+    <a href="https://axiuf.github.io/2020/11/16/2020/bigdata-technology-and-appliction/" title="大数据技术原理与应用-笔记">https://axiuf.github.io/2020/11/16/2020/bigdata-technology-and-appliction/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -246,7 +233,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"># 大数据</a>
           </div>
 
         
@@ -255,13 +242,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/09/01/2019/new-start/" rel="prev" title="GitHub+Hexo搭建个人博客的主要流程">
-      <i class="fa fa-chevron-left"></i> GitHub+Hexo搭建个人博客的主要流程
+    <a href="/2020/11/01/2020/machine-learning/" rel="prev" title="机器学习-笔记">
+      <i class="fa fa-chevron-left"></i> 机器学习-笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/11/19/2019/first-crawler-baidubaike/" rel="next" title="Python爬虫初探——爬取百度百科词条">
-      Python爬虫初探——爬取百度百科词条 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -320,7 +304,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFPython"><span class="nav-text">1. 什么是Python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AD%A6Python"><span class="nav-text">2. 为什么学Python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%83%A8%E7%BD%B2Python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">3. 部署Python开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDPython"><span class="nav-text">下载Python</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Python%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC"><span class="nav-text">Python的两个版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDNotepad"><span class="nav-text">下载Notepad++</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Python%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%EF%BC%88%E4%BF%9D%E6%8C%81%E6%9B%B4%E6%96%B0%EF%BC%89"><span class="nav-text">4. Python学习资源（保持更新）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0"><span class="nav-text">第1章 大数据概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84Hadoop"><span class="nav-text">第2章 大数据处理架构Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E7%AE%80%E4%BB%8B%E5%92%8C%E7%89%88%E6%9C%AC%E6%BC%94%E5%8F%98"><span class="nav-text">2.1 简介和版本演变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Hadoop%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-text">2.2 Hadoop项目结构</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -444,6 +428,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
