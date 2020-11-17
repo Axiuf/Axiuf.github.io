@@ -28,7 +28,7 @@
 <meta property="og:description" content="Coursera：Stanford University-Andrew Ng-Machine Learning 笔记。代码库：对应的学习资料，以及自己写的代码。持续更新。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-01T03:05:09.000Z">
-<meta property="article:modified_time" content="2020-11-15T16:28:06.492Z">
+<meta property="article:modified_time" content="2020-11-17T16:12:58.658Z">
 <meta property="article:author" content="Axiuf">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="机器学习">
@@ -121,7 +121,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -205,7 +205,7 @@
 <p><strong>均方误差损失函数</strong>：$J(\theta_0, \theta_1) = {1 \over 2m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2$ ，在整个给定的数据集的基础上，判断我们拟合的一次方程与实际值之间偏差的大小。我们的目标是找到合适的$\theta_0$和 $\theta_1$使得损失函数最小，也就是模型与实际拟合的最好。两个变量的损失函数可以在一个三维的坐标系画3D图。或者在二维的坐标系中画一个等高线图，图上每同一根线上的点代表损失函数的值相同。</p>
 <p><strong>梯度下降算法</strong>：for j = 1 and j = 0, repeat until convergence: $\theta_j := \theta_j - \alpha {&part; \over &part;\theta_j} J(\theta_0, \theta_1)$。我们已经有了一个假设的函数模型，然后有了一个方法（均方误差损失函数）来判断这个模型拟合的好坏程度。接下来我们要估计函数模型中的参数，使模型与实际拟合的最好。梯度下降算法每次循环实际上是每个参数减去对应参数偏导数和一个常数&alpha;（下降步幅）的乘积，最终会收敛在局部最优。但如果这个常数&alpha;过大会导致无法收敛甚至发散，过小则运行过慢。特别要注意的一点是所有的参数要同时更新。另：这里用的batch gradient descent：即每次都会使用全部的训练数据。</p>
 <p><em>梯度下降算法会收敛在局部最优。但是线性回归的损失函数是凸函数（convex quadratic function），局部最优即全局最优，所以通过梯度下降算法找到最优解。</em> </p>
-<h3 id="Linear-Algebra-Review"><a href="#Linear-Algebra-Review" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h3><p>矩阵，向量的标记体系。<br>矩阵间的加减法，矩阵和常量间的四则运算。<br>矩阵和向量的乘法。矩阵间的乘法。<br>矩阵间的乘法没有交换律，不能随意交换前后位置。有结合律，可以先计算后面的部分。<br>单位矩阵：行列数相等（方阵），对角线全为1。<br>逆矩阵：矩阵（方阵）和矩阵的逆相乘结果为单位矩阵。<br>转置矩阵：行列互换。<br>Matlab中矩阵相关的基本操作：</p>
+<h3 id="Linear-Algebra-Review"><a href="#Linear-Algebra-Review" class="headerlink" title="Linear Algebra Review"></a>Linear Algebra Review</h3><p>矩阵，向量的标记体系。<br>矩阵间的加减法，矩阵和常量间的四则运算。<br>矩阵和向量的乘法。矩阵间的乘法。<br>矩阵间的乘法没有交换律，不能随意交换前后位置。有结合律，可以先计算后面的部分。<br>单位矩阵：行列数相等（方阵），对角线全为1。<br>逆矩阵：矩阵（方阵）和矩阵的逆相乘结果为单位矩阵。<br>转置矩阵：行列互换。<br>MATLAB中矩阵相关的基本操作：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize matrix A </span></span><br><span class="line">A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>;<span class="number">0</span>,<span class="number">5</span>,<span class="number">6</span>;<span class="number">7</span>,<span class="number">0</span>,<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% Transpose A </span></span><br><span class="line">A_trans = A&#x27; </span><br><span class="line"></span><br><span class="line"><span class="comment">% Take the inverse of A </span></span><br><span class="line">A_inv = inv(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% Initialize a 3 by 3 identity matrix</span></span><br><span class="line">I = <span class="built_in">eye</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% Get the dimension of the matrix A where m = rows and n = columns</span></span><br><span class="line">[m,n] = <span class="built_in">size</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% Now let&#x27;s index into the 2nd row 3rd column of matrix A</span></span><br><span class="line">A_23 = A(<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 
 
@@ -216,7 +216,8 @@
 <p><strong>正规方程（Normal Equation）</strong>：<br>$\theta = (X^T X)^{-1} X^T y$ 可以用正规方程直接计算每个参数的最优解。推导过程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32742009/article/details/81453505">线性回归之Normal Equation（矩阵求导与线性代数视角）</a>。</p>
 <p>梯度下降与正规方程两种方法对参数进行优化的比较：梯度下降需要选择学习率&alpha;并且需要多次迭代，正规方程不用选择学习率也不用迭代，直接可以计算得到最优解。最重要的差别在于：梯度下降算法的时间复杂度为$O(kn^2)$，而正规方程算法的时间复杂度为$O(n^3)$，需要计算$X^T X$这个矩阵的逆。所以在n超过100000时就可考虑从正规方程改为梯度下降。</p>
 <p>正规方程的不可求逆的问题：若$X^T X$是奇异矩阵，不可逆怎么办？Octave中的函数<code>pinv()</code>会在矩阵不可逆时依然给出一个解（严格求逆的函数为<code>inv()</code>）。具体的数学问题暂不讨论。会出现$X^T X$不可逆的情况有两种：1. 有多余的变量（部分变量存在共线性），所以去掉共线性的变量。2. 对于给出的训练数据来说，变量的数量太多了，即$m \le n$，这个时候要么删除部分变量，要么对变量进行正则化。</p>
-
+<p><strong>MATLAB</strong>：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 加 减 乘 除（非取整） 指数 圆周率</span></span><br><span class="line">+ - * / ^ <span class="built_in">pi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 逻辑运算：相等 不等 与 或</span></span><br><span class="line">== ~= &amp;&amp; ||</span><br><span class="line"></span><br><span class="line"><span class="comment">% 变量直接赋值，动态变量，不用定义</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 打印变量，也可直接输入变量名，自动返回</span></span><br><span class="line"><span class="built_in">disp</span>(v)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 格式化输出变量</span></span><br><span class="line"><span class="built_in">disp</span>(sprintf(<span class="string">&quot;2 decimals: %0.2f&quot;</span>, a))</span><br><span class="line"></span><br><span class="line"><span class="comment">% 调整小数位数</span></span><br><span class="line">format long / short</span><br><span class="line"></span><br><span class="line"><span class="comment">% 设置矩阵 分号表示分行</span></span><br><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% 取a和b之间的等差c序列</span></span><br><span class="line">v = a : b ：c</span><br><span class="line"></span><br><span class="line"><span class="comment">% 全为1的矩阵 全为0的矩阵 单位矩阵</span></span><br><span class="line"><span class="built_in">ones</span>(m, n) <span class="built_in">zeros</span>(m, n) eys(m, n)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 随机数矩阵 高斯分布随机数</span></span><br><span class="line"><span class="built_in">rand</span>(m, n) <span class="built_in">randn</span>(m, n)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 查看帮助</span></span><br><span class="line">help <span class="built_in">eye</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 查看矩阵的维度 查看矩阵（向量）较大的维度</span></span><br><span class="line"><span class="built_in">size</span>(A) <span class="built_in">length</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 查看变量 变量详细信息 清除变量 取部分变量(冒号表示连续取，逗号表示维度)</span></span><br><span class="line">who whos clear A(<span class="number">1</span>: <span class="number">2</span>) A(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 读入数据 存入数据（文件名可以不用加引号）</span></span><br><span class="line">load save 文件名 变量名</span><br><span class="line"></span><br><span class="line"><span class="comment">% 向量间对应位置元素的计算 在运算符前面加上一个点</span></span><br><span class="line">.* ./</span><br><span class="line"></span><br><span class="line"><span class="comment">% 取自然对数 取指数函数 取绝对值</span></span><br><span class="line"><span class="built_in">log</span>(v) <span class="built_in">exp</span>(v) <span class="built_in">abs</span>(v)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 按逻辑表达式取值（取索引号）</span></span><br><span class="line"><span class="built_in">find</span>(A &lt; <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 生成一个每行每列对角线的和都一样的矩阵 把矩阵水平翻转</span></span><br><span class="line"><span class="built_in">magic</span>(n) <span class="built_in">flipud</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 求和 求积 向上取整 向下取整</span></span><br><span class="line">sum(A) prod(A) <span class="built_in">ceil</span>(A) <span class="built_in">floor</span>(A)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -341,12 +342,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -394,7 +395,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">41k</span>
+    <span title="站点总字数">43k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
