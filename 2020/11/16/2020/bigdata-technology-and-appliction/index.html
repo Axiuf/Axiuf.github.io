@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://axiuf.github.io/images/Hadoop.png">
 <meta property="og:image" content="https://axiuf.github.io/images/HDFS_read.png">
 <meta property="og:image" content="https://axiuf.github.io/images/HDFS_write.png">
+<meta property="og:image" content="https://axiuf.github.io/images/Hbase.png">
 <meta property="article:published_time" content="2020-11-16T05:05:09.000Z">
-<meta property="article:modified_time" content="2020-11-17T10:03:31.523Z">
+<meta property="article:modified_time" content="2020-11-20T07:41:27.101Z">
 <meta property="article:author" content="Axiuf">
 <meta property="article:tag" content="大数据">
 <meta name="twitter:card" content="summary">
@@ -213,9 +214,21 @@
 <p><strong>存储原理</strong><br>主要关注三个问题：冗余数据的保存（加快传输，检查错误，可靠性），数据保存的策略（谁发起谁存储，错开机架，随机分布，读取的时候优先选同一个机架），数据恢复的问题（名称节点出错调用备份，数据节点定期应答保证正确，校验码保证数据正确）</p>
 <p><strong>读写过程</strong><br><img style="display: block; margin: 0 auto;" src="/images/HDFS_read.png" width = "500" height = "250" /><br><img style="display: block; margin: 0 auto;" src="/images/HDFS_write.png" width = "500" height = "250" /></p>
 <p><strong>编程实践</strong><br><a target="_blank" rel="noopener" href="http://dblab.xmu.edu.cn/blog/2460-2/">HDFS编程实践（Hadoop3.1.3）</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hadoop</span><br><span class="line">./sbin/start-dfs.sh #启动hadoop，./sbin/stop-dfs.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hadoop</span><br><span class="line">./sbin/start-dfs.sh #启动hadoop，关闭Hadoop：./sbin/stop-dfs.sh</span><br></pre></td></tr></table></figure>
 <p>利用Linux Shell命令与HDFS进行交互，最常用的是fs，可以查看HDFS文件系统的目录结构、上传和下载数据、创建文件等。。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">./bin/hadoop fs #查看支持哪些命令</span><br><span class="line">./bin/hadoop fs -help put #查看帮助</span><br><span class="line"></span><br><span class="line">cd /usr/local/hadoop</span><br><span class="line">./bin/hdfs dfs –mkdir –p /user/hadoop #一般要在HDFS文件系统的根目录下创建一个/user/username的文件夹</span><br><span class="line"><span class="meta">#</span><span class="bash"> 这个文件夹会被默认为HDFS文件系统下该用户的根目录</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 其他的命令形式上跟Shell中的文件操作一样，只是格式略有变化</span></span><br><span class="line">./bin/hdfs dfs -rm #删除文件</span><br><span class="line">./bin/hdfs dfs -cp #HDFS系统内部复制文件</span><br><span class="line">./bin/hdfs dfs -get #从HDFS系统往外提取文件</span><br><span class="line">./bin/hdfs dfs -put #将其他的文件放到HDFS文件系统中</span><br><span class="line">./bin/hdfs dfs -cat #显示文件内容</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> HDFS文件系统的根目录表示为 <span class="string">&#x27;/&#x27;</span>，用户的家目录为<span class="string">&#x27;/user/username&#x27;</span>，这是操作时的工作目录</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这里与Linux中文件系统要区别，<span class="string">&#x27;~&#x27;</span>表示用户的家目录</span></span><br><span class="line"></span><br><span class="line">jps #查看当前所有java进程，可用来查看当前的hadoop是否启动了</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">./bin/hadoop fs #查看支持哪些命令</span><br><span class="line">./bin/hadoop fs -help put #查看帮助</span><br><span class="line"></span><br><span class="line">cd /usr/local/hadoop</span><br><span class="line">./bin/hdfs dfs –mkdir –p /user/hadoop </span><br><span class="line"><span class="meta">#</span><span class="bash"> 一般要在HDFS文件系统的根目录下创建一个/user/username的文件夹</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这个文件夹会被默认为HDFS文件系统下该用户的根目录</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 其他的命令形式上跟Shell中的文件操作一样，只是格式略有变化</span></span><br><span class="line">./bin/hdfs dfs -rm #删除文件</span><br><span class="line">./bin/hdfs dfs -cp #HDFS系统内部复制文件</span><br><span class="line">./bin/hdfs dfs -get #从HDFS系统往外提取文件</span><br><span class="line">./bin/hdfs dfs -put #将其他的文件放到HDFS文件系统中</span><br><span class="line">./bin/hdfs dfs -cat #显示文件内容</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> HDFS文件系统的根目录表示为 <span class="string">&#x27;/&#x27;</span>，用户的家目录为<span class="string">&#x27;/user/username&#x27;</span>，这是操作时的工作目录</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这里与Linux中文件系统要区别，<span class="string">&#x27;~&#x27;</span>表示用户的家目录</span></span><br><span class="line"></span><br><span class="line">jps #查看当前所有java进程，可用来查看当前的hadoop是否启动了</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="第4章-分布式数据库Hbase"><a href="#第4章-分布式数据库Hbase" class="headerlink" title="第4章 分布式数据库Hbase"></a>第4章 分布式数据库Hbase</h3><p>Hbase是BigTable的开源实现，最初用于解决Google内部的网页搜索问题，例如对爬虫爬下来的网页建立索引等。HDFS对应GFS，Hadoop MapReduce对应MapReduce，ZooKeeper对应Chubby。高可靠，高性能，面向列，可伸缩，存储非结构化和半结构化的松散数据。</p>
+<p>Hbase存在的必要性：实时性，可拓展。Hbase和传统的的关系型数据库的联系和区别：数据类型（未经解释的字符串&amp;关系数据模型），数据操作（避免多表连接&amp;各类连接操作），存储模式（列&amp;行），数据索引（行的简单索引&amp;针对列的复杂索引），数据维护（数据按版本存在&amp;数据覆盖），可伸缩性（高扩展性&amp;难以水平扩展）。</p>
+<p>Hbase访问接口：原生Java API：Shell命令、Thrift Gateway、REST Gateway；SQL类型的接口：Pig、数据仓库产品Hive。</p>
+<p><strong>数据模型</strong><br><strong>稀疏的多维度的排序的映射表。</strong><br>行键、列族、列限定符号、时间戳。每一个值都是未经解释的字符串，编程人员自行解释。概念来看，每行为一个对象，每列都是一个特征，比较特殊的特征是列族、列限定符号、时间戳，这个所有的都存在，对Hbase中每个值的索引都需要这几个维度（传统的关系型数据库是二值索引）。但是从实际实现上来看，是按列存储。</p>
+<p>按行存储和按列存储的差别：按行存储可以很快得到某个对象所有的值，但是对于空值比较多的会造成很大的浪费，同时不便于集中分析某一个特征。按列存储由于数据类型相似，可以得到很高的数据压缩率。事务性操作比较多，按行，对于数据分析比较多，按列。</p>
+<p><strong>实现原理</strong><br>Hbase的功能组件：库函数（链接每个客户端，便于客户端访问），Master（分区信息的维护和管理，Region的服务器列表，Region分配，负载平衡），Region服务器（存储Region，客户端不依赖Master）。Region过大后会被拆分，Region的定位方法：ZooKeeper文件，-ROOT-表（不分裂），元数据表（Region id，服务器id）即.META.表（过大会分裂） ，用户数据表</p>
+<p><strong>运行机制</strong><br><img style="display: block; margin: 0 auto;" src="/images/Hbase.png" width = "500" height = "250" /><br>写入数据——写缓存MemStore——写HLog——读数据——读MemStore——读磁盘StoreFile。</p>
+<p><strong>应用方案</strong><br>性能优化方法：时间靠近的数据存在一起（按时间戳排序）、设置是否放入内存、设置最大版本数量、检测性能（Master-status、Ganglia、OpenTSDB）。<br>利用Hive（或者Phoenix)整合Hbase，提供SQL接口。<br>构建二级索引。利用Coprocessor构建二级索引。等。</p>
+<p><strong>编程实践</strong><br><a target="_blank" rel="noopener" href="http://dblab.xmu.edu.cn/blog/2442-2/">HBase2.2.2安装和编程实践指南</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/hbase</span><br><span class="line">./bin/start-hbase.sh # 启动Hbase</span><br><span class="line"></span><br><span class="line">./bin/hbase shell # 进入shell界面</span><br><span class="line">create &#x27;student&#x27;,&#x27;Sname&#x27;,&#x27;Ssex&#x27;,&#x27;Sage&#x27;,&#x27;Sdept&#x27;,&#x27;course&#x27; # 创建表</span><br><span class="line">put &#x27;student&#x27;,&#x27;95001&#x27;,&#x27;Sname&#x27;,&#x27;LiYing&#x27; # 添加数据</span><br><span class="line">delete &#x27;student&#x27;,&#x27;95001&#x27;,&#x27;Ssex&#x27; # 删除数据</span><br><span class="line">deleteall &#x27;student&#x27;,&#x27;95001&#x27; # 删除所有数据</span><br><span class="line">get &#x27;student&#x27;,&#x27;95001&#x27; # 查看数据</span><br><span class="line">disable &#x27;student&#x27; # 使表不可用</span><br><span class="line">drop &#x27;student&#x27; # 删除表</span><br><span class="line"></span><br><span class="line">create &#x27;teacher&#x27;,&#123;NAME=&gt;&#x27;username&#x27;,VERSIONS=&gt;5&#125; # 创建表时指定版本</span><br><span class="line">get &#x27;teacher&#x27;,&#x27;91001&#x27;,&#123;COLUMN=&gt;&#x27;username&#x27;,VERSIONS=&gt;5&#125; # 查询历史版本</span><br><span class="line">exit # 退出数据库操作</span><br><span class="line">./bin/stop-hbase.sh # 停止Hbase</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -317,7 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0"><span class="nav-text">第1章 大数据概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84Hadoop"><span class="nav-text">第2章 大数据处理架构Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E7%AE%80%E4%BB%8B%E5%92%8C%E7%89%88%E6%9C%AC%E6%BC%94%E5%8F%98"><span class="nav-text">2.1 简介和版本演变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Hadoop%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-text">2.2 Hadoop项目结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9FHDFS"><span class="nav-text">第3章 分布式文件系统HDFS</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0"><span class="nav-text">第1章 大数据概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84Hadoop"><span class="nav-text">第2章 大数据处理架构Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E7%AE%80%E4%BB%8B%E5%92%8C%E7%89%88%E6%9C%AC%E6%BC%94%E5%8F%98"><span class="nav-text">2.1 简介和版本演变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Hadoop%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-text">2.2 Hadoop项目结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9FHDFS"><span class="nav-text">第3章 分布式文件系统HDFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93Hbase"><span class="nav-text">第4章 分布式数据库Hbase</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,7 +399,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">43k</span>
+    <span title="站点总字数">45k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
@@ -441,61 +454,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
