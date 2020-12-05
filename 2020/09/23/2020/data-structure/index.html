@@ -29,11 +29,11 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://axiuf.github.io/images/Sort_algorithm.png">
 <meta property="article:published_time" content="2020-09-23T03:05:09.000Z">
-<meta property="article:modified_time" content="2020-12-02T13:32:56.007Z">
+<meta property="article:modified_time" content="2020-12-04T09:45:52.344Z">
 <meta property="article:author" content="Axiuf">
+<meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="C">
-<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://axiuf.github.io/images/Sort_algorithm.png">
 
@@ -124,12 +124,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">24</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">25</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -246,6 +246,9 @@
 <p><strong>散列函数的构造方法</strong><br>两个原则：计算简单，关键词对应的地址空间分布均匀。<br>构造方法：1. 直接定址法。取关键字的某个线性函数为散列地址。2. 除留余数法。设定一个除数取余数。h(key)=key mod p。这里的p一般取素数，减少冲突。3. 数字分析法。分析数字关键字在各位上的变化情况，取比较随机的位数作为散列地址。4. 折叠法。把关键词分割成位数相同的几个部分，然后叠加。5. 平方取中法。把数字平方后取中间的几个位。对于字符的关键字：1. ASCII码加和法，例如把所有的字符的对应的ASCII码的数字全部相加然后对表的大小取模，直接这么做的话冲突比较严重。2. 简单的改进，取前三个字符移位。3. 好的散列函数：移位法，把字符串看作是32进制（总共26个英文字母，然后取32可以直接用位运算左移5位）的数，转换为10进制后对表的大小取模。</p>
 <p><strong>冲突处理的方法</strong><br>装填因子的概念：待填入的元素的个数除以表的总大小。散列表查找的性能分析：成功平均查找长度（对每个元素需要的查找次数之和除以总的元素个数），不成功平均查找长度（对于不在散列表的每个地址的可能的查找次数之和除以地址的大小）。</p>
 <p>冲突处理的两种思路：换个位置再放，开放地址法。把同个位置的冲突对象组织在一起，链地址法。<br><em>开发地址法</em>：一旦产生了冲突，就按照某种规则去寻找另外一个新的空的地址。若发生了i次冲突，则试探下一个的地址将增加$d_i$，基本公式为$h_i(key)=(h(key)+d_i)mod(TableSize)(1 \le i \lt TableSize)$。不同的$d_i$决定了不同解决方案。线性探测：$d_i=i$。平方探测：$d_i=\pm i^2$，平方探测要注意一个问题是，若是表的大小设置的不好，可能会出现某些地址永远不会被探测到，有定理显示，如果散列表的长度TableSize是某个整数树k的4k+3形式的素数时，平方探测法就可以探查到整个散列表的空间。双散列：$d_i=i*h_2(key)$，探测序列要保证所有的单元都能被访问到，所以应该选择这样的形式$h_2(key)=p-(key)mod(p)$。再散列：装填因子过大（实用最大的装填因子在0.5到0.85之间），查找的效率下降的时候，加倍扩大散列表。<br><em>分离链接法</em>：把相应位置上所有的冲突的元素都存储在同一个单链表中。</p>
+<p><strong>散列表的性能分析</strong><br>平均查找的长度来度量散列表的查找效率：成功或是不成功。而关键词比较的次数（也就是决定平均查找长度的关键）是取决于产生的冲突的多少的，最后影响产生的冲突的多少的又有以下的三个因素：散列函数是否均匀，处理冲突的方法是什么，以及散列表的装填因子（待插入的元素除以散列表的大小）。这里分析的关键是不同的冲突的处理方法和装填因子对效率的影响。</p>
+<p>对于线性的探测法和平方探测法（平方探测法和双散列探测法的公式相同），可以证明的是均有关于装填因子的函数来计算期望的成功查找次数和不成功的查找次数。整体来讲，平方探测法的性能优于线性探测法，并且对于每种方法来说，成功的查找次数都比不成功的查抄次数要小。装填因子在0.5左右的时候，各方法差别不大，随着装填因子增加，各方法的平均查找次数指数增加，一般建议最大的合理的装填因子不应该超过0.85。<br>对于分离链接法，其装填因子被定义所有链表的平均长度。</p>
+<p>散列表其实是以空间换取时间的方法，对于合适的散列函数，散列法的查找效率期望是$O(1)$。但是散列法的存储是随机的，不利于顺序查找、范围查找或者是最大值最小值的查找。</p>
 
     </div>
 
@@ -255,6 +258,9 @@
       
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\12\05\2020\advanced-pat-test\" rel="bookmark">2020冬PAT甲级考试总结</a></div>
+    </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\11\01\2020\machine-learning\" rel="bookmark">机器学习-笔记</a></div>
     </li>
@@ -283,9 +289,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
               <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
               <a href="/tags/C/" rel="tag"># C</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
           </div>
 
         
@@ -375,14 +381,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -430,7 +436,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">57k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
